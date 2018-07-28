@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/gamification_sale_crm
+END
+sale_crm_goals.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/gamification_sale_crm/sale_crm_goals.xml
+END
+sale_crm_goals_demo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/gamification_sale_crm/sale_crm_goals_demo.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/gamification_sale_crm/__init__.py
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/gamification_sale_crm/__openerp__.py
+END

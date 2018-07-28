@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard
+END
+invite_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard/invite_view.xml
+END
+mail_compose_message.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard/mail_compose_message.py
+END
+invite.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard/invite.pyc
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard/__init__.py
+END
+mail_compose_message_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard/mail_compose_message_view.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard/__init__.pyc
+END
+invite.py
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard/invite.py
+END
+mail_compose_message.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mail/wizard/mail_compose_message.pyc
+END

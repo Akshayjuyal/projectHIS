@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+      
+    <record id="property_rule_mrf_supervisor" model="ir.rule">
+        <field name="name">Supervisor MRF</field>
+        <field name="model_id" ref="model_ids_mrf"/>
+        <field name="domain_force">['|', ('requested_employee_id', 'child_of', [user.employee_ids and user.employee_ids[0].id]), ('requested_employee_id.department_id.manager_id.user_id.id', '=', user.id)]</field>
+        <field name="groups" eval="[(4,ref('ids_mrf.group_hr_mrf'))]"/>
+    </record>
+    
+  </data>
+</openerp>

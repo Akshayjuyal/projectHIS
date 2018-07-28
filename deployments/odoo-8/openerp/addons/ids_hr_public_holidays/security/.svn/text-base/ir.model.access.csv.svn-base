@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ids_hr_public_holidays_user,access_ids_hr_public_holidays,model_ids_hr_public_holidays,base.group_user,1,0,0,0
+access_ids_hr_public_holidays_manager,access_ids_hr_public_holidays,model_ids_hr_public_holidays,base.group_hr_manager,1,1,1,1
+access_ids_hr_public_holidays_line_user,access_ids_hr_public_holidays_line,model_ids_hr_public_holidays_line,base.group_user,1,0,0,0
+access_ids_hr_public_holidays_line_manager,access_ids_hr_public_holidays_line,model_ids_hr_public_holidays_line,base.group_hr_manager,1,1,1,1

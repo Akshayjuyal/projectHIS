@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/__init__.py
+END
+mrp_operations.py
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/mrp_operations.py
+END
+mrp_operations_workflow.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/mrp_operations_workflow.xml
+END
+mrp_operations_demo.yml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/mrp_operations_demo.yml
+END
+mrp_operations_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/mrp_operations_report.xml
+END
+mrp_operations_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/mrp_operations_view.xml
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/__openerp__.py
+END
+mrp_operation_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/mrp_operation_data.xml
+END
+mrp_operations_workflow_instance.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_operations/mrp_operations_workflow_instance.xml
+END

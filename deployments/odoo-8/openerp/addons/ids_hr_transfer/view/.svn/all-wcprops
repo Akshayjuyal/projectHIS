@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/IDS-CLIENTODOO-2016/!svn/ver/248/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_transfer/view
+END
+hr_transfer_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_transfer/view/hr_transfer_data.xml
+END
+hr_transfer_cron.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_transfer/view/hr_transfer_cron.xml
+END
+hr_transfer_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/248/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_transfer/view/hr_transfer_view.xml
+END

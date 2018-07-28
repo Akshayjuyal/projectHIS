@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard
+END
+l10n_be_partner_vat_listing.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_partner_vat_listing.py
+END
+l10n_be_partner_vat_listing.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_partner_vat_listing.xml
+END
+l10n_be_partner_vat_listing.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_partner_vat_listing.pyc
+END
+l10n_be_vat_intra.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_vat_intra.pyc
+END
+l10n_be_vat_intra_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_vat_intra_view.xml
+END
+l10n_be_account_vat_declaration.py
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_account_vat_declaration.py
+END
+account_wizard.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/account_wizard.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/__init__.py
+END
+l10n_be_account_vat_declaration_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_account_vat_declaration_view.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/__init__.pyc
+END
+l10n_be_account_vat_declaration.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_account_vat_declaration.pyc
+END
+l10n_be_vat_intra.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/wizard/l10n_be_vat_intra.py
+END

@@ -1,0 +1,290 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+import time
+from openerp import netsvc
+from openerp.osv import fields, osv
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from openerp.tools.translate import _
+from openerp import SUPERUSER_ID
+
+
+class ids_emp_gratuity_detail(osv.Model):
+    
+    _name = 'ids.emp.gratuity.detail'
+    _description = 'Employee Gratuity Details'         
+    
+    _columns = {
+        'join_date':fields.date('Joining Date', required=True),
+        'leave_date':fields.date('Last Working Day in Company', required=True),        
+        'years':fields.float('Years', required=True),
+        'eligible': fields.boolean('Eligible for Gratuity?'),
+        'gratuity_amount':fields.float('Gratuity Amount')                   
+    }    
+    
+    _rec_name ='leave_date' 
+    
+    _default = {
+                'gratuity_amount':0.0
+    }
+    
+class ids_employee_exit(osv.Model):
+    
+    _name = 'ids.employee.exit'
+    _description = 'Employee Full &amp; Final'
+    _inherits = {'ids.emp.gratuity.detail': "gratuity_detail_id"}
+    _inherit = ['mail.thread', 'ir.needaction_mixin'] 
+       
+    _columns = {
+        'employee_id': fields.many2one('hr.employee', 'Employee Name', required=True, domain="['|',('working_status', '=', 'resigned'),('working_status', '=', 'exit')]"),
+        'emp_code': fields.related('employee_id', 'emp_code', type='char', relation='hr.employee', string='Employee Code', store=True, readonly=True),        
+        'job_id': fields.related('employee_id', 'job_id', type='many2one', relation='hr.job', string='Job Position', store=True, readonly=True),  
+        'department_id': fields.related('employee_id', 'department_id', type='many2one', relation='hr.department', string='Department', store=True, readonly=True),
+        'joining_date': fields.related('employee_id', 'joining_date', type='date', relation='hr.employee', string='Joining Date', store=True, readonly=True),
+        'confirmation_status': fields.related('employee_id', 'confirmation_status', type='char', relation='hr.employee', string='Employee status', store=True, readonly=True),
+        'resign_id': fields.many2one('ids.hr.employee.separation', 'Resign ID ', required=True, store=True),
+        'capture_date': fields.related('resign_id', 'capture_date', type='date', relation='ids.hr.employee.separation', string='Resignation Date ', store=True, readonly=True),
+        'last_date': fields.related('resign_id', 'last_date', type='date', relation='ids.hr.employee.separation', string='Last Working Day', store=True, readonly=True),
+        'leave_detail_ids':fields.one2many('ids.employee.ff.leave','fullfinal_id', 'Leave Details', readonly=True, store=True, ondelete="cascade"),
+        'due_detail_ids':fields.one2many('ids.no.dues.emp.detail','dues_id', 'No Dues Details', store=True, ondelete="cascade"),
+        'other_income_detail_ids':fields.one2many('ids.other.income.emp.detail','employee_id', 'Other Income Details', store=True, ondelete="cascade"),
+        'gratuity_detail_id':fields.many2one('ids.emp.gratuity.detail', 'Gratuity Details',help="Link this employee to it's gratuity details", ondelete="cascade", required=True),               
+    }
+    
+    _rec_name = 'emp_code'    
+    
+    def create(self, cr, uid, vals, context=None):
+        
+        if (vals and vals.get('employee_id', False)):
+            employee_id = vals.get('employee_id')
+            
+            emp_ff_leave_obj = self.pool.get('ids.employee.ff.leave')
+            leave_ids = emp_ff_leave_obj._get_leave_details(cr, uid, vals, employee_id, context=None)
+            vals['leave_detail_ids'] = leave_ids             
+            
+            '''due_config_obj = self.pool.get('ids.no.dues.config')
+            no_due_ids = due_config_obj._get_dues_config(cr, uid, vals, context=None)
+            vals['due_detail_ids'] = no_due_ids'''
+            
+            '''other_income_config_obj = self.pool.get('ids.other.income.config')
+            other_income_ids = other_income_config_obj._get_other_income_config(cr, uid, ids, context=None)
+            vals['other_income_detail_ids'] = other_income_ids'''
+            
+        res=super(ids_employee_exit, self).create(cr, uid, vals)
+        return res
+    
+    def _calculate_years_between_two_dates(self, cr, uid, ids, start_date, end_date,context=None):              
+        
+        d1 = datetime.strptime(start_date, DEFAULT_SERVER_DATE_FORMAT).date()
+        d2 = datetime.strptime(end_date, DEFAULT_SERVER_DATE_FORMAT).date()
+        r = relativedelta(d2,d1)
+        
+        return float(r.years)+(float(r.months)/10)
+            
+    def onchange_employee(self, cr, uid, ids, employee_id, context=None):
+        
+        res = {'value': {
+                         'job_id': False, 
+                         'department_id':False, 
+                         'emp_code':False, 
+                         'joining_date':False, 
+                         'confirmation_status':False, 
+                         'resign_id':False, 
+                         'capture_date':False, 
+                         'last_date':False, 
+                         'leave_detail_ids':False, 
+                         'join_date':False, 
+                         'leave_date':False, 
+                         'years':False,
+                         'eligible':False, 
+                         'gratuity_amount':False
+                         }
+               }
+        
+        joining_date = ''
+        last_date = ''
+        
+        if employee_id:
+                
+            exit_ids = self.search(cr, uid, [('employee_id', '=', employee_id)], context=context)
+            if len(exit_ids) > 0:
+                raise osv.except_osv(_('Warning!'),
+                                     _('Full & Final has already been in progress/done for this employee.'))
+            
+            ee = self.pool.get('hr.employee').browse(cr, uid, employee_id, context=context)
+            if ee:
+                res['value']['job_id'] = ee.job_id.id
+                res['value']['department_id'] = ee.department_id.id
+                res['value']['emp_code'] = ee.emp_code
+                joining_date = res['value']['joining_date'] = ee.joining_date
+                res['value']['join_date'] = ee.joining_date
+                res['value']['confirmation_status'] = ee.confirmation_status.title()  
+            emp_sep_id = self.pool.get('ids.hr.employee.separation').search(cr, uid , [('employee_id','=',employee_id),('state','=','validate')], context=context)
+            if emp_sep_id:
+                es = self.pool.get('ids.hr.employee.separation').browse(cr, uid, emp_sep_id[0], context=context)
+                if es:                
+                    res['value']['resign_id'] = es.id
+                    res['value']['capture_date'] = es.capture_date
+                    last_date = res['value']['last_date'] = es.last_date
+                    res['value']['leave_date'] = es.last_date
+            
+            if (joining_date and last_date):
+                res['value']['years'] = self._calculate_years_between_two_dates(cr, uid, ids, joining_date, last_date, context=None)
+                    
+            emp_ff_leave_obj = self.pool.get('ids.employee.ff.leave')
+            leave_ids = emp_ff_leave_obj._get_leave_details(cr, uid, ids, employee_id, context=None)
+            res['value']['leave_detail_ids'] = leave_ids
+            
+            due_config_obj = self.pool.get('ids.no.dues.config')
+            no_due_ids = due_config_obj._get_dues_config(cr, uid, ids, context=None)
+            res['value']['due_detail_ids'] = no_due_ids
+            
+            other_income_config_obj = self.pool.get('ids.other.income.config')
+            other_income_ids = other_income_config_obj._get_other_income_config(cr, uid, ids, context=None)
+            res['value']['other_income_detail_ids'] = other_income_ids
+            print res
+        return res  
+    
+    def onchange_eligibility(self, cr, uid, ids, eligibility, years, context=None):
+        
+        res = {'value':{'gratuity_amount':False}}
+        gratuity_amount = 0.0
+        
+        if years and eligibility:            
+            gratuity_amount = float(years*1000)
+        
+        res['value']['gratuity_amount'] = gratuity_amount
+        
+        return res
+    
+class ids_employee_ff_leave(osv.Model):
+    
+    _name = 'ids.employee.ff.leave'
+    _description = 'Employee FF Leave Details'
+    
+    def _get_leave_details(self, cr, uid, ids, employee_id, context=None):
+        hr_holiday_status_obj = self.pool.get('hr.holidays.status')
+        leave_type_ids = hr_holiday_status_obj.search(cr, uid , [('active','=',True)], context=context)
+        records = hr_holiday_status_obj.get_days(cr, uid, leave_type_ids, employee_id, context=None)               
+        
+        leave_ids = []       
+        for record in records:
+            if record:
+                leave_ids.append([0,0, {'holiday_status_id':record,'max_leaves':records[record]['max_leaves'],'leaves_taken':records[record]['leaves_taken'],'remaining_leaves':records[record]['remaining_leaves']}])             
+                         
+        return leave_ids 
+    
+    _columns = {
+        'holiday_status_id':fields.many2one('hr.holidays.status', 'Leave Type', readonly=True),        
+        'max_leaves': fields.float('Maximum Allowed'),
+        'leaves_taken': fields.float('Leaves Already Taken'),
+        'remaining_leaves': fields.float('Remaining Leaves'),                
+        'employee_id':fields.many2one('hr.employee', 'Employee'),
+        'fullfinal_id':fields.many2one('ids.employee.exit', 'Full and Final')       
+    }
+
+class ids_no_dues_emp_detail(osv.Model):
+    
+    _name = 'ids.no.dues.emp.detail'
+    _description = 'No Dues Details'     
+    
+    _columns = {
+        'name':fields.char('Item Name', size=200, required=True),        
+        'department_id':fields.many2one('hr.department', 'Area/Department', required=True),
+        'responsible_employee_id': fields.many2one('hr.employee', 'Responsible Person'),
+        'status': fields.selection([('pending','Dues Pending'),('done','Dues Done')],'Status', readonly=True),
+        'date_done': fields.date('Date', readonly=True),
+        'remarks': fields.text('Remarks'),
+        'employee_id':fields.many2one('hr.employee', 'Employee'),
+        'dues_id':fields.many2one('ids.employee.exit', 'Employee Dues')              
+    }
+    
+    _default = {
+                'status':'pending'
+                }
+    
+    def onchange_department(self, cr, uid, ids, department_id, context=None):        
+        res = {'value': {'responsible_employee_id': False}}        
+        return res
+    
+class ids_no_dues_config(osv.Model):
+    
+    _name = 'ids.no.dues.config'
+    _description = 'No Dues Configuration'     
+    
+    _columns = {
+        'name':fields.char('Item Name', size=200, required=True),        
+        'department_id':fields.many2one('hr.department', 'Area/Department', required=True),
+        'responsible_employee_id': fields.many2one('hr.employee', 'Responsible Person', required=True),             
+    }
+    
+    def _get_dues_config(self, cr, uid, ids, context=None):
+        
+        no_due_ids = []
+        cr.execute("SELECT id,name,department_id,responsible_employee_id FROM ids_no_dues_config")
+        results = sorted(cr.dictfetchall(), key=lambda x: x['id'])
+        
+        if results:        
+            for result in results:                     
+                no_due_ids.append([0,0, {'name':result['name'],'department_id':result['department_id'],'responsible_employee_id':result['responsible_employee_id'],'status':'pending'}])
+                     
+        return no_due_ids
+    
+    def onchange_department(self, cr, uid, ids, department_id, context=None):        
+        res = {'value': {'responsible_employee_id': False}}        
+        return res
+
+class ids_other_income_emp_detail(osv.Model):
+    
+    _name = 'ids.other.income.emp.detail'
+    _description = 'Other Income Details'     
+    
+    _columns = {
+        'name':fields.char('Other Income', size=200, required=True),        
+        'amount':fields.float('Amount', required=True),
+        'description': fields.text('Description', required=True),
+        'employee_id':fields.many2one('hr.employee', 'Employee')                   
+    }    
+    
+class ids_other_income_config(osv.Model):
+    
+    _name = 'ids.other.income.config'
+    _description = 'Other Income Configuration'     
+    
+    _columns = {
+        'name':fields.char('Other Income', size=200, required=True),        
+        'amount':fields.float('Default Amount', required=True),
+        'description': fields.text('Description', required=True),             
+    }
+    
+    def _get_other_income_config(self, cr, uid, ids, context=None):
+        
+        other_income_ids = []
+        cr.execute("SELECT id,name,amount,description FROM ids_other_income_config")
+        results = sorted(cr.dictfetchall(), key=lambda x: x['id'])
+        
+        if results:        
+            for result in results:                     
+                other_income_ids.append([0,0, {'name':result['name'],'amount':result['amount'],'description':result['description']}])
+                     
+        return other_income_ids 

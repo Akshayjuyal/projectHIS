@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/website_certification
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/website_certification/__init__.py
+END
+certification.py
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/website_certification/certification.py
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/website_certification/__openerp__.py
+END

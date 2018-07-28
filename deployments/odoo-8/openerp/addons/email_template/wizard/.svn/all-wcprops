@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard
+END
+email_template_preview.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard/email_template_preview.py
+END
+email_template_preview.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard/email_template_preview.pyc
+END
+mail_compose_message.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard/mail_compose_message.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard/__init__.py
+END
+email_template_preview_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard/email_template_preview_view.xml
+END
+mail_compose_message_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard/mail_compose_message_view.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard/__init__.pyc
+END
+mail_compose_message.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/email_template/wizard/mail_compose_message.pyc
+END

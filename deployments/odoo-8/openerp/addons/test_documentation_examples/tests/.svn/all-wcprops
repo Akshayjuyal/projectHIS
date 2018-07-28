@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_documentation_examples/tests
+END
+test_delegation.py
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_documentation_examples/tests/test_delegation.py
+END
+test_extension.py
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_documentation_examples/tests/test_extension.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_documentation_examples/tests/__init__.py
+END
+test_inheritance.py
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_documentation_examples/tests/test_inheritance.py
+END

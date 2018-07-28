@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_inherits
+END
+ir.model.access.csv
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_inherits/ir.model.access.csv
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_inherits/__init__.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_inherits/models.py
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_inherits/__openerp__.py
+END
+demo_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/test_inherits/demo_data.xml
+END

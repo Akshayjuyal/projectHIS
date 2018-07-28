@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_cr/data
+END
+account_chart_template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_cr/data/account_chart_template.xml
+END
+account_account_template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_cr/data/account_account_template.xml
+END
+account_account_type.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_cr/data/account_account_type.xml
+END
+account_tax_template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_cr/data/account_tax_template.xml
+END
+account_tax_code_template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_cr/data/account_tax_code_template.xml
+END

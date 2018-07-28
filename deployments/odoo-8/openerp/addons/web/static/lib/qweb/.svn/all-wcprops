@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb
+END
+qweb-test-attributes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test-attributes.xml
+END
+qweb-test-foreach.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test-foreach.xml
+END
+qweb-test-extend.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test-extend.xml
+END
+qweb.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb.js
+END
+qweb-test-utf8tags.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test-utf8tags.xml
+END
+qweb-benchmark.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-benchmark.html
+END
+qweb-test-conditionals.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test-conditionals.xml
+END
+qweb-test-call.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test-call.xml
+END
+qweb2.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb2.js
+END
+qweb-test-set.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test-set.xml
+END
+qweb-test-output.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test-output.xml
+END
+qweb-benchmark.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-benchmark.xml
+END
+qweb-test.js.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/qweb/qweb-test.js.html
+END

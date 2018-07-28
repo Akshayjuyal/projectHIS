@@ -1,0 +1,249 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+from openerp.osv import osv,fields
+from openerp import netsvc
+from openerp.tools.translate import _ 
+from openerp import SUPERUSER_ID
+from datetime import datetime , timedelta
+import time
+class ids_mrf(osv.osv):
+    
+    _name = 'ids.mrf'
+    _description = 'MRF'
+    _inherit = ['mail.thread', 'ir.needaction_mixin']
+    
+    NUMBER_LIST = [(str(i),str(i)) for i in range(1,101)]
+    EMPLOYEE_TYPE_LIST = [('permanent','Permanent'),('contractual','Contractual'),('consultant','Consultant'),('stipend','Stipend'), ('trainee','Trainee')]  
+    #EXP_LIST = [(str(j),str(j)) for j in range(0,26)]
+    EXP_LIST = [(j,j) for j in range(0,26)]
+    
+    def _default_employee(self, cr, uid, context=None):
+        """Get default employee. """
+        emp_ids = self.pool.get('hr.employee').search(cr, uid, [('user_id','=',uid)], context=context)
+        return emp_ids and emp_ids[0] or False
+    
+    def onchange_job(self, cr, uid, ids, job_id, context=None):
+        job_description =''
+        res = {'value': {'job_desc': ''}}
+        obj_job = self.pool.get('hr.job')           
+            
+        if job_id:
+            record = obj_job.browse(cr,uid,job_id,context=context)
+            if record:    
+                job_description = record.description
+        
+        res['value']['job_desc'] = job_description                 
+        return res
+    
+    def _get_job_desc(self, cr, uid, ids, name, args, context=None):
+                
+        result = {}
+        job_description =''
+        
+        job_value = self.pool.get('ids.mrf').read(cr, uid, ids[0], ['job_id'])
+        
+        if job_value and job_value['job_id']:            
+            job_id = job_value['job_id'][0]
+                        
+            if job_id:
+                for self_obj in self.pool.get('hr.job').browse(cr,uid,[job_id],context=context):
+                    if self_obj.description:
+                        job_description = self_obj.description
+                
+        for self_obj_new in self.browse(cr, uid, ids, context=context):
+            result[self_obj_new.id] = job_description                     
+                
+        return result
+    
+    def _get_department_id(self, cr, uid, object=False, field=False, context=None):
+        """Get department from the user login. """
+        cr.execute("select id from hr_employee where id=(select id from resource_resource where user_id=%s)"%uid);
+        empid = cr.fetchone()
+        cr.execute("select department_id from hr_employee where id=%s"%empid);
+        department = cr.fetchone()
+        return department
+     
+    
+    _columns = {
+                'mrf_number':fields.char('MRF Number', size=15, readonly=True),
+                'department_id' : fields.many2one('hr.department', 'From Department', required=True),                
+                'requested_employee_id' : fields.many2one('hr.employee','Requested By', help='This area is automatically filled by the user who raises the MRF'),
+                'requested_user_id':fields.related('requested_employee_id', 'user_id', type='many2one', relation='res.users', string='User', store=True),
+                'request_date':fields.date('Date'),
+                'category' : fields.selection([('additional','Additional'),('replacement','Replacement')], 'Category', required=True),
+                'job_id' : fields.many2one('hr.job','Designation', required=True),                
+                'name' : fields.char('Subject', size = 100, required = True),
+                'number' : fields.selection(NUMBER_LIST, 'Number to Recruit', required=True),
+                'employee_type' : fields.selection(EMPLOYEE_TYPE_LIST, 'Employee Type', required=True),
+                'hired' : fields.char('Already Hired', size = 3),
+                'time_frame' : fields.date('Time Frame'),                
+                'experience_from' : fields.selection(EXP_LIST, required=True),
+                'experience_to' : fields.selection(EXP_LIST, required=True),
+                'ctc' : fields.float('CTC (in lacs)', size = 200, required=True),
+                'remarks' : fields.text('Remarks', size = 200),
+                'replace_remarks' : fields.char('Replacement Remarks', size = 100),
+                'job_desc':fields.text( string='Job Description', size = 200, required=True),
+                'job_spec': fields.text(string='Job Specification', size=200, required=True ),
+                'manager_id1': fields.many2one('hr.employee', 'First Approval', invisible=False, readonly=True, help='This area is automatically filled by the user who approve/validate the resignation at first level'),
+                'manager_id2': fields.many2one('hr.employee', 'Second Approval', invisible=False, readonly=True, help='This area is automatically filled by the user who approve/validate the resignation at second level'),
+                'manager_id3': fields.many2one('hr.employee', 'Third Approval', invisible=False, readonly=True, help='This area is automatically filled by the user who approve/validate the resignation at third level'),
+                #'manager_id4': fields.many2one('hr.employee', 'Fourth Approval', invisible=False, readonly=True, help='This area is automatically filled by the user who approve/validate the resignation at fourth level'),
+                #'state': fields.selection([('draft','Draft'),('submit','To Approve'),('validate1','Second Approval'),('validate2','Third Approval'),('validate3','Fourth Approval'),('validate','Approved'),('reject','Rejected')], 'State', readonly=True),
+#                 'state': fields.selection([('draft','Draft'),('submit','To Approve'),('validate1','Second Approval'),('validate2','Third Approval'),('validate','Approved'),('reject','Rejected')], 'State', readonly=True),
+                #'is_hr_manager':fields.function(is_hr_manager, type='boolean', method=True, store=False, string='Visibility'),                            
+                'state': fields.selection([('draft', 'Draft'),
+                                           ('submitted', 'Waiting For Approval'),
+                                           ('validated', 'Open'),   
+                                           ('validated1', 'Closed'),            
+                                           ('refused', 'Refused'),], 'State')      
+                }
+    
+    _rec_name = 'mrf_number'
+    
+    _defaults = {
+                 'state': 'draft',
+                'hired': '0',
+                'request_date': fields.date.context_today,
+                'requested_employee_id': _default_employee,
+#                 'user': lambda self, cr, uid, ctx:uid,
+                'department_id': lambda self, cr, uid, ctx=None: self._get_department_id(cr, uid, 'ids.mrf', context=ctx), 
+                }
+    
+    _sql_constraints = [
+        #('date_check', "CHECK (time_frame >= now())", "Time Frame date should be greater than current date."),
+        ('emp_check', "CHECK (experience_to >= experience_from)", "Experience To should be equal to or greater than Experience From.")        
+    ] 
+    
+    def create(self, cr, uid, vals, context=None):
+        """Create unique MRF ID. """
+        vals['mrf_number']=self.pool.get('ir.sequence').get(cr, uid,'ids.mrf')
+        if vals['time_frame']<= datetime.now().strftime('%Y-%m-%d'):
+            raise osv.except_osv(_('Warning'), _('Time Frame date should be greater than current date.'))
+        res=super(ids_mrf, self).create(cr, uid, vals)
+        return res
+    
+    def write(self, cr, uid, ids, vals, context=None):
+        """Check constraint in Time frame. """
+        if vals.get('time_frame', False):
+            if vals['time_frame']<= datetime.now().strftime('%Y-%m-%d'):
+                raise osv.except_osv(_('Warning'), _('Time Frame date should be greater than current date.'))
+        res=super(ids_mrf, self).write(cr, uid, ids, vals)
+        return res
+        
+    def unlink(self, cr, uid, ids, context=None):
+        for rec in self.browse(cr, uid, ids, context=context):
+            if rec.state in ['submitted', 'refused']:
+                raise osv.except_osv(_('Warning!'),_('You cannot delete Approved or Rejected MRF.'))
+        return super(ids_mrf, self).unlink(cr, uid, ids, context)
+   
+    def submit(self, cr, uid, ids, context=None):
+        """Workflow initiated- submit to HOD. """
+        id=self.pool.get('ids.mrf')
+        url="http://ids-erp.idsil.loc:8069/web"
+        change=self.browse(cr, uid, ids, context=None)
+        values = {
+        'subject': 'MRF Request' + ' ' + change.name,
+        'body_html': change.name + ' ' + 'MRF request Intiated. Please take necessary action.\n\n\nKindly do not reply.\n---This is auto generated email---\nRegards:\nERP HR Team\nIDS Infotech LTD.\nUrl:'+url,
+        'email_to': change.requested_employee_id.parent_id.work_email,
+        'email_from': 'info.openerp@idsil.com',
+          }
+        #---------------------------------------------------------------
+        mail_obj = self.pool.get('mail.mail') 
+        msg_id = mail_obj.create(cr, uid, values, context=context) 
+        if msg_id: 
+            mail_obj.send(cr, uid, [msg_id], context=context)
+        return self.write(cr, uid, ids, {'state': 'submitted'}, context=context)
+     
+    def validate(self, cr, uid, ids, context=None):
+        """Validation by HOD. """
+        id=self.pool.get('ids.mrf')
+        url="http://ids-erp.idsil.loc:8069/web"
+        change=self.browse(cr, uid, ids, context=None)
+        values = {
+        'subject': 'MRF Request' + ' ' + change.name,
+        'body_html': 'Your MRF request is approved.Please take further necessary action.\n\n\nKindly do not reply.\n---This is auto generated email---\nRegards:\nERP HR Team\nIDS Infotech LTD.\nUrl:'+url,
+        'email_to': change.requested_employee_id.work_email,
+        'email_cc': change.requested_employee_id.office_location.work_email,
+        'email_from': 'info.openerp@idsil.com',
+          }
+        #---------------------------------------------------------------
+        mail_obj = self.pool.get('mail.mail') 
+        msg_id = mail_obj.create(cr, uid, values, context=context) 
+        if msg_id: 
+            mail_obj.send(cr, uid, [msg_id], context=context)
+        return self.write(cr, uid, ids, {'state': 'validated'}, context=context)
+    
+    def approve(self, cr, uid, ids, context=None):
+        """Work done by HR and close request. """
+        id=self.pool.get('ids.mrf')
+        url="http://ids-erp.idsil.loc:8069/web"
+        change=self.browse(cr, uid, ids, context=None)
+        values = {
+        'subject': 'MRF Request' + ' ' + change.name,
+        'body_html': 'Your MRF request is Closed.\n\n\nKindly do not reply.\n---This is auto generated email---\nRegards:\nERP HR Team\nIDS Infotech LTD.\nUrl:'+url,
+        'email_to': change.requested_employee_id.parent_id.work_email,
+        'email_cc':  change.requested_employee_id.work_email,
+        'email_from': 'info.openerp@idsil.com',
+          }
+        #---------------------------------------------------------------
+        mail_obj = self.pool.get('mail.mail') 
+        msg_id = mail_obj.create(cr, uid, values, context=context) 
+        if msg_id: 
+            mail_obj.send(cr, uid, [msg_id], context=context)
+        return self.write(cr, uid, ids, {'state': 'validated1'}, context=context)
+    
+    def refuse(self, cr, uid, ids, context=None):
+        """In case, MRF IS REFUSED. """
+        id=self.pool.get('ids.mrf')
+        url="http://ids-erp.idsil.loc:8069/web"
+        change=self.browse(cr, uid, ids, context=None)
+        values = {
+        'subject': 'MRF Request' + ' ' + change.name,
+        'body_html': 'Your MRF request is refused . Please Contact to your HR department.\n\n\nKindly do not reply.\n---This is auto generated email---\nRegards:\nERP HR Team\nIDS Infotech LTD.\nUrl:'+url,
+        'email_to':  change.requested_employee_id.work_email,
+        'email_from': 'info.openerp@idsil.com',
+          }
+        #---------------------------------------------------------------
+        mail_obj = self.pool.get('mail.mail') 
+        msg_id = mail_obj.create(cr, uid, values, context=context) 
+        if msg_id: 
+            mail_obj.send(cr, uid, [msg_id], context=context)
+        return self.write(cr, uid, ids, {'state': 'refused'}, context=context)
+    
+            
+class hr_applicant(osv.osv):
+    
+    _inherit="hr.applicant"
+    
+    _columns = {
+        'mrf_id' : fields.many2one('ids.mrf', 'MRF', required=True)    
+    }   
+    
+    def onchange_mrf(self, cr, uid, ids, mrf_id, context=None):
+        """Get MRF ID from ids.mrf onchange of mrf and job gets updated. """
+        if mrf_id:
+            mrf_record = self.pool.get('ids.mrf').browse(cr, uid, mrf_id, context=context)
+            if mrf_record and mrf_record.job_id:
+                return {'value': {'job_id': mrf_record.job_id.id}}
+        return {}
+    
+

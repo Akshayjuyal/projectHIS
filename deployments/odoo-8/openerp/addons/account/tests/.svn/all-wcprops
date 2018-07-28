@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests
+END
+test_product_id_change.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests/test_product_id_change.py
+END
+test_account_move_closed_period.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests/test_account_move_closed_period.py
+END
+test_search.py
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests/test_search.py
+END
+test_bank_stmt_reconciliation_widget_ui.py
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests/test_bank_stmt_reconciliation_widget_ui.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests/__init__.py
+END
+test_reconciliation.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests/test_reconciliation.py
+END
+test_tax.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests/test_tax.py
+END
+test_fiscal_position.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/tests/test_fiscal_position.py
+END

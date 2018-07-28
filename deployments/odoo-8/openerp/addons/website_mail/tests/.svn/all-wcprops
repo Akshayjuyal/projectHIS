@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/website_mail/tests
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/website_mail/tests/__init__.py
+END
+test_controllers.py
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/website_mail/tests/test_controllers.py
+END

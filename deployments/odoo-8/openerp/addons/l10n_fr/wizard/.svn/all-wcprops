@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard
+END
+fr_report_bilan_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard/fr_report_bilan_view.xml
+END
+fr_report_compute_resultant_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard/fr_report_compute_resultant_view.xml
+END
+fr_report_bilan.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard/fr_report_bilan.pyc
+END
+fr_report_compute_resultant.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard/fr_report_compute_resultant.pyc
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard/__init__.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard/__init__.pyc
+END
+fr_report_compute_resultant.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard/fr_report_compute_resultant.py
+END
+fr_report_bilan.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_fr/wizard/fr_report_bilan.py
+END

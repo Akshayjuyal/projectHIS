@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+	    <!-- Workflow definition 
+	        1. open->submitted (no signal)
+	        2. submitted -> first_accepted (validate signal) if double_validation
+	        2. submitted -> refused (refuse signal)
+	        3. first_accepted -> refused (refuse signal)
+	        4. first_accepted -> accepted (second_validate  signal)
+	        4. first_accepted -> refused (refuse signal)
+	
+	    -->
+	
+	    <record model="workflow" id="wkf_mrf_separation">
+	        <field name="name">hr.wkf.employee.separation</field>
+	        <field name="osv">ids.hr.employee.separation</field>
+	        <field name="on_create">True</field>
+	    </record>
+	
+	    <record model="workflow.activity" id="act_open"> <!-- draft -->
+	        <field name="wkf_id" ref="wkf_mrf_separation" />
+	        <field name="flow_start">True</field>
+	        <field name="name">open</field>
+	    </record>
+	
+	    <record model="workflow.activity" id="act_submit"> <!-- submitted -->
+	        <field name="wkf_id" ref="wkf_mrf_separation" />
+	        <field name="name">submit</field>
+	        <field name="kind">function</field>
+	        <field name="action">separation_submit()</field>	        
+	    </record>    
+	
+	    <record model="workflow.activity" id="act_validate1"> <!-- first_accepted -->
+	        <field name="wkf_id" ref="wkf_mrf_separation" />	        
+	        <field name="kind">function</field>
+	        <field name="action">separation_first_validate()</field>
+	        <field name="name">first_validate</field>	        
+	    </record>
+	    
+	    <record model="workflow.activity" id="act_validate"> <!-- accepted -->
+	        <field name="wkf_id" ref="wkf_mrf_separation" />
+	        <field name="kind">function</field>
+	        <field name="action">separation_second_validate()</field>
+	        <field name="name">validate</field>
+	    </record>
+	
+	    <record model="workflow.activity" id="act_refuse"> <!-- refused -->
+	        <field name="wkf_id" ref="wkf_mrf_separation" />
+	        <field name="flow_stop">True</field>
+	        <field name="kind">function</field>
+	        <field name="action">separation_refuse()</field>
+	        <field name="name">refuse</field>
+	    </record>
+	
+	    <!--
+	        workflow transition
+	    -->
+	
+	    <record model="workflow.transition" id="trans_open_confirm"> <!-- 1. open->submitted (no signal) -->
+	        <field name="act_from" ref="act_open" />
+	        <field name="act_to" ref="act_submit" />
+	        <field name="group_id" ref="ids_employee_separation.group_hr_separation"/>
+	    </record>
+	
+	    <record model="workflow.transition" id="trans_confirm_validate1"> <!-- 2. submitted->first_accepted (validate signal)-->
+	        <field name="act_from" ref="act_submit" />
+	        <field name="act_to" ref="act_validate1" />
+	        <field name="signal">signal_first_validate</field>
+	        <field name="group_id" ref="ids_employee_separation.group_hr_separation"/>
+	    </record>
+	
+	    <record model="workflow.transition" id="trans_confirm_refuse"> <!-- 2. submitted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_submit" />
+	        <field name="act_to" ref="act_refuse" />
+	        <field name="signal">signal_refuse</field>	       
+	        <field name="group_id" ref="ids_employee_separation.group_hr_separation"/>
+	    </record>
+	
+	    <record model="workflow.transition" id="trans_validate1_refuse"> <!-- 3. first_accepted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_validate1" />
+	        <field name="act_to" ref="act_refuse" />
+	        <field name="signal">signal_refuse</field>
+	        <field name="group_id" ref="ids_employee_separation.group_hr_separation"/>	        
+	    </record>
+	    
+	    <record model="workflow.transition" id="trans_confirm_refuse_bh"> <!-- 3. first_accepted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_submit" />
+	        <field name="act_to" ref="act_refuse" />
+	        <field name="signal">signal_refuse</field>
+	        <field name="group_id" ref="ids_emp.group_business_head"/>	        
+	    </record>
+	    <record model="workflow.transition" id="trans_validate1_refuse_bh"> <!-- 3. first_accepted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_validate1" />
+	        <field name="act_to" ref="act_refuse" />
+	        <field name="signal">signal_refuse</field>
+	        <field name="group_id" ref="ids_emp.group_business_head"/>	        
+	    </record>
+	    
+	    <record model="workflow.transition" id="trans_validate1_validate_bh"> <!-- 4. first_accepted -> accepted (second_validate  signal) -->
+	        <field name="act_from" ref="act_validate1" />
+	        <field name="act_to" ref="act_validate" />
+	        <field name="signal">signal_second_validate</field>
+	        <field name="group_id" ref="ids_emp.group_business_head"/>
+	    </record>
+	    
+	    <record model="workflow.transition" id="trans_confirm_validate_bh"> <!-- 2. submitted->first_accepted (validate signal)-->
+	        <field name="act_from" ref="act_submit" />
+	        <field name="act_to" ref="act_validate" />
+	        <field name="signal">signal_second_validate</field>
+	        <field name="group_id" ref="ids_emp.group_business_head"/>
+	    </record>
+	    
+	    <record model="workflow.transition" id="trans_validate_refuse_bh"> <!-- 3. accepted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_validate" />
+	        <field name="act_to" ref="act_refuse" />
+	        <field name="signal">signal_refuse</field>	        
+	        <field name="group_id" ref="ids_emp.group_business_head"/>
+	    </record>
+	
+	    
+
+	</data>
+</openerp>

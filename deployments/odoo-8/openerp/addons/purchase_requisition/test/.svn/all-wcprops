@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/test
+END
+purchase_requisition_users.yml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/test/purchase_requisition_users.yml
+END
+purchase_requisition.yml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/test/purchase_requisition.yml
+END
+cancel_purchase_requisition.yml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/test/cancel_purchase_requisition.yml
+END
+purchase_requisition_demo.yml
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/test/purchase_requisition_demo.yml
+END

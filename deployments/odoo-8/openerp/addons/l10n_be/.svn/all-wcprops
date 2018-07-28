@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be
+END
+fiscal_templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/fiscal_templates.xml
+END
+account_financial_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/account_financial_report.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/__init__.py
+END
+l10n_be_reports.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/l10n_be_reports.xml
+END
+account_tax_template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/account_tax_template.xml
+END
+l10n_be_sequence.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/l10n_be_sequence.xml
+END
+pcmn.csv
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/pcmn.csv
+END
+account_tax_code_template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/account_tax_code_template.xml
+END
+account_pcmn_belgium.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/account_pcmn_belgium.xml
+END
+account_chart_template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/account_chart_template.xml
+END
+account_chart_template.yml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/account_chart_template.yml
+END
+pcmn3.csv
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/pcmn3.csv
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/__init__.pyc
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/__openerp__.py
+END
+account_demo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/account_demo.xml
+END
+account_fiscal_position_tax_template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_be/account_fiscal_position_tax_template.xml
+END

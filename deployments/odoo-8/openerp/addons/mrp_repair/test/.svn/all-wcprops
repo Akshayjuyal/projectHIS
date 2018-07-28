@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_repair/test
+END
+test_mrp_repair_afterinv.yml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_repair/test/test_mrp_repair_afterinv.yml
+END
+test_mrp_repair_noneinv.yml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_repair/test/test_mrp_repair_noneinv.yml
+END
+mrp_repair_users.yml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_repair/test/mrp_repair_users.yml
+END
+test_mrp_repair_cancel.yml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_repair/test/test_mrp_repair_cancel.yml
+END
+test_mrp_repair_b4inv.yml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_repair/test/test_mrp_repair_b4inv.yml
+END
+test_mrp_repair_fee.yml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/mrp_repair/test/test_mrp_repair_fee.yml
+END

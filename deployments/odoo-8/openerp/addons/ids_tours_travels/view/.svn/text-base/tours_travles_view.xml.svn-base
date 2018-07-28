@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	
+	<record id="view_tours_travels_tree" model="ir.ui.view">
+            <field name="name">ids.tours.travels.tree</field>
+            <field name="model">ids.tours.travels</field>
+            <field name="arch" type="xml">
+                <tree string="Tour &amp; Travles" colors="blue:state=='draft'">
+		    		<field name="tour_id"/>
+                    <field name="employee_id"/>
+                    <field name="department_id" invisible="1"/>
+                    <field name="date"/>
+                    <field name="user_id" invisible="1"/>
+                    <field name="name"/>
+                    <field name="advance_amount" />
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+	<record id="view_tours_travels_filter" model="ir.ui.view">
+            <field name="name">ids.tours.travels.filter</field>
+            <field name="model">ids.tours.travels</field>
+            <field name="arch" type="xml">
+                <search string="Tour &amp; Travels">
+                    <field name="name" string="Tour &amp; Travels"/>
+                    <field name="date"/>
+                    <filter icon="terp-document-new" domain="[('state','=','draft')]" string="New" help="New Tour &amp; Travel Request"/>
+                    <filter icon="terp-camera_test" domain="[('state','=','confirm')]" string="To Approve" help="Confirmed Expenses"/>
+                    <filter icon="terp-dolar" domain="['|',('state','=','accepted'),('state','=','done')]" string="To Pay" help="Tour &amp; Travel Submitted"/>
+                    <separator/>
+                    <filter domain="[('user_id', '=', uid)]" string="My tours"/>
+                    <field name="employee_id"/>
+                    <field name="department_id" string="Department" context="{'invisible_department': False}"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <filter string="Department" icon="terp-personal+" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter string="Month" icon="terp-go-month" domain="[]" context="{'group_by':'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+   	<record id="tours_travels_all" model="ir.actions.act_window">
+            <field name="name">Tour &amp; Travels</field>
+            <field name="res_model">ids.tours.travels</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="view_tours_travels_filter"/>
+            <field name="view_id" ref="view_tours_travels_tree"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to register new expenses. 
+              </p><p>
+                OpenERP will ensure the whole process is followed; the expense
+                sheet is validated by manager(s), the employee is reimbursed
+                from his expenses, some expenses must be re-invoiced to the
+                customers.
+              </p>
+            </field>
+        </record>
+
+	<record id="view_tours_travels_form" model="ir.ui.view">
+            <field name="name">ids.tours.travels.form</field>
+            <field name="model">ids.tours.travels</field>
+            <field eval="25" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Tour &amp; Travel Expenses" version="7.0">
+                <header>
+                	<button name="confirm" states="draft" string="Submit to Manager" type="workflow" class="oe_highlight"/>
+			 		<button name="validate" states="cancelled,confirm" string="First Approval" type="workflow" groups="ids_emp.group_timesheet_validate" class="oe_highlight"/>
+		         	<button name="done" states="accepted" string="Second Approval" type="workflow" groups="ids_emp.group_business_head" class="oe_highlight"/>
+           			<button name="refuse" states="confirm,accepted" string="Refuse" type="workflow" groups="ids_emp.group_timesheet_validate" />  
+		        	<button name="draft" states="confirm,cancelled" string="Set to Draft" type="workflow" groups="ids_hr_expenses.group_hr_expenses" />
+		            <field name="state" widget="statusbar" statusbar_visible="draft,confirm,accepted,done,expense" statusbar_colors='{"confirm":"blue","cancelled":"red"}'/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" on_change="onchange_employee_id(employee_id)"/>
+                            <field name="date"/>
+                            <field name="department_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+						<group>
+						    <field name="from_date"/>
+			                <field name="to_date"/>			    
+						</group>
+						<group>
+                            <field name="advance_requested"/>
+                            <field name="advance_amount" attrs="{'invisible':[('advance_requested','=','no')]}"/>
+			    			<field name="advance_details" attrs="{'invisible':[('advance_requested','=','no')]}"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="user_valid" attrs="{'invisible': [('state','=','draft')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="line_ids">
+                                <form string="Tour &amp; Travels Line" version="7.0">
+                                    <group>
+                                        <group>
+                                            <field name="travel_mode_id"/>
+					    					<field name="date_value" />
+					    					<field name="ref"/>
+                                        </group>
+                                        <group>
+                                            <field name="description"/>
+                                            <field name="starting_point"/> 
+                                            <field name="travel_to"/>                                            
+                                        </group>
+                                    </group>
+                                </form>
+                                <tree string="Tour &amp; Travels Line" editable="bottom">
+                                    <field name="sequence" invisible="1"/>
+                                    <field name="travel_mode_id"/>
+                                    <field name="date_value" string="Travel Date"/>
+                                    <field name="ref"/>
+                                    <field name="starting_point"/> 
+                                    <field name="travel_to"/>
+                                </tree>
+                            </field>
+                            <group>
+                                <div>
+                                    <separator string="Notes"/>
+                                    <field name="note" placeholder="Free Notes"/>
+                                </div>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+        </record>
+	
+        <menuitem action="tours_travels_all" id="menu_tours_travels_all" name="Tour &amp; Travels" parent="hr_expense.next_id_49" sequence="16"/>
+
+		<!-- IDS HR EXPENSES AND IDS TOURS AND TRAVELS RELATIONS -->
+        <record id="view_expenses_form_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.form.inherit</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/notebook/page[@string='Description']/field[@name='line_ids']/tree[@string='Expense Lines']/field[@name='ref']" position="after">
+					<field name="is_tour" class="oe_inline" domain="[('state', '=', 'draft')]" />
+					<!--<field name="tour_travel_id" attrs="{'invisible':[('is_tour','=',False)], 'required':[('is_tour','=',True)]}" class="oe_inline"  />-->
+					<field name="tour_travel_id" />					                  
+                </xpath>                                                         
+            </field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+		
+		<record id="manage_resignation_tree_view" model="ir.ui.view">
+			<field name="name">manage.resignation.tree</field>
+			<field name="model">ids.hr.employee.separation</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Resignations">					
+					<field name="rgn_number" />
+					<field name="employee_id" />
+					<field name="initiated_by" />
+					<field name="separation_type" />
+					<field name="reason" />
+					<field name="capture_date" />
+					<field name="last_date" />
+					<field name="state" />														
+				</tree>
+			</field>
+		</record>
+		
+		<record id="manage_resignation_form_view" model="ir.ui.view">
+			<field name="name">manage.resignation.type.form</field>
+			<field name="model">ids.hr.employee.separation</field>
+			<field name="arch" type="xml">
+				<form string="Separation Types">
+					<header>
+						<button string="Submit" name="separation_submit" states="draft" type="object" groups="ids_employee_separation.group_hr_separation" class="oe_highlight" />
+	                    <button string="Approval" name="separation_first_validate" states="confirm" type="object" groups="ids_emp.group_business_head,ids_emp.group_location_hr" class="oe_highlight" />
+	                    <button string="Validate" name="separation_second_validate" states="approve" type="object" groups="ids_emp.group_location_hr" class="oe_highlight" />
+	                    <button string="Refuse" name="separation_refuse" states="confirm" type="object" groups="ids_emp.group_business_head" />
+	                    <button string="Refuse" name="refuse_location" states="approve" type="object" groups="ids_emp.group_location_hr" />
+	                    <field name="state" widget="statusbar" />                                                                        
+                    </header>
+                    <sheet>
+                    	<group>
+                        	<group col="4" >					
+								<field name="employee_id" attrs="{'readonly':[('state','!=','draft')]}" on_change="onchange_employee_id(employee_id,capture_date)" domain="[('working_status','=','working')]"/>
+								<field name="department_id" options="{'no_open': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')]}" on_change="onchange_employee_id(employee_id,capture_date)"/>
+								<field name="job_id"  options="{'no_open': True, 'no_create': True}" attrs="{'readonly':[('state','!=','draft')]}" on_change="onchange_employee_id(employee_id,capture_date)" />
+								<field name="initiated_by" options="{'no_open': True, 'no_create': True}" on_change="onchange_employee_id(employee_id,capture_date)"/>
+								<field name="confirmation_status" />
+								<field name="separation_type" />
+								<field name="rgn_accepted" />
+								<field name="reason" />
+								<field name="eligible_rehire" />
+								<field name="capture_date" string='Resignation Date' on_change="calculate_last_day(employee_id,capture_date)" />
+								<field name="last_date" />
+								<!-- <field name="interview_by" widget="selection" attrs="{'readonly':[('state','!=','open')]}"/><newline /> -->
+								<field name="notes" attrs="{'readonly':[('state','=','cancel')]}" />
+								<field name="full_final_status" attrs="{'readonly':[('state','!=','done')]}" />
+							</group>							
+						</group>						
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>						
+					</div>														
+				</form>
+			</field>
+		</record>
+		
+		<record id="manage_resignation_action" model="ir.actions.act_window">
+			<field name="name" >Resignations</field>
+			<field name="res_model" >ids.hr.employee.separation</field>
+			<field name="type" >ir.actions.act_window</field>
+			<field name="view_type" >form</field>
+			<field name="view_mode" >tree,form</field>
+			<field name="view_id" ref="manage_resignation_tree_view"></field>
+		</record>
+		
+		
+		<menuitem name="Separation" id="ids_employee_seperation_main" parent="hr.menu_hr_root" sequence="40" groups="ids_emp.group_location_hr,ids_emp.group_business_head,ids_technical_information.group_it"/>
+		<menuitem id="ids_employee_seperation_main_sub" name="Manage Resignation" parent="ids_employee_seperation_main" sequence="1" action="manage_resignation_action" groups="ids_emp.group_location_hr,ids_emp.group_business_head,ids_emp.group_timesheet_validate"/>
+				
+		<record id="separation_type_tree_view" model="ir.ui.view">
+			<field name="name">separation.type.tree</field>
+			<field name="model">ids.hr.employee.separation.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Separation Types">
+					<field name="name" />									
+				</tree>
+			</field>
+		</record>
+		
+		<record id="separation_type_form_view" model="ir.ui.view">
+			<field name="name">separation.type.form</field>
+			<field name="model">ids.hr.employee.separation.type</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Separation Types">
+					<group>
+						<field name="name" />
+					</group>										
+				</form>
+			</field>
+		</record>
+		
+		<record id="separation_type_action" model="ir.actions.act_window">
+			<field name="name" >Separation Types</field>
+			<field name="res_model" >ids.hr.employee.separation.type</field>
+			<field name="type" >ir.actions.act_window</field>
+			<field name="view_type" >form</field>
+			<field name="view_mode" >tree,form</field>
+			<field name="view_id" ref="separation_type_tree_view"></field>
+		</record>
+			
+		<menuitem name="Resignation Types" action="separation_type_action" id="menu_resignation_type_view" parent="hr.menu_hr_configuration" sequence="21"/>		
+	</data>
+</openerp>
+
+

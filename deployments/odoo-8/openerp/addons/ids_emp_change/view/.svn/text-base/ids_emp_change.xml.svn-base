@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="ids_emp_info_change_tree_view" model="ir.ui.view">
+            <field name="name">ids.emp.info.change.tree</field>
+            <field name="model">ids.emp.info.change</field>
+            <field name="arch" type="xml">
+                <tree colors="red:state == 'refused';blue:state == 'draft';black:state == 'validated';green:state == 'submitted'" string="Employee Information Change Request">
+                    
+                    <field name="emp_code"/>
+                    <field name="employee_id"/>
+                    <field name="req_date"/>
+                    <field name="state"/>
+                    <field name="date"/>
+                    
+                </tree>
+            </field>
+        </record>
+        
+        <record id="ids_emp_info_change_form_view" model="ir.ui.view">
+            <field name="name">ids.emp.info.change.form</field>
+            <field name="model">ids.emp.info.change</field>
+            <field name="arch" type="xml">
+                <form string="Employee Information Change Request">
+                	<header>
+			                <button name="submit" states="draft" string="Submit to HR Manager" type="object" class="oe_highlight" groups="base.group_user"/>
+				    	    <button name="validate" states="submitted" string="Validate" type="object" class="oe_highlight"/>
+		                    <button name="refuse" states="submitted" string="Refuse" type="object" class="oe_highlight"/>
+			                <field name="state" widget="statusbar" statusbar_visible="draft,submitted,refused" statusbar_colors='{"validated":"blue","refused":"red"}'/>
+			            </header>
+                    <sheet>
+                    	<group>                        
+                          <group>
+                             <field name="employee_id" on_change="onchange_employee_id(employee_id)" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                          </group>
+                          <group>
+			    			 <field name="emp_code" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+			    			 <field name="req_date" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>                                
+                          </group>
+                        </group>
+                        <notebook>
+	                        <page string="Personal Information">
+	                        	<group string="Previous Information" attrs="{'invisible':[('state', 'in', ('draft'))]}">
+	                        		<group> 
+		                                <field name="marital_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="email_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="mobile_no_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>	
+		                                <field name="local_address_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="permanent_address_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="weight_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="passport_no_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="vehicle_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="child_name1_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="child_name2_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="emerg_per_name_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="emerg_address_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="emerg_contact_no_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                         </group>
+		                         <group> 
+		                                <field name="doa_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="blood_group_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="home_phone_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>	
+		                                <field name="pin_local_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="pin_permanent_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="height_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="passport_till_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="hobby_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="dob1_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="dob2_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="emerg_per_relation_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="emerg_pin_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                                <field name="spouse_name_prev" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>			                                	                                                                                                                              
+		                         </group>
+		                         </group>
+		                         <group string="Current Information">
+	                        	 <group> 
+	                        	 	<label for="marital" string="Marital Status"/>
+                            <div>
+                                <div class="marital_format">
+                                    <field name="marital" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text1" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            
+                            <label for="email" string="Email"/>
+                            <div>
+                                <div class="email_format">
+                                    <field name="email" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text2" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            
+                            <label for="mobile_no" string="Mobile"/>
+                            <div>
+                                <div class="mobile_format">
+                                    <field name="mobile_no" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text3" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="local_address" string="Local Address"/>
+                            <div>
+                                <div class="local_address_format">
+                                    <field name="local_address" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text4" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="permanent_address" string="Permanent Address"/>
+                            <div>
+                                <div class="permanent_address_format">
+                                    <field name="permanent_address" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text5" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="weight" string="Weight"/>
+                            <div>
+                                <div class="weight_format">
+                                    <field name="weight" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text6" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="passport_no" string="Passport No."/>
+                            <div>
+                                <div class="passport_no_format">
+                                    <field name="passport_no" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text7" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="vehicle" string="Vehicle"/>
+                            <div>
+                                <div class="vehicle_format">
+                                    <field name="vehicle" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text8" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="child_name1" string="Child Name"/>
+                            <div>
+                                <div class="child_name1_format">
+                                    <field name="child_name1" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text9" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="child_name2" string="Child Name"/>
+                            <div>
+                                <div class="child_name2_format">
+                                    <field name="child_name2" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text10" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="emerg_per_name" string="Emergency Person Name"/>
+                            <div>
+                                <div class="emerg_per_name_format">
+                                    <field name="emerg_per_name" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text11" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="emerg_address" string="Emergency Address"/>
+                            <div>
+                                <div class="emerg_address_format">
+                                    <field name="emerg_address" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text12" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="emerg_contact_no" string="Emergency Contact Number"/>
+                            <div>
+                                <div class="emerg_contact_no_format">
+                                    <field name="emerg_contact_no" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text13" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+		           </group>
+		           <group> 
+		                         	
+		                         	<label for="doa" string="Date Of Anniversary"/>
+                            <div>
+                                <div class="doa_format">
+                                    <field name="doa" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text14" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            
+                            <label for="blood_group" string="Blood Group"/>
+                            <div>
+                                <div class="blood_group_format">
+                                    <field name="blood_group" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text15" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            
+                            <label for="home_phone" string="Home Phone"/>
+                            <div>
+                                <div class="home_phone_format">
+                                    <field name="home_phone" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text16" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="pin_local" string="Pin"/>
+                            <div>
+                                <div class="pin_local_format">
+                                    <field name="pin_local" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text17" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="pin_permanent" string="Pin"/>
+                            <div>
+                                <div class="pin_permanent_format">
+                                    <field name="pin_permanent" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text18" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="height" string="Height"/>
+                            <div>
+                                <div class="height_format">
+                                    <field name="height" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text19" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="passport_till" string="Passport Till"/>
+                            <div>
+                                <div class="passport_till_format">
+                                    <field name="passport_till" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text20" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="hobby" string="Hobby"/>
+                            <div>
+                                <div class="hobby_format">
+                                    <field name="hobby" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text21" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="dob1" string="DOB"/>
+                            <div>
+                                <div class="dob1_format">
+                                    <field name="dob1" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text22" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="dob2" string="DOB"/>
+                            <div>
+                                <div class="dob2_format">
+                                    <field name="dob2" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text23" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="emerg_per_relation" string="Emergency Person Relation"/>
+                            <div>
+                                <div class="emerg_per_relation_format">
+                                    <field name="emerg_per_relation" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text24" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="emerg_pin" string="Emergency Pin"/>
+                            <div>
+                                <div class="emerg_pin_format">
+                                    <field name="emerg_pin" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text25" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            <label for="spouse_name" string="Spouse Name"/>
+                            <div>
+                                <div class="spouse_name_format">
+                                    <field name="spouse_name" style="width: 70%%" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                                    <b>
+                                    <field name="text26" style="width:30%%;color:#FF4500" class="oe_no_button" readonly='1'/>
+                                    </b>
+                                </div>
+                            </div>
+                            
+		                   		                                	                                                                                                                              
+		                         </group>
+	                        </group>
+	                        </page>
+                    </notebook>
+                    </sheet>
+                     
+                    
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_ids_emp_info_change" model="ir.actions.act_window">
+            <field name="name">Personal Information Change Request</field>
+            <field name="res_model">ids.emp.info.change</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>       	
+        <menuitem id="menu_ids_emp_info_change" action="open_ids_emp_info_change" parent="hr.menu_hr_main" sequence="3" groups="base.group_user" />
+        
+    </data>
+</openerp>

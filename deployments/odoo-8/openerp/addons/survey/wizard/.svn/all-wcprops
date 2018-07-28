@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/survey/wizard
+END
+survey_email_compose_message.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/survey/wizard/survey_email_compose_message.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/survey/wizard/__init__.py
+END
+survey_email_compose_message.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/survey/wizard/survey_email_compose_message.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/survey/wizard/__init__.pyc
+END
+survey_email_compose_message.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/survey/wizard/survey_email_compose_message.pyc
+END

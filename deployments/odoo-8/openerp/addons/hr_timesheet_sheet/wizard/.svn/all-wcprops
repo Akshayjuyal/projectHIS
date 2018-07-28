@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_sheet/wizard
+END
+hr_timesheet_current.py
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_sheet/wizard/hr_timesheet_current.py
+END
+hr_timesheet_current.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_sheet/wizard/hr_timesheet_current.pyc
+END
+hr_timesheet_current_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_sheet/wizard/hr_timesheet_current_view.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_sheet/wizard/__init__.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_sheet/wizard/__init__.pyc
+END

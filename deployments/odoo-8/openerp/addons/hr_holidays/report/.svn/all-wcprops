@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report
+END
+hr_holidays_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/hr_holidays_report.py
+END
+holidays_summary.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/holidays_summary.xsl
+END
+available_holidays.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/available_holidays.py
+END
+holidays_summary_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/holidays_summary_report.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/__init__.py
+END
+hr_holidays_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/hr_holidays_report_view.xml
+END
+hr_custom_rml.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/hr_custom_rml.xsl
+END
+hr_custom_default.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/hr_custom_default.xsl
+END
+available_holidays_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/available_holidays_view.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/__init__.pyc
+END
+available_holidays.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/available_holidays.pyc
+END
+holidays_summary_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/holidays_summary_report.pyc
+END
+hr_holidays_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/report/hr_holidays_report.pyc
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/tests
+END
+test_js.py
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/tests/test_js.py
+END
+test_serving_base.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/tests/test_serving_base.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/tests/__init__.py
+END
+test_menu.py
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/tests/test_menu.py
+END
+common.py
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/tests/common.py
+END

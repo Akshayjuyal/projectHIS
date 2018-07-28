@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+	
+		<record id="mrf_details_tree_view" model="ir.ui.view">
+			<field name="name">ids.mrf.tree</field>
+			<field name="model">ids.mrf</field>			
+			<field name="arch" type="xml">
+				<tree string="MRF" >
+					<field name="mrf_number" />
+					<field name="request_date" />
+					<field name="department_id" />
+					<field name="requested_employee_id" />
+					<field name="name" />
+					<field name="category" />
+					<field name="job_id" />
+					<field name="number" />
+					<field name="state" />					
+				</tree>
+			</field>
+		</record>
+		
+		<record id="mrf_details_form_view" model="ir.ui.view">
+			<field name="name">ids.mrf.form</field>
+			<field name="model">ids.mrf</field>			
+			<field name="arch" type="xml">
+				<form string="MRF Form" version="7.0">
+					<header>						
+						<button name="signal_first_validate" string="Approve" states="submit" class="oe_highlight" groups="ids_emp.group_business_head" />
+						<button name="signal_second_validate" string="Approve" states="submit,validate1" class="oe_highlight" groups="ids_emp.group_business_pdg" />
+						<button name="signal_validate" string="Approve" states="submit,validate1,validate2" class="oe_highlight" groups="base.group_hr_manager" />
+						<button name="signal_reject" string="Reject" states="submit" class="oe_highlight" groups="ids_mrf.group_hr_mrf" />
+						<button name="signal_reject" string="Reject" states="submit,validate1" class="oe_highlight" groups="ids_emp.group_business_head" />
+						<button name="signal_reject" string="Reject" states="submit,validate1,validate2" class="oe_highlight" groups="ids_emp.group_business_pdg" />						
+						<button name="signal_reject" string="Reject" states="submit,validate1,validate2,validate" class="oe_highlight" groups="base.group_hr_manager" />
+						<field name="state" widget="statusbar" statusbar_visible="draft, submit, validate, reject" statusbar_colors='{"draft" : "blue", "validate1" : "green", "validate2" : "green", "validate3" : "green", "validate" : "green", "reject" : "red"}' />
+					</header>
+					<sheet>
+						<group col="4">						
+							<field name="department_id" widget="selection" attrs="{'readonly':[('state','!=','draft')]}" />
+							<field name="name" attrs="{'readonly':[('state','!=','draft')]}" />		
+							<field name="category" attrs="{'readonly':[('state','!=','draft')]}" />	
+							<field name="job_id" widget="selection" attrs="{'readonly':[('state','!=','draft')]}" on_change="onchange_job(job_id)" />						
+							<label for="experience_from" string="Experience (yrs.)"/>
+                            <div><field name="experience_from" class="oe_inline"  /> to <field name="experience_to" class="oe_inline" /></div>							
+							<field name="ctc" attrs="{'readonly':[('state','!=','draft')]}" />							
+							<field name="employee_type" attrs="{'readonly':[('state','!=','draft')]}" />
+							<field name="number" attrs="{'readonly':[('state','!=','draft')]}" />								
+							<field name="time_frame" attrs="{'readonly':[('state','!=','draft')]}" />							
+							<newline/>																					
+							<field name="job_desc" colspan="4" readonly="1" />
+							<field name="remarks" colspan="4" attrs="{'readonly':['|', ('state','=','validate'), ('state','=','reject')]}" />							
+						</group>						
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>						
+					</div>	
+				</form>
+			</field>
+		</record>
+
+		<record id="mrf_details_action" model="ir.actions.act_window">
+			<field name="name">MRF Details</field>
+			<field name="res_model">ids.mrf</field>			
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>						
+		</record>
+		
+		<!--<menuitem name="MRF" id="ids_mrf_main" parent="hr.menu_hr_root" sequence="3" groups="ids_mrf.group_hr_mrf,base.group_hr_manager,ids_emp.group_business_head,ids_emp.group_business_pdg" />
+		<menuitem id="mrf_details_main" name="MRF Details"
+			parent="ids_mrf_main" sequence="2"
+			action="mrf_details_action" />-->
+		<!--<menuitem id="mrf_details_main" name="MRF Details"
+			parent="base.menu_crm_case_job_req_main" sequence="2"
+			action="mrf_details_action" />-->
+			
+		<menuitem id="mrf_details_main" name="MRF Details"
+			parent="base.menu_crm_case_job_req_main" sequence="2"
+			action="mrf_details_action" />
+			
+		<!-- Hr applicant inherit MRF Details -->
+        <record id="crm_case_form_view_job_inherit" model="ir.ui.view">
+            <field name="name">crm.case.form.view.job.inherit</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@string='Job']/field[@name='job_id']" position="before">
+                	<field name="mrf_id" class="oe_inline" widget="selection" domain="[('state', '=', 'validate')]" on_change="onchange_mrf(mrf_id)"/>                  
+                </xpath> 
+                <!--<xpath expr="//group[@string='Job']/field[@name='job_id']" position="attributes">
+                	<attribute name="readonly">1</attribute>                  
+                </xpath>    
+                <xpath expr="//group[@string='Job']/field[@name='department_id']" position="attributes">
+                	<attribute name="readonly">1</attribute>                  
+                </xpath>-->                                            
+            </field>
+        </record>
+
+	</data>
+</openerp>

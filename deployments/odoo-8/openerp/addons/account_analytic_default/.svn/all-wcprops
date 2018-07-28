@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_default
+END
+account_analytic_default.py
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_default/account_analytic_default.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_default/__init__.py
+END
+account_analytic_default_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_default/account_analytic_default_view.xml
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_default/__openerp__.py
+END

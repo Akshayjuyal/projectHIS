@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	
+    	<!--Employee Salary tree view -->
+    	
+    	<record id="hr_contract_view_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.view.tree.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_tree" />
+            <field name="arch" type="xml">
+            	<xpath expr="/tree/field[@name='name']" position="replace">
+		            <field name="name" string="Salary Details Reference" invisible='1'/>
+		        </xpath>
+		        <xpath expr="/tree/field[@name='type_id']" position="replace">
+		            <field name="type_id" string='Type' invisible="1"/>
+		        </xpath>
+		        
+		        <xpath expr="/tree/field[@name='job_id']" position="after">
+		            <field name="salary_pa" string='CTC'/>
+		        </xpath>
+		        
+            </field>
+        </record>  
+    	
+        <!--Employee Salary form view -->
+        <record id="hr_contract_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+            <field name="arch" type="xml">
+            	<xpath expr="/form/sheet/div/h1/field[@name='name']" position="replace">
+		            <field name="name" placeholder="Salary Details Reference" />
+		        </xpath>
+		        <xpath expr="/form/sheet/group/group/field[@name='type_id']" position="replace">
+		            <field name="type_id" string='Type' invisible="1"/>
+		        </xpath>
+            	
+            	<xpath expr="/form/sheet/group/group/field[@name='type_id']" position="after">
+		            <field name="confirmation_status" invisible="1"/>
+		            <field name="employment_type_id"/>
+		        </xpath>
+                <xpath expr="//notebook/page/group/group[@string='Salary and Advantages']" position="replace" invisible="True"></xpath>	
+		        <xpath expr="//notebook/page[@string='Work Permit']" position="replace" invisible="True"></xpath>	
+		        <xpath expr="//notebook/page[@string='Information']" position="after">
+                    <page string="Salary Structure" >
+                    <group col="6" colspan="3">
+                    	<field name="last_tctc"/>
+						<field name="current_tctc"/>
+						<field name="last_revision"/>
+						<field name="last_remark"/>
+						<field name="mid_revision"/>
+						<field name="mid_remark"/>
+						<field name="next_revision"/>
+						<field name="cycle"/>
+						<field name="anniversary_status"/>	
+						<field name="tct" on_change="onchange_regular(tct, bonus, esi, group_medical, group_term, 'group_term', group_personal, tct_pm, pf_option, nps_option,
+									lb_option, ltc_option, meal_option, conveyance_option, magazine_option, landline_internet_option,
+									medical_option, age, variable_amount_pm,employment_type_id,job_category)"/>
+	                    
+						<field name="variable_amount_pm" on_change="onchange_regular(tct, bonus, esi, group_medical, group_term, 'group_term', group_personal, tct_pm, pf_option, nps_option,
+										lb_option, ltc_option, meal_option, conveyance_option, magazine_option, landline_internet_option,
+							 			medical_option, age, variable_amount_pm,employment_type_id,job_category)"/>
+						<field name="tct_pm" />
+						<field name="tct_pa" />
+						
+						
+					</group>
+					<group col="4" colspan="2">
+                    	<group string="P.M">
+	                    	<field name="basic" on_change="onchange_basic(basic,cca,sa,hra,ta,tct,group_medical,group_term,group_personal,perf_variable,employment_type_id)"/>
+	                    	<field name="hra" on_change="onchange_hra(basic,hra,cca,ta,sa,tct,bonus,gratuity,group_medical,group_term,group_personal,perf_variable)"/>
+	                    	<field name="cca" on_change="onchange_cca(cca,basic,sa,hra,ta,tct,gratuity,group_medical,group_term,group_personal,perf_variable)"/>
+	                    	<field name="ta" on_change="onchange_ta(ta)"/>
+	                    	<field name="sa" on_change="onchange_sa(basic,hra,cca,ta,sa,tct,bonus,gratuity,group_medical,group_term,group_personal,perf_variable)"/>
+	                    	<!-- <field name="sa" on_change="onchange_regular(tct, bonus, esi, group_medical, group_term, 'group_term', group_personal, tct_pm, pf_option, nps_option,
+										lb_option, ltc_option, meal_option, conveyance_option, magazine_option, landline_internet_option,
+							 			medical_option,age, variable_amount_pm,employment_type_id)"/> -->
+	                    	<field name="total"/>
+                    	</group>
+                    	<group string="P.A">
+                    		<field name="basic_pa"/> 
+	                    	<field name="hra_pa"/>
+	                    	<field name="cca_pa"/>
+	                    	<field name="ta_pa"/>
+                    		<field name="sa_pa"/>
+                    		<field name="total_pa"/>
+                    	</group>
+                    </group>
+								
+                    <group string="Salary" col="4" colspan="2">
+                    	<field name="pf_option" on_change="onchange_pf_option(basic,sa,total,total_pa,pf,pf_pa,take_home,take_home_pa,salary,pf_option)"/>
+							 			
+                    	<field name="ltc_option" on_change="onchange_ltc_option(basic, sa,total,total_pa,ltc,ltc_pa,salary,ltc_option,take_home,take_home_pa)"/>
+							 			
+                    	<field name="nps_option" on_change="onchange_nps_option(basic, sa,total,total_pa,nps,nps_pa,salary,nps_option,take_home,take_home_pa)"/>
+							 			
+                    	<field name="lb_option" on_change="onchange_lb_option(basic, sa,total,total_pa,lb,lb_pa,salary,lb_option,take_home,take_home_pa)"/>
+							 			
+                    	<field name="meal_option" on_change="onchange_meal_option(basic, sa,total,total_pa,meal,meal_pa,salary,meal_option,take_home,take_home_pa)"/>
+							 			
+                    	<field name="conveyance_option" on_change="onchange_conveyance_option(basic, sa,total,total_pa,conveyance,conveyance_pa,salary,conveyance_option,take_home,take_home_pa)"/>
+							 			
+                    	<field name="magazine_option" on_change="onchange_magazine_option(basic, sa,total,total_pa,magazine,magazine_pa,salary,magazine_option,take_home,take_home_pa)"/>
+							 			
+                    	<field name="landline_internet_option" on_change="onchange_landline_option(basic, sa,total,total_pa,landline_internet,landline_internet_pa,salary,landline_internet_option,take_home,take_home_pa)"/>
+							 			
+                    	<field name="medical_option" on_change="onchange_medical_option(basic, sa,total,total_pa,medical,medical_pa,salary,medical_option,take_home,take_home_pa)"/>
+                    	
+                    	
+                    	<field name="job_category"/>
+                    	<field name="age"/>
+                    </group>
+                    
+                    <group string="Statutory Benefit">
+                    	<group>
+	                    	<field name="pf" attrs="{'invisible': [('pf_option','!=','yes')]}"/>
+	                    	<field name="esi"/>
+	                    	<field name="nps" attrs="{'invisible': [('nps_option','!=','yes')]}"/>
+	                    	<field name="lb" attrs="{'invisible': [('lb_option','!=','yes')]}"/>
+	                    	<field name="bonus"/>
+	                    	
+	                    	<!-- <field name="bonus" on_change="onchange_regular(tct, bonus, esi, group_medical, group_term, 'group_term', group_personal, tct_pm, pf_option, nps_option,
+										lb_option, ltc_option, meal_option, conveyance_option, magazine_option, landline_internet_option,
+							 			medical_option, age, variable_amount_pm,employment_type_id)"/> -->
+	                    		<!-- on_change="onchange_bonus(bonus, bonus, sa, sa_pa)"/> -->
+							 			
+	                    	<field name="ltc" attrs="{'invisible': [('ltc_option','!=','yes')]}"/>
+                    	</group>
+						<group>
+							<field name="pf_pa" attrs="{'invisible': [('pf_option','!=','yes')]}"/>
+	                    	<field name="esi_pa"/>
+	                    	<field name="nps_pa" attrs="{'invisible': [('nps_option','!=','yes')]}"/>
+	                    	<field name="lb_pa" attrs="{'invisible': [('lb_option','!=','yes')]}"/>
+	                    	<field name="bonus_pa"/>
+	                    	<field name="ltc_pa" attrs="{'invisible': [('ltc_option','!=','yes')]}"/>
+	                    </group>
+                    </group>
+                    <group string="Reimbursement">
+                    	<group>
+	                    	<field name="meal" on_change="onchange_meal(sa,total,total_pa,meal,take_home,take_home_pa)" attrs="{'invisible': [('meal_option','!=','yes')]}"/>
+	                    	<field name="conveyance" on_change="onchange_conveyance(sa,total,total_pa,conveyance,take_home,take_home_pa)" attrs="{'invisible': [('conveyance_option','!=','yes')]}"/>
+	                    	<field name="magazine" on_change="onchange_magazine(sa,total,total_pa,magazine,take_home,take_home_pa)" attrs="{'invisible': [('magazine_option','!=','yes')]}"/>
+	                    	<field name="landline_internet" on_change="onchange_landline_internet(sa,total,total_pa,landline_internet,take_home,take_home_pa)" attrs="{'invisible': [('landline_internet_option','!=','yes')]}"/>
+	                    	<field name="medical" on_change="onchange_medical(sa,total,total_pa,medical,take_home,take_home_pa)" attrs="{'invisible': [('medical_option','!=','yes')]}"/>
+                    	</group>
+						<group>
+							<field name="meal_pa" attrs="{'invisible': [('meal_option','!=','yes')]}"/>
+	                    	<field name="conveyance_pa" attrs="{'invisible': [('conveyance_option','!=','yes')]}"/>
+	                    	<field name="magazine_pa" attrs="{'invisible': [('magazine_option','!=','yes')]}"/>
+	                    	<field name="landline_internet_pa" attrs="{'invisible': [('landline_internet_option','!=','yes')]}"/>
+	                    	<field name="medical_pa" attrs="{'invisible': [('medical_option','!=','yes')]}"/>
+	                    </group>
+                    </group>
+                    <group string="Insurance and Benefit">
+                    	<group>
+	                    	<field name="gratuity"/>
+	                    	<field name="group_medical"/>
+							 			
+	                    	<field name="group_term"/>
+							 			
+	                    	<field name="group_personal"/>
+							 			
+                    	</group>
+						<group>
+	                    	<field name="gratuity_pa"/>
+	                    	<field name="group_medical_pa"/>
+	                    	<field name="group_term_pa"/>
+	                    	<field name="group_personal_pa"/>
+	                    </group>
+                    </group>
+                    <group>
+                    	<group>
+                    		<!-- <field name="fixed"/>
+	                    	<field name="fixed_benefit"/> -->
+		                    <field name="take_home" class="ids_color_css"/>
+		                </group>                    	
+		                <group>
+		                	<!-- <field name="fixed_pa"/>
+	                    	<field name="fixed_benefit_pa"/> -->
+		                    <field name="take_home_pa" class="ids_color_css"/>
+		                </group>
+                    </group>
+                    <group string="Variable">
+	                    <group>
+	                    	<field name="perf_variable"/>
+	                    </group>
+	                    <group>
+	                    	<field name="perf_variable_pa"/>
+	                    </group>
+                    </group>
+                    <group>
+                    	<group>
+                    		<field name="salary"/>	
+                    	</group>
+                    	<group>
+                    		<field name="salary_pa"/>
+                    	</group>
+                    </group>
+                    </page>
+                    <page string="Deduction">
+                    	<!-- attrs="{'invisible': [('employment_type_id','not in','regular')]}"> -->
+                    	<group>
+	                    	<group>
+	                    		<field name="pf_deduction"/>
+	                    		<field name="deduction_esi"/>
+	                    		<field name="deduction_total"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="pf_deduction_pa"/>
+	                    		<field name="deduction_esi_pa"/>
+	                    		<field name="deduction_total_pa"/>
+	                    	</group>
+                    	</group>
+                    </page>
+
+                    
+			<!--	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+			        	Trainee Salary Structure
+			        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  -->
+				
+                    <page string="Trainee Salary Structure" attrs="{'invisible': [('employment_type_id','!=','trainee')]}">
+                    	<group>
+	                    	<group>
+	                    		<field name="gross" on_change="onchange_trainee(gross, empr_esi, emp_esi, in_hand, ctc)"/>
+	                    		<field name="empr_esi" on_change="onchange_trainee(gross, empr_esi, emp_esi, in_hand, ctc)"/>
+	                    		<field name="emp_esi" on_change="onchange_trainee(gross, empr_esi, emp_esi, in_hand, ctc)"/>
+	                    		<field name="in_hand" on_change="onchange_trainee(gross, empr_esi, emp_esi, in_hand, ctc)"/>
+	                    		<field name="ctc" on_change="onchange_trainee(gross, empr_esi, emp_esi, in_hand, ctc)"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="gross_pa"/>
+	                    		<field name="empr_esi_pa"/>
+	                    		<field name="emp_esi_pa"/>
+	                    		<field name="in_hand_pa"/>
+	                    		<field name="ctc_pa"/>
+	                    	</group>
+                    	</group>
+                    </page>
+					
+                    
+                </xpath>           	            
+		   	</field>	
+		</record>
+		
+		<record id="hr_contract.action_hr_contract" model="ir.actions.act_window">
+            <field name="name">Salary Details</field>
+            <field name="res_model">hr.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_current':1}</field>
+            <field name="search_view_id" ref="hr_contract.hr_contract_view_search"/>
+        </record>
+	    <menuitem action="hr_contract.action_hr_contract" id="hr_contract.hr_menu_contract" parent="hr.menu_hr_main" name="Employee Salary Details" sequence="4" />
+
+	</data>
+</openerp>

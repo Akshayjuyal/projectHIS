@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         IDS Employee Attendance Report
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+      
+        <record id="ids_attendance_report" model="ir.ui.view">
+			<field name="name">ids_attendance_report</field>
+			<field name="model">ids.attendance.report</field>
+			<field name="arch" type="xml">
+			<form string="Attendance Report">
+				<group name="action" col="4" colspan="2">
+				    <!-- <field name="name" invisible='1'/> -->
+			        <field name="department"/>
+			        <field name="emp_code"/>
+			        <field name="from_date"/>
+			        <field name="to_date"/>
+	    		</group>
+			    <group>
+			        <field name="output_type"/>
+			        <button name="print_attendance_report" string="Print" type="object"
+					        class="oe_highlight"/>                    
+			    </group>
+			</form>
+			</field>
+        </record>
+        
+
+
+        <record id="action_ids_attendance_report" model="ir.actions.act_window">
+            <field name="name">Attendance Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ids.attendance.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="ids_attendance_report"/>
+        </record>
+
+
+		<menuitem id="menu_ids_attendance" name="Attendance" parent="hr.menu_hr_reporting_timesheet"
+            action="action_ids_attendance_report"/>
+            
+
+</data>
+</openerp>

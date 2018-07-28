@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_anglo_saxon
+END
+stock.py
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_anglo_saxon/stock.py
+END
+purchase.py
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_anglo_saxon/purchase.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_anglo_saxon/__init__.py
+END
+product.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_anglo_saxon/product.py
+END
+invoice.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_anglo_saxon/invoice.py
+END
+product_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_anglo_saxon/product_view.xml
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_anglo_saxon/__openerp__.py
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_gamification/security
+END
+ir.model.access.csv
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_gamification/security/ir.model.access.csv
+END
+gamification_security.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_gamification/security/gamification_security.xml
+END

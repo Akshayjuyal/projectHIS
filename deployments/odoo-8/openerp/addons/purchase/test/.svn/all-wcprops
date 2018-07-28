@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase/test
+END
+fifo_price.yml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase/test/fifo_price.yml
+END
+average_price.yml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase/test/average_price.yml
+END
+costmethodchange.yml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase/test/costmethodchange.yml
+END
+fifo_returns.yml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase/test/fifo_returns.yml
+END

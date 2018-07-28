@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_user_function
+END
+analytic_user_function_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_user_function/analytic_user_function_view.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_user_function/__init__.py
+END
+analytic_user_function.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_user_function/analytic_user_function.py
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_user_function/__openerp__.py
+END

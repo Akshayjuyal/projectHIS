@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/stock_picking_wave/wizard
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/stock_picking_wave/wizard/__init__.py
+END
+picking_to_wave.py
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/stock_picking_wave/wizard/picking_to_wave.py
+END
+picking_to_wave_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/stock_picking_wave/wizard/picking_to_wave_view.xml
+END

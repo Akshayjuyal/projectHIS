@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard
+END
+pos_details.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_details.py
+END
+pos_details.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_details.xml
+END
+pos_confirm.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_confirm.pyc
+END
+pos_confirm.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_confirm.py
+END
+pos_details.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_details.pyc
+END
+pos_payment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_payment.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/__init__.py
+END
+pos_payment.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_payment.pyc
+END
+pos_box.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_box.xml
+END
+pos_discount.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_discount.py
+END
+pos_box.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_box.pyc
+END
+pos_session_opening.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_session_opening.xml
+END
+pos_open_statement.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_open_statement.xml
+END
+pos_session_opening.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_session_opening.pyc
+END
+pos_open_statement.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_open_statement.pyc
+END
+pos_open_statement.py
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_open_statement.py
+END
+pos_session_opening.py
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_session_opening.py
+END
+pos_discount.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_discount.xml
+END
+pos_box.py
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_box.py
+END
+pos_discount.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_discount.pyc
+END
+pos_payment.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_payment.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/__init__.pyc
+END
+pos_confirm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/point_of_sale/wizard/pos_confirm.xml
+END

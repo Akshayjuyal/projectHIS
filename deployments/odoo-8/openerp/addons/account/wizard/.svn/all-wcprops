@@ -1,0 +1,677 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard
+END
+account_report_partner_balance_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_partner_balance_view.xml
+END
+account_report_print_journal_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_print_journal_view.xml
+END
+account_reconcile_partner_process.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_reconcile_partner_process.pyc
+END
+account_move_line_select_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_line_select_view.xml
+END
+account_report_central_journal.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_central_journal.py
+END
+account_automatic_reconcile_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_automatic_reconcile_view.xml
+END
+account_report_general_ledger.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_general_ledger.pyc
+END
+account_report_account_balance.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_account_balance.py
+END
+account_financial_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_financial_report.pyc
+END
+account_subscription_generate_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_subscription_generate_view.xml
+END
+pos_box.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/pos_box.xml
+END
+account_report_print_journal.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_print_journal.py
+END
+account_report_partner_balance.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_partner_balance.py
+END
+account_open_closed_fiscalyear.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_open_closed_fiscalyear.py
+END
+account_automatic_reconcile.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_automatic_reconcile.py
+END
+account_report_aged_partner_balance.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_aged_partner_balance.pyc
+END
+account_invoice_refund_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_invoice_refund_view.xml
+END
+account_fiscalyear_close.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_fiscalyear_close.pyc
+END
+account_unreconcile.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_unreconcile.py
+END
+account_state_open.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_state_open.pyc
+END
+account_journal_select_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_journal_select_view.xml
+END
+account_move_line_unreconcile_select_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_line_unreconcile_select_view.xml
+END
+account_invoice_refund.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_invoice_refund.py
+END
+account_report_account_balance.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_account_balance.pyc
+END
+account_report_general_ledger.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_general_ledger.py
+END
+account_fiscalyear_close_state.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_fiscalyear_close_state.py
+END
+account_journal_select.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_journal_select.py
+END
+account_reconcile_partner_process.py
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_reconcile_partner_process.py
+END
+account_vat.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_vat.pyc
+END
+account_fiscalyear_close_state.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_fiscalyear_close_state.pyc
+END
+account_report_partner_ledger.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_partner_ledger.pyc
+END
+account_validate_account_move.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_validate_account_move.pyc
+END
+account_invoice_refund.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_invoice_refund.pyc
+END
+account_report_aged_partner_balance_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_aged_partner_balance_view.xml
+END
+account_invoice_state.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_invoice_state.py
+END
+account_use_model_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_use_model_view.xml
+END
+account_move_bank_reconcile.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_bank_reconcile.py
+END
+account_report_general_journal.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_general_journal.py
+END
+account_financial_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_financial_report_view.xml
+END
+account_move_bank_reconcile.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_bank_reconcile.pyc
+END
+account_report_aged_partner_balance.py
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_aged_partner_balance.py
+END
+account_statement_from_invoice_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_statement_from_invoice_view.xml
+END
+account_report_general_journal.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_general_journal.pyc
+END
+account_report_partner_ledger_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_partner_ledger_view.xml
+END
+account_automatic_reconcile.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_automatic_reconcile.pyc
+END
+account_report_partner_balance.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_partner_balance.pyc
+END
+account_report_print_journal.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_print_journal.pyc
+END
+account_change_currency.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_change_currency.pyc
+END
+account_financial_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_financial_report.py
+END
+account_report_account_balance_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_account_balance_view.xml
+END
+account_statement_from_invoice.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_statement_from_invoice.py
+END
+account_report_common_account.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common_account.pyc
+END
+account_change_currency_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_change_currency_view.xml
+END
+account_report_central_journal.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_central_journal.pyc
+END
+account_vat.py
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_vat.py
+END
+account_fiscalyear_close_state.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_fiscalyear_close_state.xml
+END
+account_move_line_unreconcile_select.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_line_unreconcile_select.pyc
+END
+account_open_closed_fiscalyear_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_open_closed_fiscalyear_view.xml
+END
+account_tax_chart.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_tax_chart.pyc
+END
+account_report_common_account.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common_account.py
+END
+account_statement_from_invoice.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_statement_from_invoice.pyc
+END
+account_reconcile.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_reconcile.pyc
+END
+account_report_common_journal.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common_journal.pyc
+END
+account_change_currency.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_change_currency.py
+END
+account_report_common_partner.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common_partner.py
+END
+account_unreconcile_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_unreconcile_view.xml
+END
+account_move_line_select.py
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_line_select.py
+END
+account_unreconcile.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_unreconcile.pyc
+END
+account_report_common.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common.pyc
+END
+account_move_line_reconcile_select_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_line_reconcile_select_view.xml
+END
+account_subscription_generate.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_subscription_generate.pyc
+END
+account_subscription_generate.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_subscription_generate.py
+END
+account_report_general_ledger_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_general_ledger_view.xml
+END
+account_open_closed_fiscalyear.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_open_closed_fiscalyear.pyc
+END
+pos_box.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/pos_box.py
+END
+account_chart.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_chart.pyc
+END
+account_period_close.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_period_close.pyc
+END
+account_reconcile_partner_process_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_reconcile_partner_process_view.xml
+END
+account_report_common_partner.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common_partner.pyc
+END
+account_move_line_reconcile_select.py
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_line_reconcile_select.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/__init__.pyc
+END
+account_validate_account_move.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_validate_account_move.py
+END
+account_invoice_state_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_invoice_state_view.xml
+END
+account_chart_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_chart_view.xml
+END
+account_period_close_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_period_close_view.xml
+END
+account_journal_select.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_journal_select.pyc
+END
+account_move_line_unreconcile_select.py
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_line_unreconcile_select.py
+END
+account_state_open_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_state_open_view.xml
+END
+account_validate_move_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_validate_move_view.xml
+END
+account_move_bank_reconcile_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_bank_reconcile_view.xml
+END
+account_report_general_journal_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_general_journal_view.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/__init__.py
+END
+account_fiscalyear_close_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_fiscalyear_close_view.xml
+END
+account_move_line_reconcile_select.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_move_line_reconcile_select.pyc
+END
+account_report_common_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common_view.xml
+END
+account_chart.py
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_chart.py
+END
+account_use_model.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_use_model.pyc
+END
+account_period_close.py
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_period_close.py
+END
+pos_box.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/pos_box.pyc
+END
+account_state_open.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_state_open.py
+END
+account_fiscalyear_close.py
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_fiscalyear_close.py
+END
+account_reconcile_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_reconcile_view.xml
+END
+account_report_common.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common.py
+END
+account_tax_chart_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_tax_chart_view.xml
+END
+account_vat_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_vat_view.xml
+END
+account_use_model.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_use_model.py
+END
+account_report_central_journal_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_central_journal_view.xml
+END
+account_invoice_state.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_invoice_state.pyc
+END
+account_report_common_journal.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_common_journal.py
+END
+account_reconcile.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_reconcile.py
+END
+account_report_partner_ledger.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_report_partner_ledger.py
+END
+account_tax_chart.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/wizard/account_tax_chart.py
+END

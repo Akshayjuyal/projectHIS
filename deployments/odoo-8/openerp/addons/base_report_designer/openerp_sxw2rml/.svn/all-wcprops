@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_report_designer/openerp_sxw2rml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_report_designer/openerp_sxw2rml/__init__.py
+END
+normalized_odt2rml.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_report_designer/openerp_sxw2rml/normalized_odt2rml.xsl
+END
+normalized_oo2rml.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_report_designer/openerp_sxw2rml/normalized_oo2rml.xsl
+END
+openerp_sxw2rml.py
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_report_designer/openerp_sxw2rml/openerp_sxw2rml.py
+END

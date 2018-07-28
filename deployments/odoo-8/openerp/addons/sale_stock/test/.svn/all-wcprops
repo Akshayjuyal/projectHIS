@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/sale_stock/test
+END
+sale_stock_users.yml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/sale_stock/test/sale_stock_users.yml
+END
+sale_order_onchange.yml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/sale_stock/test/sale_order_onchange.yml
+END
+sale_order_canceled_line.yml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/sale_stock/test/sale_order_canceled_line.yml
+END
+picking_order_policy.yml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/sale_stock/test/picking_order_policy.yml
+END
+prepaid_order_policy.yml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/sale_stock/test/prepaid_order_policy.yml
+END
+cancel_order_sale_stock.yml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/sale_stock/test/cancel_order_sale_stock.yml
+END

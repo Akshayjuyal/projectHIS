@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheet/views
+END
+hr_timesheet_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheet/views/hr_timesheet_view.xml
+END
+schedule.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/430/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheet/views/schedule.xml
+END
+hr_timesheets_workflow.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/334/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheet/views/hr_timesheets_workflow.xml
+END
+timesheet_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/431/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheet/views/timesheet_view.xml
+END

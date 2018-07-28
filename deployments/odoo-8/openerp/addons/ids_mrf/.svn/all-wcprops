@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/IDS-CLIENTODOO-2016/!svn/ver/462/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_mrf
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/IDS-CLIENTODOO-2016/!svn/ver/532/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_mrf/__init__.py
+END
+ids_mrf.py
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/IDS-CLIENTODOO-2016/!svn/ver/532/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_mrf/ids_mrf.py
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/337/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_mrf/__openerp__.py
+END

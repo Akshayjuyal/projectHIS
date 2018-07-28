@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard
+END
+hr_yearly_salary_detail.py
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard/hr_yearly_salary_detail.py
+END
+hr_yearly_salary_detail.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard/hr_yearly_salary_detail.pyc
+END
+hr_salary_employee_bymonth.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard/hr_salary_employee_bymonth.pyc
+END
+hr_salary_employee_bymonth_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard/hr_salary_employee_bymonth_view.xml
+END
+hr_yearly_salary_detail_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard/hr_yearly_salary_detail_view.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard/__init__.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard/__init__.pyc
+END
+hr_salary_employee_bymonth.py
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/wizard/hr_salary_employee_bymonth.py
+END

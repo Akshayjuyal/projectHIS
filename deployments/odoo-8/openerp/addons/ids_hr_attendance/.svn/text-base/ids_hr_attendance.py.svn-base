@@ -1,0 +1,589 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+from openerp.osv import fields, osv
+from datetime import datetime , timedelta
+import time
+from openerp.tools.translate import _
+
+
+class hr_attendance(osv.osv):
+    _inherit = 'hr.attendance'
+    
+    _columns={
+              'flag': fields.boolean('Final Punch Flag'),
+              'division_id':fields.many2one('division', 'Division'),
+              'department_id': fields.many2one('hr.department', 'Department')
+              }
+    
+    def create(self, cr, uid, vals, context=None):
+        """Making signle sign/signout for the day. """
+        d = datetime.now().date()
+        d2 = datetime.strftime(d, "%Y-%m-%d 23:59:59")
+        d3 = datetime.strftime(d, "%Y-%m-%d 00:00:01")
+        prev_atten_ids = self.pool.get('hr.attendance').search(cr, uid, [('employee_id', '=', vals['employee_id']), ('name', '<', d2),('name', '>',d3), ('action', '=', 'sign_in')], limit=1, order='name DESC')
+        print"prev_atten_ids======",prev_atten_ids
+        prev_attens = self.browse(cr, uid, prev_atten_ids, context=context)
+        if prev_attens and prev_attens[0].action == vals['action']:
+            raise osv.except_osv(_('Warning'), _('You are already marked your attendance for the day. Please contact to HR.'))
+        id=super(hr_attendance, self).create(cr, uid, vals, context)
+        for record in self.pool.get('hr.attendance').search(cr, uid, [('id','=',id)]):
+            for data_record in self.pool.get('hr.attendance').browse(cr, uid, record, context=None):
+                division=data_record.employee_id.division.id
+                cr.execute("update hr_attendance set division_id=%s where id=%s"%(division,id));
+        return id
+    
+    def onchange_employee_id(self, cr, uid, ids, division_id,employee_id, context=None):
+        """Get Division on change employee_id. """
+        emp_id=self.pool.get('hr.employee').browse(cr, uid, employee_id, context=context)
+        division_id=emp_id.division
+        res= {'value': {'division_id': division_id, 'department_id': emp_id.department_id.id}}
+        return res
+    
+    def _altern_si_so(self, cr, uid, ids, context=None):
+        
+        for atten in self.browse(cr, uid, ids, context=context):
+            #search and browse
+#         """ Alternance sign_in/sign_out check.
+#             Previous (if exists) must be of opposite action.
+#             Next (if exists) must be of opposite action.
+#         """
+#         for att in self.browse(cr, uid, ids, context=context):
+#             # search and browse for first previous and first next records
+#             prev_att_ids = self.search(cr, uid, [('employee_id', '=', att.employee_id.id), ('name', '<', att.name), ('action', 'in', ('sign_in', 'sign_out'))], limit=1, order='name DESC')
+#             next_add_ids = self.search(cr, uid, [('employee_id', '=', att.employee_id.id), ('name', '>', att.name), ('action', 'in', ('sign_in', 'sign_out'))], limit=1, order='name ASC')
+#             prev_atts = self.browse(cr, uid, prev_att_ids, context=context)
+#             next_atts = self.browse(cr, uid, next_add_ids, context=context)
+#             # check for alternance, return False if at least one condition is not satisfied
+#             if prev_atts and prev_atts[0].action == att.action: # previous exists and is same action
+#                 return False
+#             if next_atts and next_atts[0].action == att.action: # next exists and is same action
+#                 return False
+#             if (not prev_atts) and (not next_atts) and att.action != 'sign_in': # first attendance must be sign_in
+#                 return False
+            return True
+    _constraints = [(_altern_si_so, 'Error ! Sign in (resp. Sign out) must follow Sign out (resp. Sign in)', ['action'])]
+
+
+class final_punch(osv.osv):
+    _name = 'final.punch'
+    _order = 'date desc'
+    
+    def _check_time(self, cr, uid, ids, context=None):
+        """In time/Out Time constraints. """
+        obj_task = self.browse(cr, uid, ids[0], context=context)
+        in_time = obj_task.in_time or False
+        out_time = obj_task.out_time or False
+
+        if in_time and out_time:
+            if in_time > out_time:
+                return False   
+        return True
+    
+    def _current_worked_hours_compute(self, cr, uid, ids, fieldnames, args, context=None):
+        """For each hr.attendance record of action sign-in: assign 0.
+        For each hr.attendance record of action sign-out: assign number of hours since last sign-in.
+        """
+        res = {}
+        for obj in self.browse(cr, uid, ids, context=context):
+            if not obj.out_time:
+                last_signin_datetime = datetime.strptime(obj.in_time, '%Y-%m-%d %H:%M:%S')
+                signout_datetime = datetime.now()
+                workedhours_datetime = (signout_datetime - last_signin_datetime)
+                res[obj.id] = ((workedhours_datetime.seconds) / 60) / 60.0
+            else:
+                res[obj.id] = False
+        return res
+    
+#     def _check_date(self, cr, uid, ids, context=None):
+#         
+#         obj_task = self.browse(cr, uid, ids[0], context=context)
+#         in_time = obj_task.in_time or False
+#         date_time1 = datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S')
+#         punch1=datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S').date()
+#         out_time = obj_task.out_time or False
+#         date_time2 = datetime.strptime(out_time,'%Y-%m-%d %H:%M:%S')
+#         punch2=datetime.strptime(out_time,'%Y-%m-%d %H:%M:%S').date()
+#         if in_time and out_time:
+#             if punch1 <> punch2:
+#                 return False   
+#         return True
+#     def onchange_employee_id(self, cr, uid, ids, employee_id, context=None):
+#         if employee_id:
+#             employee = self.pool.get('hr.employee').browse(cr, uid, employee_id, context=context)
+#             return {'value': {'location_id': employee.office_location.id}}
+#         return {'value': {}}
+
+    
+    _columns= {
+                'name':fields.char('Name'),
+                'date':fields.date('Punch Date',required=True),
+                'employee_id':fields.many2one('hr.employee','Employee',required=True),
+                'od_check':fields.boolean('OD'),
+                'remarks':fields.char('Remarks'),
+                'shift':fields.many2one('employee.shift','Shift'),
+                'in_time':fields.datetime('In Time'),
+                'out_time':fields.datetime('Out Time'),
+                'location_id':fields.many2one('office.location','Location'),
+                'division_id':fields.many2one('division', 'Division'),
+                'department_id': fields.many2one('hr.department','Department'),
+                'worked_hours': fields.float('Worked Hours'),
+                'flag': fields.boolean('Flag'),
+                'current_worked_hours': fields.function(_current_worked_hours_compute, type='float', string='Current Worked Hours', store=True),
+#                 'worked_hours':fields.function(_worked_hours_compute_final, type='float', string='Worked Hours', store=True),
+                'state': fields.selection([('draft','Draft'),('update','Update'),('updated','Updated'),('updated_od','Updated'),], 'State', readonly=True)
+               }
+    _defaults = {
+        'state': 'draft',
+        'location_id':1}
+    _constraints = [(_check_time, 'Check Time!  Out Time must be greater than In Time', ['in_time', 'out_time'])]
+#                     (_check_date, 'Check Dates!  Out date must be same as In Date', ['in_time', 'out_time'])]
+#   
+    def onchange_employee_id(self, cr, uid, ids,employee_id, context=None):
+        res= {'value': {'division_id': False,'location_id':False,'shift':False, 'department_id':False}}
+        """Get Division on change of employee_id. """
+        emp_id=self.pool.get('hr.employee').browse(cr, uid, employee_id, context=context)
+        res= {'value': {'division_id': emp_id.division.id,'location_id':emp_id.office_location.id,'shift': emp_id.shift_id, 'department_id': emp_id.department_id.id}}
+        return res
+    
+    
+    def refresh(self, cr, uid, ids, context=None):
+        """Calculate current working hours from the sign in of the day. """
+        for obj in self.browse(cr, uid, ids, context=context):
+            if not obj.out_time:
+                last_signin_datetime = datetime.strptime(obj.in_time, '%Y-%m-%d %H:%M:%S')
+                signout_datetime = datetime.now()
+                workedhours_datetime = (signout_datetime - last_signin_datetime)
+                res = ((workedhours_datetime.seconds) / 60) / 60.0
+                cr.execute("update final_punch set current_worked_hours=%s where id=%s"%(res,obj.id))
+                #self.write(cr, uid, ids,{'current_worked_hours':res}, context=context )
+            else:
+                res = False
+        return True
+    def onchange_shift_id(self, cr, uid, ids, shift, date, context=None):
+        """With the change of Shift, Intime/Outime gets updated automatically. """
+        cmb=''
+        cmb1=''
+        if shift:
+            record = self.pool.get('employee.shift').browse(cr, uid, shift, context=context)
+#             if record.name=='General':
+            intime=str(record.start_time)
+            outtime=str(record.end_time)
+            intime_split=intime.split('.')
+            intime_hours=int(intime_split[0])
+            intime_minutes=int(intime_split[1])*6
+            if len(str(intime_minutes))>2:
+                intime_minutes=int(intime_split[1])*6/10
+            outtime_split=outtime.split('.')
+            outtime_hours=int(outtime_split[0])
+            outtime_minutes=int(outtime_split[1])*6
+            if len(str(outtime_minutes))>2:
+                outtime_minutes=int(outtime_split[1])*6/10
+            from datetime import datetime , timedelta
+            import time
+            punch_date = datetime.strptime(date, '%Y-%m-%d').date()
+            import datetime
+            dt = datetime.datetime(punch_date.year, punch_date.month, punch_date.day)
+            tm = datetime.time(intime_hours,intime_minutes)
+            tm1 = datetime.time(outtime_hours, outtime_minutes)
+            combined = dt.combine(dt, tm)
+            combined1 = dt.combine(dt, tm1)
+            cmb_time = datetime.datetime.strptime(str(combined), '%Y-%m-%d %H:%M:%S')
+            cmb=cmb_time- timedelta(hours=5,minutes=30)
+            cmb_time1 = datetime.datetime.strptime(str(combined1), '%Y-%m-%d %H:%M:%S')
+            cmb1=cmb_time1- timedelta(hours=5,minutes=30)
+            print "--------------------------------------------", combined, combined1
+            if str(combined1)<str(combined):
+                print"working--00-00=0=-0=-0=0=-00=0==========-==------------------------"
+                dt = datetime.datetime(punch_date.year, punch_date.month, punch_date.day+1)
+                cmb_time1 = datetime.datetime.strptime(str(dt), '%Y-%m-%d %H:%M:%S')
+                cmb1=cmb_time1- timedelta(hours=5,minutes=30)
+                #cmb1=str(combined1)
+        res= {'value': {'in_time': cmb,
+                        'out_time' : cmb1,
+                        }
+              }
+        return res    
+    def create(self, cr, uid, values, context=None):
+        """With the creation of record, signin/signout get created in hr.attendance.  """
+        atten_pool = self.pool.get('hr.attendance')
+        res1={}
+        res2={}
+        data_search=self.search(cr,uid,[('employee_id','=',values['employee_id']),('date','=',values['date'])])
+        data=self.browse(cr, uid, data_search, context=None)
+        final=self.search(cr, uid, [('employee_id','=',data.employee_id.id),('date','=',data.date)],context=context)
+        if final:
+            raise osv.except_osv(_('Warning'), _('Punch record already exists! Please update the existing record.'))
+        date1=datetime.strptime(values['in_time'],'%Y-%m-%d %H:%M:%S').date()
+        hours=datetime.strptime(values['in_time'],'%Y-%m-%d %H:%M:%S').hour
+        minutes=datetime.strptime(values['in_time'],'%Y-%m-%d %H:%M:%S').minute
+        date2=datetime.strptime(values['date'],'%Y-%m-%d').date()
+        if hours>18:
+            date1= datetime(date1.year, date1.month, date1.day+1).date()
+        if hours==18 and minutes>=30:
+            date1= datetime(date1.year, date1.month, date1.day+1).date()
+        if date1<>date2:
+            raise osv.except_osv(_('Warning'), _('Punch date and IN Time date must be equal.'))
+            
+        id = super(final_punch, self).create(cr, uid, values, context)
+        for record in self.pool.get('final.punch').search(cr, uid, [('id','=',id)]):
+            for data_record in self.pool.get('final.punch').browse(cr, uid, record, context=None):
+                employee=data_record.employee_id.id
+                date=data_record.date
+                in_time=data_record.in_time
+                out_time=data_record.out_time
+                if in_time and out_time:
+                    intime = datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S')
+                    out = datetime.strptime(out_time,'%Y-%m-%d %H:%M:%S')
+                    worked=(out-intime)
+                    worked_hours=((worked.seconds) / 60) / 60.0
+                    if data_record.od_check:
+                        cr.execute("update final_punch set flag=False, state='updated_od' where id=%s"%(id));
+                    else:    
+                        cr.execute("update final_punch set flag=False, state='updated' where id=%s"%(id));
+                    cr.execute("update final_punch set worked_hours=%s where id=%s"%(worked_hours,id));
+        if in_time:
+            res1={
+                  'employee_id':employee,
+                  'name': in_time,
+                  'action':'sign_in',
+                  'division_id':data_record.division_id.id,
+                  'department_id': data_record.department_id.id,
+                  'flag' : True
+                  }
+            atten_id=atten_pool.create(cr,uid,res1, context=context)
+            cr.execute("update final_punch set flag=False, state='updated' where id=%s"%(id));
+        if out_time:
+            res2={
+                  'employee_id':employee,
+                  'name': out_time,
+                  'action':'sign_out',
+                  'division_id':data_record.division_id.id,
+                  'department_id': data_record.department_id.id,
+                  'flag' : True
+                  }
+            
+            
+            atten_id1=atten_pool.create(cr,uid,res2, context=context)   
+        return id
+ 
+    def write(self, cr, uid,ids,vals, context=None):
+        """while editting in final.punch, the changed values get updated in hr.attendance and also 
+            constraints on intime/outime and punch date as well.  """
+        if 'employee_id' in vals:
+            data_id=self.browse(cr, uid, ids, context=context )
+            date=data_id.date
+            data_search=self.search(cr,uid,[('employee_id','=',vals['employee_id']),('date','=',date)])
+            data=self.browse(cr, uid, data_search, context=None)
+            final=self.search(cr, uid, [('employee_id','=',data.employee_id.id),('date','=',data.date)],context=context)
+            if final:
+                raise osv.except_osv(_('Warning'), _('Punch record already exists! Please update the existing record.'))
+        if 'date' in vals:
+            data_id=self.browse(cr, uid, ids, context=context )
+            employee_id=data_id.employee_id.id
+            in_time=data_id.in_time
+            data_search=self.search(cr,uid,[('employee_id','=',employee_id),('date','=',vals['date'])])
+            data=self.browse(cr, uid, data_search, context=None)
+            final=self.search(cr, uid, [('employee_id','=',data.employee_id.id),('date','=',data.date)],context=context)
+            if final:
+                raise osv.except_osv(_('Warning'), _('Punch record already exists! Please update the existing record.'))
+            date1=datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S').date()
+            hours=datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S').hour
+            minutes=datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S').minute
+            date2=datetime.strptime(vals['date'],'%Y-%m-%d').date()
+            if hours>18:
+                date1= datetime(date1.year, date1.month, date1.day+1).date()
+            if hours==18 and minutes>=30:
+                date1= datetime(date1.year, date1.month, date1.day+1).date()
+            if date1<>date2:
+                raise osv.except_osv(_('Warning'), _('Punch date and IN Time date must be equal.'))
+        if 'in_time' in vals:
+            data_id=self.browse(cr, uid, ids, context=context )
+            date=data_id.date
+            date1=datetime.strptime(vals['in_time'],'%Y-%m-%d %H:%M:%S').date()
+            hours=datetime.strptime(vals['in_time'],'%Y-%m-%d %H:%M:%S').hour
+            minutes=datetime.strptime(vals['in_time'],'%Y-%m-%d %H:%M:%S').minute
+            date2=datetime.strptime(date,'%Y-%m-%d').date()
+            if hours>18:
+                date1= datetime(date1.year, date1.month, date1.day+1).date()
+            if hours==18 and minutes>=30:
+                date1= datetime(date1.year, date1.month, date1.day+1).date()
+            if date1<>date2:
+                raise osv.except_osv(_('Warning'), _('Punch date and IN Time date must be equal.'))
+        res = super(final_punch, self).write(cr, uid, ids, vals, context=context)
+        if 'in_time' in vals:
+            in_time=vals['in_time']
+            final=self.browse(cr,uid, ids, context=None)
+            out_time=final.out_time
+            intime = datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S')
+            out = datetime.strptime(out_time,'%Y-%m-%d %H:%M:%S')
+            worked=(out-intime)
+            worked_hours=((worked.seconds) / 60) / 60.0
+            print "worked_hours", worked_hours
+            self.write(cr, uid, ids,{'worked_hours':worked_hours,'flag':True, 'state':'update'}, context=context)
+        if 'out_time' in vals:
+            out_time=vals['out_time']
+            print "out-time",out_time
+            final=self.browse(cr,uid, ids, context=None)
+            in_time=final.in_time
+            intime = datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S')
+            out = datetime.strptime(out_time,'%Y-%m-%d %H:%M:%S')
+            worked=(out-intime)
+            worked_hours=((worked.seconds) / 60) / 60.0
+            self.write(cr, uid, ids, {'worked_hours':worked_hours,'flag':True, 'state':'update'}, context=context)
+        if 'out_time' in vals and 'in_time' in vals:
+            out_time=vals['out_time']
+            print "out-time",out_time
+            in_time=vals['in_time']
+            print "in-time",in_time
+            intime = datetime.strptime(in_time,'%Y-%m-%d %H:%M:%S')
+            out = datetime.strptime(out_time,'%Y-%m-%d %H:%M:%S')
+            worked=(out-intime)
+            worked_hours=((worked.seconds) / 60) / 60.0
+            self.write(cr, uid, ids, {'worked_hours':worked_hours, 'flag':True, 'state':'update'}, context=context)
+        return res 
+    
+    
+    def update_data(self, cr, uid, ids, context=None):
+        """Update button which updates the changed value in final.punch. """
+        res1={}
+        res2={}
+        res3={}
+        atten=self.pool.get('hr.attendance')
+        final= self.browse(cr, uid, ids, context=None)
+        in_time=final.in_time
+        out_time=final.out_time
+        employee=final.employee_id.id
+        date=final.date
+        date1=datetime.strptime(date,'%Y-%m-%d').date()
+        punch=0
+        for record in self.pool.get('hr.attendance').search(cr, uid, [('employee_id','=',employee)]):
+            for data_record in self.pool.get('hr.attendance').browse(cr, uid, record, context=None):
+                employee_id=data_record.employee_id.id
+                data_id=data_record.id
+                time=data_record.name
+                date_time = datetime.strptime(time,'%Y-%m-%d %H:%M:%S')
+                punch=datetime.strptime(time,'%Y-%m-%d %H:%M:%S').date()
+                if punch==date1:
+                    if punch==date1 and data_record.action=='sign_in':
+                        atten.write(cr, uid, record,{'name':in_time}, context=context )
+                    if punch==date1 and data_record.action=='sign_out':
+                        atten.write(cr, uid, record, {'name':out_time}, context=context)
+                        cr.execute("delete from hr_attendance WHERE id=%s"% data_id);
+                    else:
+                         res3={
+                     'employee_id':employee,
+                     'name':out_time,
+                     'action':'sign_out',
+             'flag' : True}   
+                         if len(res3)>0:
+                             atten_id2=atten.create(cr,uid,res3,context=context)
+                else:
+                    pass
+#             atten_id3=atten.create(cr,uid,res4,context=context)
+        self.write(cr, uid, ids, {'flag':False, 'state':'updated'}, context=context)
+
+        return True
+        
+        
+        
+        
+    
+class missed_punch(osv.osv):
+    _name = 'missed.punch'
+    
+    _columns= {
+                'name':fields.char('Name'),
+                'date':fields.date('Punch Date',required=True),
+                'employee_id':fields.many2one('hr.employee','Employee',required=True),
+                'shift':fields.many2one('employee.shift','Shift'),
+                'in_time':fields.datetime('In Time'),
+                'out_time':fields.datetime('Out Time'),
+                'location_id':fields.many2one('office.location','Location',required=True),
+                'worked_hours':fields.float('Worked Hours',required=True)
+                
+               }
+    
+class marked_missed_punch(osv.osv):
+    _name= 'marked.missed.punch'
+    
+    _columns= {
+                'name':fields.char('Name'),
+                'date_from':fields.date('Date From'),
+                'date_to':fields.date('Date To'),
+                'employee_id':fields.many2one('hr.employee','Employee'),
+                'division_id':fields.many2one('division','Division')
+               }
+    def markmiss_attendance(self,cr,uid,ids=False,context=None):
+        """Gets data from hr_attendance and update into final.punch. """
+        atten_pool = self.pool.get('final.punch')
+        res={}
+        for record in self.pool.get('hr.attendance').search(cr, uid, [('flag','=',False)], order='employee_id,name ASC'):
+            for data_record in self.pool.get('hr.attendance').browse(cr, uid, record, context=None):
+                data_id=data_record.id
+                date= data_record.name
+                date_time = datetime.strptime(date,'%Y-%m-%d %H:%M:%S')
+                punch=datetime.strptime(date,'%Y-%m-%d %H:%M:%S').date()
+                employee=data_record.employee_id.id
+                location=data_record.employee_id.office_location.id
+                worked_hours= data_record.worked_hours
+                worked_hours=0
+                date1=date2=None
+                if data_record.action=="sign_in":
+                    date1=date
+                    ########
+                    cr.execute("Insert into final_punch (employee_id,date,shift,location_id,division_id,department_id,in_time)Values (%s,%s,1,%s,%s,%s,%s)",(employee,punch,location,data_record.division_id.id,data_record.department_id.id,date1));
+                    cr.execute("update hr_attendance set flag=True where id=%s"%data_id);
+                    cr.commit();
+                    ############
+                else:
+                    date2=date
+                    worked_hours= data_record.worked_hours
+                    ###############
+                    data_in=self.pool.get('final.punch').search(cr,uid,[('in_time','>','2016-01-01 00:00:00'),('employee_id','=',employee)], order='id DESC', limit=1)
+                    data1_in=self.pool.get('final.punch').browse(cr,uid,data_in,context=context)
+                    punch_id1=data1_in.id
+                    cr.execute("update final_punch set worked_hours=%s,out_time=%s WHERE id=%s",(worked_hours,date2,punch_id1));
+                    cr.execute("update hr_attendance set flag=True where id=%s"%data_id);
+                    ###############
+#                 att_id=atten_pool.create(cr,uid,res,context=context)
+#                 cr.execute("Insert into final_punch (employee_id,date,worked_hours,shift,location_id,in_time,out_time)Values (%s,%s,%s,1,%s,%s,%s)",(employee,punch,worked_hours,location,date1,date2));
+#                 cr.execute("update hr_attendance set flag=True");
+#                 data=self.pool.get('final.punch').search(cr,uid,[('out_time','>','2016-01-01 00:00:00'),('employee_id','=',employee),('date','=',punch)], order='id DESC', limit=1)
+#                 data1=self.pool.get('final.punch').browse(cr,uid,data,context=context)
+#                 punch_id=data1.id
+#                 out_time=data1.out_time
+#                 worked_hours=data1.worked_hours
+#                 data_in=self.pool.get('final.punch').search(cr,uid,[('in_time','>','2016-01-01 00:00:00'),('employee_id','=',employee)], order='id DESC', limit=1)
+#                 data1_in=self.pool.get('final.punch').browse(cr,uid,data_in,context=context)
+#                 punch_id1=data1_in.id
+#                 in_time=data1_in.in_time
+#                 if data_record.action=="sign_out":
+#                     cr.execute("update final_punch set worked_hours=%s,out_time=(select out_time from final_punch where id=%s) WHERE id=%s"%(worked_hours,punch_id, punch_id1));
+#                     cr.execute("delete from final_punch WHERE id=%s"% punch_id);
+        cr.commit();
+        for record_data in self.pool.get('final.punch').search(cr, uid, [('out_time','>','2017-01-01 00:00:00'),('worked_hours','<',0.08)]):
+            for data in self.pool.get('final.punch').browse(cr, uid, record_data, context=None):
+                id=data.id
+                emp_id=data.employee_id.id
+                out_time=data.out_time
+                cr.execute("update final_punch set out_time=null,worked_hours=0 WHERE id=%s"% id);
+                cr.execute("delete from hr_attendance where employee_id=%s and name=%s and action='sign_out'",(emp_id,out_time));
+        return True
+          
+          
+          
+class employee_shift(osv.osv):
+    _name = 'employee.shift'
+    
+    
+    
+    def shift_hours_compute(self, cr, uid, ids, fieldnames, args, context=None):
+        """Calculates total working hours in shift. """
+        res = {}
+        for obj in self.browse(cr, uid, ids, context=context):
+            if obj.end_time>obj.start_time:
+                shifthours = (obj.end_time - obj.start_time)
+                res[obj.id] = shifthours
+            else:
+                shifthours = ((24-obj.start_time) + obj.end_time)
+                res[obj.id] = shifthours
+        return res
+    
+    _columns = {
+                'name':fields.char('Name',required=True),
+                'code':fields.char('Code',required=True),
+                'start_time':fields.float('In Time',required=True),
+                'end_time':fields.float('Out Time',required=True),
+                'Shift_hours':fields.float('Shift Hours',required=True),
+                'shift_worked_hours': fields.function(shift_hours_compute, type='float', string='Shift Hours Calculate', store=True),
+                'division_id':fields.many2one('division','Division',required=True),
+                'note':fields.text('Note'),
+                }
+    
+    
+
+class mark_attendance(osv.osv):
+    _name = 'mark.attendance'
+    
+    _columns = {
+                'name':fields.char('Name'),
+                'date_from':fields.date('Date From'),
+                'date_to':fields.date('Date To'),
+                'employee_id':fields.many2one('hr.employee','Employee'),
+                'division_id':fields.many2one('division','Division')
+                
+                }
+    def mark_attendance(self,cr,uid,ids=False,context=None):
+        """Gets data from biometric.data and updates into hr.attendance. """
+        biometric_data = self.pool.get('biometric.data')
+        atten_pool = self.pool.get('hr.attendance')
+        res={}
+        data=data1=0
+        for data_ids in biometric_data.search(cr, uid, [('flag','=',False)]):
+            for data_pool in biometric_data.browse(cr, uid, data_ids, context=context):
+                emp_code=data_pool.emp_code
+                e_code="'" +str(emp_code)+ "'"
+                length = len(e_code)
+                date = data_pool.name
+                date_time = datetime.strptime(date,'%Y-%m-%d %H:%M:%S')
+                cur_time = date_time + timedelta(hours=5,minutes=30)
+                time1=datetime.strptime(date,'%Y-%m-%d %H:%M:%S').time()
+                date1=datetime.strptime(date,'%Y-%m-%d %H:%M:%S').date()
+                t1=str(time1)
+                a=cr.execute("SELECT id,division from hr_employee WHERE biometric_code=%s"%e_code);
+                c = cr.fetchall()
+                list = [int(i[0]) for i in c]
+                list1 =  [int(i[1]) for i in c]
+                if len(list) <> 0:
+                    data = list[0]
+                    data1 = list1[0]
+                    prev_att_ids = atten_pool.search(cr, uid, [('employee_id', '=', data)], limit=1, order='name DESC')
+                    prev_atts = atten_pool.browse(cr, uid, prev_att_ids, context=context)
+                    atten_date=0
+                    action=''
+                    if prev_atts.name is False:
+                        pass
+                    else:
+                        atten_date=datetime.strptime(prev_atts.name,'%Y-%m-%d %H:%M:%S').date()
+                        action = prev_atts.action
+                        if atten_date==date1 and action=='sign_out':
+                            cr.execute("delete from hr_attendance where id=%s"%prev_atts.id);
+                    if t1>'00:00:00' and atten_date<>date1:
+                        res ={
+                        'employee_id':data,
+                        'name':date,
+                        'action':'sign_in',
+                        'division_id':data1
+                        }
+                    else:
+                        res ={
+                        'employee_id':data,
+                        'name':date,
+                        'action':'sign_out',
+                        'division_id':data1
+                        }
+                
+                    att_id=atten_pool.create(cr,uid,res,context=context)
+                    cr.execute("update biometric_data set flag=True");
+                else:
+                    pass
+        return True

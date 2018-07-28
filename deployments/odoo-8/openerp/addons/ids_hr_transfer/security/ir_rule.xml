@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+      
+    <record id="property_rule_emp_transfer_supervisor" model="ir.rule">
+        <field name="name">Employee Transfer - Supervisor</field>
+        <field name="model_id" ref="model_ids_hr_department_transfer"/>
+        <field name="domain_force">['|', ('employee_id', 'child_of', [user.employee_ids and user.employee_ids[0].id]), ('employee_id.department_id.manager_id.user_id.id', '=', user.id)]</field>
+        <field name="groups" eval="[(4,ref('ids_employee_confirmation.group_hr_confirmation'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+    
+    <record id="property_rule_emp_transfer_employeer" model="ir.rule">
+        <field name="name">Employee Transfer - Employee</field>
+        <field name="model_id" ref="model_ids_hr_department_transfer"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_create" eval="False"/>
+    </record>
+    
+    <record id="property_rule_emp_transfer_bh" model="ir.rule">
+        <field name="name">Employee Transfer - BH</field>
+        <field name="model_id" ref="model_ids_hr_department_transfer"/>
+        <field name="domain_force">['|', ('employee_id', 'child_of', [user.employee_ids and user.employee_ids[0].id]), ('employee_id.department_id.manager_id.user_id.id', '=', user.id)]</field>
+        <field name="groups" eval="[(4,ref('ids_emp.group_business_head'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+    
+  </data>
+</openerp>

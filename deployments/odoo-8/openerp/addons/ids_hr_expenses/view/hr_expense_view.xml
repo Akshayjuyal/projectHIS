@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Expenses -->
+		<record id="view_expenses_form_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.form.inherit</field>
+            <field name="model">hr.expense.expense</field>
+	    	<field name="inherit_id" ref="hr_expense.view_expenses_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//form[@string='Expenses Sheet']/sheet/notebook/page[@string='Description']/field[@name='line_ids']" position="before">
+		    		<field name="inv" invisible="1" />
+				</xpath>		
+				<xpath expr="//form[@string='Expenses Sheet']/sheet/notebook/page[@string='Description']/field[@name='line_ids']" position="attributes">		                   
+                    <attribute name="attrs">{'readonly':[('inv','=',True)]}</attribute>
+				</xpath>
+            </field>
+        </record>
+         
+		<record id="view_expenses_form_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.inherit.form</field>
+            <field name="model">hr.expense.expense</field>
+	    	<field name="inherit_id" ref="hr_expense.view_expenses_form"/>
+            <field eval="25" name="priority"/>
+            <field name="arch" type="xml">
+				<data>                
+					<xpath expr="//form/header" position="replace">			    
+			        	<header>
+			                <button name="confirm" states="draft" string="Submit to Manager" type="workflow" class="oe_highlight"/>
+				    	    <button name="accepted_mgr" states="cancelled,confirm" string="First Approval" type="workflow" groups="ids_emp.group_timesheet_validate" class="oe_highlight"/>
+		                    <button name="validate" states="accepted_mgr" string="Approve" type="workflow" groups="ids_emp.group_business_head" class="oe_highlight"/>
+							<button name="refuse" states="confirm" string="Refuse" type="workflow" groups="ids_hr_expenses.group_hr_expenses" /> 
+					    	<button name="refuse" states="accepted_mgr" string="Refuse" type="workflow" groups="ids_emp.group_business_head" /> 
+			                <button name="draft" states="cancelled" string="Set to Draft" type="workflow" groups="ids_hr_expenses.group_hr_expenses" />
+			                <button name="done" states="accepted" string="Generate Accounting Entries" type="workflow" groups="account.group_account_invoice" class="oe_highlight"/>
+			                <button name="action_view_move" states="done" string="Open Accounting Entries" type="object" groups="account.group_account_invoice"/>
+			                <field name="state" widget="statusbar" statusbar_visible="draft,confirm,accepted_mgr,accepted,done,paid,cancelled" statusbar_colors='{"confirm":"blue","cancelled":"red"}'/>
+			            </header>			              
+					</xpath>
+	            </data>  
+	    	</field>	
+		</record>       
+	
+    </data>
+</openerp>

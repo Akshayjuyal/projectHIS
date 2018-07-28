@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Sequences for mrf number -->
+        <record id="mrf_number_sequence" model="ir.sequence.type">
+            <field name="name">MRF Number</field>
+            <field name="code">ids.mrf</field>
+        </record>
+
+        <record id="seq_ids_mrf" model="ir.sequence">
+            <field name="name">MRF Number</field>
+            <field name="code">ids.mrf</field>
+            <field name="prefix">MRF-IDS-</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/IDS-CLIENTODOO-2016/!svn/ver/243/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays
+END
+hr_holidays_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/hr_holidays_data.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/__init__.py
+END
+hr_holidays.py
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/243/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/hr_holidays.py
+END
+hr_holidays_workflow.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/hr_holidays_workflow.xml
+END
+hr_bel_holidays_2008.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/hr_bel_holidays_2008.xml
+END
+hr_holidays_demo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/hr_holidays_demo.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/__init__.pyc
+END
+hr_holidays.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/hr_holidays.pyc
+END
+hr_holidays_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/hr_holidays_report.xml
+END
+hr_holidays_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/hr_holidays_view.xml
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/243/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_holidays/__openerp__.py
+END

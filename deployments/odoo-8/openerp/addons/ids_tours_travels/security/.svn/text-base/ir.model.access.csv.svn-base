@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ids_tours_travels_user,ids.tours.travel.user,model_ids_tours_travels,base.group_user,1,1,1,1
+access_ids_tours_travels_employee,ids.tours.travel.employee,model_ids_tours_travels,base.group_user,1,1,1,1
+access_ids_tours_travels_line_employee,ids.tours.travels.line.employee,model_ids_tours_travels_line,base.group_user,1,1,1,1
+access_ids_travel_mode_employee,ids.travel.mode.employee,model_ids_travel_mode,base.group_user,1,0,0,0

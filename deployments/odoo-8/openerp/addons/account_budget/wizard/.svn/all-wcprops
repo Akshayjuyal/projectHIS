@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard
+END
+account_budget_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/account_budget_report_view.xml
+END
+account_budget_analytic.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/account_budget_analytic.py
+END
+account_budget_crossovered_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/account_budget_crossovered_report_view.xml
+END
+account_budget_crossovered_summary_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/account_budget_crossovered_summary_report.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/__init__.py
+END
+account_budget_analytic_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/account_budget_analytic_view.xml
+END
+account_budget_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/account_budget_report.py
+END
+account_budget_crossovered_summary_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/account_budget_crossovered_summary_report_view.xml
+END
+account_budget_crossovered_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_budget/wizard/account_budget_crossovered_report.py
+END

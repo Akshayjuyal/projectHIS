@@ -1,0 +1,7 @@
+.oe_fields_color {
+    display: inline-block;
+    padding: 3px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+}

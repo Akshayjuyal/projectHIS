@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition
+END
+purchase_requisition_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/purchase_requisition_data.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/__init__.py
+END
+purchase_requisition.py
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/purchase_requisition.py
+END
+purchase_requisition_workflow.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/purchase_requisition_workflow.xml
+END
+purchase_requisition.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/purchase_requisition.pyc
+END
+purchase_requisition_sequence.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/purchase_requisition_sequence.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/__init__.pyc
+END
+purchase_requisition_demo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/purchase_requisition_demo.xml
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/__openerp__.py
+END
+purchase_requisition_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/purchase_requisition_report.xml
+END
+purchase_requisition_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/purchase_requisition_view.xml
+END

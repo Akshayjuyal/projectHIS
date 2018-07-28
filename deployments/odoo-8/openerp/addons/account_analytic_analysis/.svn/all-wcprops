@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis
+END
+analytic_account_demo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/analytic_account_demo.xml
+END
+account_analytic_analysis_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/account_analytic_analysis_view.xml
+END
+res_config.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/res_config.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/__init__.py
+END
+account_analytic_analysis.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/account_analytic_analysis.pyc
+END
+account_analytic_analysis_cron.xml
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/account_analytic_analysis_cron.xml
+END
+account_analytic_analysis.py
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/account_analytic_analysis.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/__init__.pyc
+END
+res_config_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/res_config_view.xml
+END
+res_config.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/res_config.pyc
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_analysis/__openerp__.py
+END

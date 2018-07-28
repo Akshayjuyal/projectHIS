@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+		<record id="view_holiday_status_form" model="ir.ui.view">
+            <field name="name">hr.holidays.status.form.extension</field>
+            <field name="model">hr.holidays.status</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/sheet/group/field[@name='categ_id']" position="replace">
+                        <field name="code"/>                        
+                    </xpath>
+                    <xpath expr="/form/sheet/notebook/page/group/group[@name='selection']/field[@name='limit']" position="after">
+                        <field name="one_time_apply_limit"/>
+                        <field name="yearly_apply_limit"/>
+                        <field name="leave_lapse_limit"/>
+                        <field name="yearly_apply_times"/>
+                        <field name="carry_forward"/>
+                        <field name="accumulated_limit" attrs="{'invisible':[('carry_forward', '=', False)], 'required':[('carry_forward', '=', True)]}"/>
+                        <field name="can_be_clubbed" />
+                        <field name="holiday_club_ids" attrs="{'invisible':[('can_be_clubbed', '=', False)]}">
+                        	<tree string="Leave can be clubbed with" editable="top">
+	                            <field name="with_holiday_id" />
+	                        </tree>	                        
+	                    </field>	  
+                        <field name="employee_confirmed"/>
+                        <field name="allowed_in_notice_period"/>
+                        <field name="allowed_for_half_day"/>
+                        <field name="encashable"/>
+                        <field name="day_before_apply"/>   <!-- Added By Satya -->                     
+                    </xpath>
+                    <xpath expr="//field[@name='active']" position="after">
+                        <field name="ex_rest_days"/>
+                        <field name="ex_public_holidays"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>        
+        <record id="view_holiday_status_tree" model="ir.ui.view">
+            <field name="name">hr.holidays.status.tree.extension</field>
+            <field name="model">hr.holidays.status</field>
+            <field name="inherit_id" ref="hr_holidays.view_holiday_status_normal_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/tree[@string='Leave Type']/field[@name='name']" position="after">
+                        <field name="code"/>                        
+                    </xpath>
+                </data>
+            </field>
+        </record>      
+        <record id="edit_holiday_new_form" model="ir.ui.view">
+            <field name="name">hr.holidays.form.inherit</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form" position="replace">
+		                <form string="Leave Request" version="7.0">
+			                <header>
+			                    <button string="Approve" name="validate" states="confirm" type="workflow" groups="ids_hr_holidays_extension.group_hr_leave" class="oe_highlight"/>
+			                    <button string="Validate" name="second_validate" states="validate1" type="workflow" groups="ids_hr_holidays_extension.group_hr_leave" class="oe_highlight"/>
+			                    <button string="Refuse" name="refuse" states="confirm" type="workflow" />
+			                    <button string="Refuse" name="refuse" states="validate,validate1" type="workflow" groups="ids_hr_holidays_extension.group_hr_leave"/>
+			                    <!--<button string="Reset to New" name="set_to_draft" states="refuse" type="object" groups="ids_hr_holidays_extension.group_hr_leave"/>-->
+			                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,validate" statusbar_colors='{"confirm":"blue","validate1":"blue","refuse":"red"}'/>
+			                </header>
+			                <sheet string="Leave Request">
+			                    <group>
+			                        <group>
+			                            <field name="type" invisible="1"/>
+			                            <field name="employee_id" attrs="{'required':[('holiday_type','=','employee')],'invisible':[('holiday_type','=','category')],'readonly':[('state','!=','draft')]}"/>
+			                            <field name="holiday_status_id" context="{'employee_id':employee_id}" on_change="onchange_holiday_type(holiday_status_id, holiday_allowed_value)" attrs="{'readonly':[('state','!=','draft')]}"/>
+			                            <field name="holiday_type" attrs="{'invisible': [('type', '=', 'remove')]}"/>
+			                            <field name="holiday_allowed_value" attrs="{'required': [('type', '=', 'remove')],'invisible': [('type', '=', 'add')]}" string="Days Requested" on_change="onchange_holiday_type(holiday_status_id, holiday_allowed_value)" />
+			                            <label for="date_from_temp" string="Duration" attrs="{'invisible': [('type', '=', 'add')]}"/>
+			                            <div attrs="{'invisible': [('type', '=', 'add')]}">
+			                                <group col="3" attrs="{'invisible': [('type', '=', 'add')]}">
+			                                    <field name="date_from_temp" nolabel="1" attrs="{'required': [('type', '=', 'remove')],'invisible': [('type', '=', 'add')]}" class="oe_inline" on_change="onchange_enddate(employee_id, date_from_temp, date_to_temp, holiday_status_id, holiday_allowed_value, first_half_temp, second_half_temp)" />
+			                                    <field name="second_half_temp" nolabel="1" class="oe_inline" on_change="onchange_enddate(employee_id, date_from_temp, date_to_temp, holiday_status_id, holiday_allowed_value, first_half_temp, second_half_temp)" />			                                    
+			                                	<label for="second_half_temp" string="Second Half"/>
+			                                </group>
+			                                <group col="3" attrs="{'invisible': [('type', '=', 'add')]}">			                                    
+			                                    <field name="date_to_temp" nolabel="1" attrs="{'required': [('type', '=', 'remove')],'invisible': [('type', '=', 'add')]}" class="oe_inline" on_change="onchange_enddate(employee_id, date_from_temp, date_to_temp, holiday_status_id, holiday_allowed_value, first_half_temp, second_half_temp)" />
+			                                    <field name="first_half_temp" nolabel="1" class="oe_inline" on_change="onchange_enddate(employee_id, date_from_temp, date_to_temp, holiday_status_id, holiday_allowed_value, first_half_temp, second_half_temp)" />
+			                                	<label for="first_half_temp" string="First Half"/>
+			                                </group>			                                
+			                            </div>                      
+			                            
+			                            <!-- <label for="number_of_days_temp" attrs="{'invisible': [('type', '=', 'remove')]}"/>
+                            			<div> -->
+                                			<field name="number_of_days_temp" class="oe_inline" attrs="{'invisible': [('type', '=', 'remove')]}"/> days
+                            			<!-- </div> -->
+			                            
+			                            <!--<field name="number_of_days_temp" on_change="onchange_by_number(number_of_days_temp, date_from, employee_id, holiday_status_id)" string="Days Requested" required="1" readonly="0"/> -->
+			                          <!--  
+			                            <label for="date_from" string="Duration" help="The default duration interval between the start date and the end date is 8 hours.  Feel free to adapt it to your needs."/>
+			                            <div>
+			                                <group col="3">
+			                                    <field name="date_from" nolabel="1" attrs="{'required': [('type', '=', 'remove')],'invisible': [('first_half_temp', '!=', True),('second_half_temp', '!=', True)]}" class="oe_inline"/><label string="-" class="oe_inline"/>
+			                                    <field name="date_to" nolabel="1" attrs="{'required': [('type', '=', 'remove')],'invisible': [('first_half_temp', '!=', True),('second_half_temp', '!=', True)]}" class="oe_inline"/>
+			                                </group>
+			                            </div> -->
+			                        </group>
+			                        <group>
+			                            <field name="name" attrs="{'readonly':[('state','!=','draft'),('state','!=','confirm')], 'required':True}" />
+			                            <field name="department_id" readonly="1" groups="base.group_hr_user"/>
+			                        </group>
+			                    </group>
+			                    <group>
+			                        <group>
+			                            <field name="return_date" attrs="{'invisible': [('type', '=', 'add')]}"/>
+			                        </group>
+			                        <group>
+			                            <field name="rest_days" attrs="{'invisible': [('type', '=', 'add')]}"/>
+			                            <field name="public_holiday_days" attrs="{'invisible': [('type', '=', 'add')]}"/>
+			                            <field name="real_days" attrs="{'invisible': [('type', '=', 'add')]}"/>
+			                        </group>
+			                    </group>
+			                    <field name="notes" nolabel="1" colspan="4" placeholder="Add a reason..." attrs="{'invisible': [('type', '=', 'remove')]}"/>
+			                </sheet>
+			                <div class="oe_chatter">
+			                    <field name="message_follower_ids" widget="mail_followers"/>
+			                    <field name="message_ids" widget="mail_thread"/>
+			                </div>
+		                </form>
+                	</xpath>
+                </data>
+            </field>
+        </record>        
+    </data>
+</openerp>

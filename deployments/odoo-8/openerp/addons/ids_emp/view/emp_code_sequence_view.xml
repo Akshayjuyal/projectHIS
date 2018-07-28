@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Sequences for Regular Employee code -->
+        <record id="emp_code_sequence" model="ir.sequence.type">
+            <field name="name">Employee Code</field>
+            <field name="code">hr.employee</field>
+        </record>
+
+        <record id="seq_hr_employee" model="ir.sequence">
+            <field name="name">Employee Code</field>
+            <field name="code">hr.employee</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <!-- End of code for employee code sequence-->
+        
+        <!-- Sequences for Trainee code -->
+        <record id="trainee_code_sequence" model="ir.sequence.type">
+            <field name="name">Trainee Code</field>
+            <field name="code">hr.trainee</field>
+        </record>
+        
+        <record id="seq_hr_trainee" model="ir.sequence">
+            <field name="name">Trainee Code</field>
+            <field name="code">hr.trainee</field>
+            <field name="padding">5</field>
+            <field name="prefix">TR</field>
+            <field name="company_id" eval="False"/>
+        </record>
+		<!-- End of code for Trainee code sequence-->
+		
+		<!-- Sequences for Consultant code -->
+        <record id="consultant_code_sequence" model="ir.sequence.type">
+            <field name="name">Consultant Code</field>
+            <field name="code">hr.consultant</field>
+        </record>
+        
+        <record id="seq_hr_consultant" model="ir.sequence">
+            <field name="name">Consultant Code</field>
+            <field name="code">hr.consultant</field>
+            <field name="padding">5</field>
+            <field name="prefix">CN</field>
+            <field name="company_id" eval="False"/>
+        </record>
+		<!-- End of code for Consultant code sequence-->
+		
+		<!-- Sequences for Contractual code -->
+        <record id="contractual_code_sequence" model="ir.sequence.type">
+            <field name="name">Contractual Code</field>
+            <field name="code">hr.contractual</field>
+        </record>
+        
+        <record id="seq_hr_contractual" model="ir.sequence">
+            <field name="name">Contractual Code</field>
+            <field name="code">hr.contractual</field>
+            <field name="padding">5</field>
+            <field name="prefix">CT</field>
+            <field name="company_id" eval="False"/>
+        </record>
+		<!-- End of code for Contractual code sequence-->
+		
+		<!-- Sequences for Stipend code -->
+        <record id="stipend_code_sequence" model="ir.sequence.type">
+            <field name="name">Stipend Code</field>
+            <field name="code">hr.stipend</field>
+        </record>
+        
+        <record id="seq_hr_stipend" model="ir.sequence">
+            <field name="name">Stipend Code</field>
+            <field name="code">hr.stipend</field>
+            <field name="padding">5</field>
+            <field name="prefix">S</field>
+            <field name="company_id" eval="False"/>
+        </record>
+		<!-- End of code for Stipend code sequence-->
+		
+    </data>
+</openerp>

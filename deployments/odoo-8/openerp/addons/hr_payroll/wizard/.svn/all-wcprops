@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard
+END
+hr_payroll_payslips_by_employees.py
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard/hr_payroll_payslips_by_employees.py
+END
+hr_payroll_contribution_register_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard/hr_payroll_contribution_register_report.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard/__init__.py
+END
+hr_payroll_contribution_register_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard/hr_payroll_contribution_register_report.xml
+END
+hr_payroll_payslips_by_employees.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard/hr_payroll_payslips_by_employees.xml
+END
+hr_payroll_contribution_register_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard/hr_payroll_contribution_register_report.pyc
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard/__init__.pyc
+END
+hr_payroll_payslips_by_employees.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_payroll/wizard/hr_payroll_payslips_by_employees.pyc
+END

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="ids_reward_details">
+	<t t-set="data_report_margin_top" t-value="5"/>
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+       		<div class="page">
+            	<table width="100%">
+                	<tr>
+                   		<td WIDTH="60%" HEIGHT="9" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                   			<t t-if="o.employee_id.company_id.id==1"> <img class="img img-responsive" src="/ids_hr_reward/static/src/img/company_logo.png" style="max-height:35px;align:left"/></t>
+                   			<t t-if="o.employee_id.company_id.id==2"> <img class="img img-responsive" src="/ids_hr_reward/static/src/img/company_logo1.png" style="max-height:35px;align:left"/></t>
+                   			<t t-if="o.employee_id.company_id.id==3"> <img class="img img-responsive" src="/ids_hr_reward/static/src/img/company_logo.jpeg" style="max-height:35px;align:left"/></t>
+                   			 <center><h4><b>IDS INFOTECH LTD.</b></h4></center></td>
+                   		<td WIDTH="40%" HEIGHT="9"  STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                   			<h4><center><b>Reward and Recognition Form</b></center></h4></td>
+                   	</tr>
+                </table>
+                <table width="100%">
+                	<tr>
+                   		<td WIDTH="35%" HEIGHT="9" STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                   			<center><h4><b>IDS/PDG/SOP7/FRM1</b></h4></center></td>
+                   		<td WIDTH="35%" HEIGHT="9"  STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                   			<h4><center><b>Status: Approved Copy</b></center></h4></td>
+                   		<td WIDTH="30%" HEIGHT="9"  STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                   			<h4><center><b>Revision: 1.1</b></center></h4></td>
+                   	</tr>
+                    </table>
+                    
+                    
+<TABLE WIDTH="100%" CELLPADDING="50" CELLSPACING="50">
+	<TR VALIGN="TOP">
+		<TD WIDTH="20%" HEIGHT="20">
+			<b></b>
+		</TD>
+		<TD WIDTH="1%"></TD>
+		<TD WIDTH="15%">
+		</TD>
+		<TD WIDTH="17%" HEIGHT="20">
+			<b></b>
+		</TD>
+		<TD WIDTH="1%"></TD>
+		<TD WIDTH="20%">
+			
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="20%" HEIGHT="20">
+			<b></b>
+		</TD>
+		<TD WIDTH="1%"></TD>
+		<TD WIDTH="15%">
+		</TD>
+		<TD WIDTH="17%" HEIGHT="20">
+			<b></b>
+		</TD>
+		<TD WIDTH="1%"></TD>
+		<TD WIDTH="20%">
+			
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="27%" HEIGHT="9" style="font-size:17px">
+			<b>Name of the Nominee</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="30%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.employee_id.name_related"/>
+			</P>
+		</TD>
+		<TD WIDTH="20%" style="font-size:17px">
+			<b>Date of Joining</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="25%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.employee_id.joining_date"/>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="25%" style="font-size:17px" >
+			<b>Employee Code</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="15%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.emp_code"/>
+			</P>
+		</TD>
+		<TD WIDTH="20%" style="font-size:17px">
+			<b>Current Position</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="25%" style="font-size:17px">
+			
+			<P ALIGN="LEFT"><span t-field="o.job_id"/>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="25%" style="font-size:17px">
+			<b>In this Position since</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="20%"  style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.employee_id.joining_date"/>
+			</P>
+		</TD>
+		<TD WIDTH="20%" style="font-size:17px">
+			<b>Department</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="25%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.department_id"/>
+			</P>
+		</TD>
+	</TR>
+	
+	<TR VALIGN="TOP">
+		<TD WIDTH="25%" style="font-size:17px">
+			<b>Nominated By</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="10%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.nominator_id"/>
+			</P>
+		</TD>
+		<TD WIDTH="20%" style="font-size:17px">
+			<b>Title</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="30%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.nominator_job_id"/>
+			</P>
+		</TD>
+	</TR>
+
+	<TR VALIGN="TOP">
+		<TD WIDTH="25%" style="font-size:17px">
+			<b>Department</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="25%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.nominator_department_id"/>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<p></p><br></br>
+<p style="font-size:17px">The nominee has been recommended for an award in line with the Reward and Recognition policy as per details given below:-</p>
+<TABLE WIDTH="100%" CELLPADDING="50" CELLSPACING="50">
+	<TR VALIGN="TOP">
+		<TD WIDTH="23%" HEIGHT="20" style="font-size:17px">
+			<b>Award Recommended</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="30%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.award_id"/>
+			</P>
+		</TD>
+		<TD WIDTH="15%" HEIGHT="20" style="font-size:17px">
+			<b>For</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="20%" style="font-size:17px">
+			<P ALIGN="LEFT"><t t-if="o.award_id.award_type=='monthly'"><span t-field="o.period_month"/></t>
+			<t t-if="o.award_id.award_type=='quarterly'"><span t-field="o.period_quarter"/></t>
+			<t t-if="o.award_id.award_type=='yearly'"><span t-field="o.period_year"/></t>
+			</P>
+		</TD>
+	</TR>
+</TABLE> 
+<p></p><br></br> 
+<p style="font-size:17px">What are the achievement / accomplishment for which the employee is nominated for the award? </p>
+<TABLE WIDTH="100%" CELLPADDING="50" CELLSPACING="50" style="border: 1px solid black;" HEIGHT="70">
+	<TR VALIGN="TOP">
+		<TD WIDTH="10%" style="font-size:17px">
+		<P ALIGN="LEFT"><span t-field="o.achievements"/>
+			</P>
+		</TD>
+	</TR>
+</TABLE>  
+<p></p><br></br> 
+<p style="font-size:17px">What impact did this achievement have on the Organization?</p>
+<TABLE WIDTH="100%" CELLPADDING="50" CELLSPACING="50" style="border: 1px solid black;" HEIGHT="70">
+	<TR VALIGN="TOP">
+		<TD WIDTH="10%" style="font-size:17px">
+		<P ALIGN="LEFT"><span t-field="o.impact"/>
+			</P>
+		</TD>
+	</TR>
+</TABLE>   
+<p></p><br></br>	
+<p style="font-size:17px">If applicable, please provide the waitages of the following:  </p>   
+<TABLE WIDTH="100%" CELLPADDING="50" CELLSPACING="50" style="border: 1px solid black;" HEIGHT="70">
+	<TR VALIGN="TOP">
+		<TD WIDTH="25%" style="font-size:17px">
+			<b>Productivity(40)</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="10%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.productivity"/>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="25%" style="font-size:17px">
+			<b>Quality(40)</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="10%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.quality"/>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="25%" style="font-size:17px">
+			<b>Attendance(10)</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="10%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.attendance"/>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="25%" style="font-size:17px">
+			<b>Attitude/General Behavior(10)</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="10%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.behaviour"/>
+			</P>
+		</TD>
+	</TR>
+</TABLE> 
+<p></p><br></br> 
+<TABLE WIDTH="100%" CELLPADDING="50" CELLSPACING="50">
+	<TR VALIGN="TOP">
+		<TD WIDTH="15%" HEIGHT="20" style="font-size:17px">
+			<b>Approved By</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="40%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.nominator_id.parent_id.name_related"/>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="15%" HEIGHT="9" style="font-size:17px">
+			<b>Nominator</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="39%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.nominator_id.name_related"/>
+			</P>
+		</TD>
+		<TD WIDTH="15%" style="font-size:17px">
+			<b>Group Head</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="39%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.nominator_id.parent_id.name_related"/>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN="TOP">
+		<TD WIDTH="15%" style="font-size:17px">
+			<b>Location PDG</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="20%">
+			<P ALIGN="LEFT">____________________
+			</P>
+		</TD>
+		<TD WIDTH="15%" style="font-size:17px">
+			<b>Date</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="25%" style="font-size:17px">
+			
+			<P ALIGN="LEFT"><span t-field="o.award_date"/>
+			</P>
+		</TD>
+	</TR>
+	<p></p><br></br>
+	<TR VALIGN="TOP">
+		<TD WIDTH="15%" style="font-size:17px">
+			<b>Head PDG</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="28%" >
+			<P ALIGN="LEFT">_____________________
+			</P>
+		</TD>
+		<TD WIDTH="15%" style="font-size:17px">
+			<b>Date</b>
+		</TD>
+		<TD WIDTH="1%">:</TD>
+		<TD WIDTH="30%" style="font-size:17px">
+			<P ALIGN="LEFT"><span t-field="o.award_date"/>
+			</P>
+		</TD>
+	</TR>
+</TABLE> 
+<p></p><br></br> 
+<p></p><br></br>
+<p></p><br></br>   
+____________ <BR></BR>
+<p style="font-size:17px">PDG HEAD</p>     
+                </div>
+            </t>
+   </t>
+</template>
+</data>
+</openerp>

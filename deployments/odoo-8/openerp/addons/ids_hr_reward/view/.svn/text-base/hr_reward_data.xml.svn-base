@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Alert-related subtypes for messaging / Chatter -->
+        
+        <record id="mt_alert_reward_confirmed" model="mail.message.subtype">
+            <field name="name">Reward &amp; Recognitions - Confirmed</field>
+            <field name="res_model">ids.hr.reward</field>
+            <field name="description">Reward &amp; Recognitions Submitted</field>
+        </record>
+        
+        <record id="mt_alert_reward_done" model="mail.message.subtype">
+            <field name="name">Reward &amp; Recognitions - Completed</field>
+            <field name="res_model">ids.hr.reward</field>
+            <field name="description">Reward &amp; Recognitions Complete</field>
+        </record>
+        
+    </data>
+</openerp>

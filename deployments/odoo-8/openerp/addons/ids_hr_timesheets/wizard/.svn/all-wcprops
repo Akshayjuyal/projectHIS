@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/IDS-CLIENTODOO-2016/!svn/ver/375/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheets/wizard
+END
+timesheet_weekly_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/542/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheets/wizard/timesheet_weekly_report.py
+END
+timesheet_attendance_analysis.py
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/540/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheets/wizard/timesheet_attendance_analysis.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/544/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheets/wizard/__init__.py
+END
+ids_timesheet_wizard.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/543/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheets/wizard/ids_timesheet_wizard.py
+END
+ids_timesheet_wizard.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/375/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheets/wizard/ids_timesheet_wizard.xml
+END
+timesheet_weekly_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/375/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheets/wizard/timesheet_weekly_report.xml
+END
+timesheet_attendance_analysis.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/541/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_timesheets/wizard/timesheet_attendance_analysis.xml
+END

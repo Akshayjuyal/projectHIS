@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/IDS-CLIENTODOO-2016/!svn/ver/555/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_emp/view
+END
+ids_hr_employee_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/556/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_emp/view/ids_hr_employee_view.xml
+END
+emp_code_sequence_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_emp/view/emp_code_sequence_view.xml
+END

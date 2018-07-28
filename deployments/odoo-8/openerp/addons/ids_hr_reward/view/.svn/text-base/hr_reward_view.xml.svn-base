@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="hr_reward_tree_view" model="ir.ui.view">
+            <field name="name">ids.hr.reward.tree</field>
+            <field name="model">ids.hr.reward</field>
+            <field name="arch" type="xml">
+            	<tree colors="red:state == 'cancel';blue:state == 'draft';green:state == 'approve';purple:state == 'confirm';black:state == 'done'" string="Rewards &amp; Recognitions">
+                    <field name="employee_id"/>
+                    <field name="emp_code"/>
+                    <field name="nominator_id"/>
+                    <field name="award_id"/>
+                    <field name="award_date" string='Initiated Date'/>                    
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="hr_reward_form_view" model="ir.ui.view">
+            <field name="name">ids.hr.reward.form</field>
+            <field name="model">ids.hr.reward</field>
+            <field name="arch" type="xml">
+                <form string="Rewards &amp; Recognitions">
+                	<header>
+                        <button name="state_confirm" type="object" states="draft" string="Submit" class="oe_highlight" groups="ids_employee_confirmation.group_hr_confirmation" />                            
+                        <button name="state_approve" type="object" states="confirm" string="Approve"  class="oe_highlight" groups="ids_emp.group_business_head"/>
+				    	<button name="state_cancel" states="confirm" string="Refuse" type="object" class="oe_highlight" groups="ids_emp.group_business_head"/>
+                        <button name="state_done" type="object" states="approve" string="Allocate Reward" class="oe_highlight" groups="ids_emp.group_location_hr" />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+	                    <group col="4">
+	                        <field name="employee_id" on_change="onchange_employee(employee_id)" domain="['|',('parent_id.user_id','=',uid),('parent_id.parent_id.user_id','=',uid)]" />
+			    			<field name="emp_code"/>                                
+			    			<field name="job_id" widget="selection" on_change="onchange_employee(employee_id)" />			    			
+	                        <field name="department_id" />
+	                        <field name="award_date" attrs="{'readonly':[('state','!=','draft')]}"/>
+	                        <field name="nominator_id" on_change="onchange_nominated_by(nominator_id)" />
+				    		<field name="nominator_emp_code" />                                
+				    		<field name="nominator_job_id"/>
+				    		<field name="nominator_department_id" />
+	                        <field name="awd_type" invisible="1" />	
+	                       	<group colspan="4">
+		                        <field name="award_id" on_change="onchange_award(award_id)" />
+		                    </group>
+	                        <label for="period_month" string="Period" />
+		                	<div colspan="3">
+			                	<group col="4">
+				    				<field name="period_month" attrs="{'invisible':[('awd_type','!=','monthly')], 'required':[('awd_type','=','monthly')]}" class="oe_inline" />
+				    				<field name="period_quarter" attrs="{'invisible':[('awd_type','!=','quarterly')], 'required':[('awd_type','=','quarterly')]}" class="oe_inline" />
+				    				<field name="period_year" class="oe_inline" required="1" />
+				    			</group>
+		                	</div>		
+		                	<group colspan="4">
+	                            <field name="achievements" />
+				    			<field name="impact" />
+				    			<separator colspan="4" />	
+								<label colspan="4" string="If applicable, please provide the waitages of the following:  "/> 
+								<separator colspan="4" />
+								<field name="productivity"/>
+								<field name="quality"/>
+								<field name="attendance"/>
+								<field name="behaviour"/> 
+								<separator colspan="4" />
+				    			<field name="remarks_reward"/> 
+				    		</group>
+			    		</group>                         
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_hr_reward" model="ir.actions.act_window">
+            <field name="name">Rewards &amp; Recognitions</field>
+            <field name="res_model">ids.hr.reward</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record id="view_reward_filter" model="ir.ui.view">
+            <field name="name">Rewards &amp; Recognitions</field>
+            <field name="model">ids.hr.reward</field>
+            <field name="arch" type="xml">
+	            <search string="Employees">
+	                    <field name="employee_id" string="Employees"/>
+		    			<group expand="0" string="Group By">
+	                        <filter string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+	                        <filter string="Award Type" icon="terp-personal" domain="[]" context="{'group_by':'award_id'}"/>
+	                        <filter string="State" icon="terp-personal+" domain="[]" context="{'group_by':'state'}"/>
+                    </group>
+		        </search>
+            </field>
+        </record>      	
+        <menuitem id="menu_hr_reward" action="open_hr_reward" parent="hr.menu_hr_main" sequence="141" groups="base.group_user" />
+        
+    </data>
+</openerp>

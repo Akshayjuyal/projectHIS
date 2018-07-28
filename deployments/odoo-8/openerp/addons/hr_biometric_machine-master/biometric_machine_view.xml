@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<!-- Biometric Machine Form -->
+    	
+        <record id="view_biometric_machine_form" model="ir.ui.view">
+		<field name="name">biometric.machine.form</field>
+		<field name="model">biometric.machine</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+		<form string="Biometric Machine">
+				<sheet>
+					 <h1>
+						<field name="name" required="1" placeholder="Machine IP"/>
+					</h1> 
+				<div class="oe_right oe_button_box">
+					<button name="clear_attendance" string="Clear Data" class="oe_stat_button" icon="fa-remove " confirm="Are you sure you want to do this?" type="object"/>
+					<button name="download_attendance"  string="Download Data" class="oe_stat_button" icon="fa-download " type="object" confirm="Are you sure you want to do this?" />
+				</div>
+				<br/><br/><br/>
+				<group col="4"  colspan="4"> 
+					<field name="port" required="1"/>
+					<field name="password"/>
+					<field name="ref_name" required="1"/>
+					<field name="address_id"/>
+					<field name="company_id"/>
+				</group>
+				<notebook>
+					<page string="Attendances Line">
+     					<field name="atten_ids" nolable="1" readonly='1'>
+     						<tree string="Raw Attendances" >
+ 	    						<field name="emp_code" readonly="1"/>
+ 	    						<field name="name" readonly="1"/>
+ 	    						<field name="status" readonly="1"/>
+     						</tree>
+     					</field>
+     				</page>
+				</notebook>
+			</sheet>
+		</form>
+		</field>
+	</record>
+
+	<record id="view_biometric_machine_tree" model="ir.ui.view">
+		<field name="name">biometric.machine.tree</field>
+		<field name="model">biometric.machine</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Biometric Machine">
+				<field name="name"/>
+				<field name="ref_name"/>
+				<field name="address_id"/>
+				<field name="company_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="open_view_attendance_machine" model="ir.actions.act_window">
+            <field name="name">Attendances</field>
+            <field name="res_model">biometric.machine</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+	
+		
+		
+	<menuitem id="id_biometric_machine" sequence="1" name="Biometric Attendances" />	
+	<menuitem id="id_add_bio_machine" parent="id_biometric_machine" sequence="2" name="Biometric Device Manager" />	
+
+    <menuitem id="id_add_bio_machine_new" parent="id_add_bio_machine"  name="Attendance Machine CTP" action="open_view_attendance_machine" />	
+        
+       <!-- Biometric data Form --> 
+     <record id="view_biometric_data_form" model="ir.ui.view">
+		<field name="name">biometric.data.form</field>
+		<field name="model">biometric.data</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+		<form string="Biometric Attendance CTP">
+			<sheet>
+				<group col="4"  colspan="4"> 
+					<field name="emp_code" readonly="1"/>
+ 	    			<field name="name" readonly="1"/>
+ 	    			<field name="status" readonly="1"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+
+	<record id="view_biometric_data_tree" model="ir.ui.view">
+		<field name="name">biometric.data.tree</field>
+		<field name="model">biometric.data</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Biometric Attendance CTP">
+				<field name="emp_code" readonly="1"/>
+ 	    		<field name="name" readonly="1"/>
+ 	    		<field name="status" readonly="1"/>
+			</tree>
+		</field>
+	</record>
+	
+	<record id="view_biometric_data_filter" model="ir.ui.view">
+            <field name="name">Attendance CTP</field>
+            <field name="model">biometric.data</field>
+            <field name="arch" type="xml">
+                <search string="Attendance CTP Search">
+                    <field name="emp_code" string="Employee"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'emp_code'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+	<record id="open_view_biometric_data" model="ir.actions.act_window">
+            <field name="name">Attendance CTP</field>
+            <field name="res_model">biometric.data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_biometric_data_filter"/>
+        </record>
+	
+		
+		
+	<menuitem id="id_bio_attendance" parent="id_biometric_machine" sequence="2" name="Biometric Attendances" />	
+
+    <menuitem id="id_attendance_ctp" parent="id_bio_attendance"  name="Attendance CTP" action="open_view_biometric_data" />	
+           
+        
+     </data>
+</openerp>

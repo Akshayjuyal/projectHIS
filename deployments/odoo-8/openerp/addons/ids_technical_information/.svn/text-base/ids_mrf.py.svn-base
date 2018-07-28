@@ -1,0 +1,225 @@
+from openerp.osv import osv,fields
+from openerp import netsvc
+from openerp.tools.translate import _ 
+
+class ids_mrf(osv.osv):
+    
+    _name = 'ids.mrf'
+    _description = 'MRF'
+    _inherit = ['mail.thread', 'ir.needaction_mixin']
+    
+    NUMBER_LIST = [(str(i),str(i)) for i in range(1,101)]
+    EMPLOYEE_TYPE_LIST = [('permanent','Permanent'),('contractual','Contractual'),('consultant','Consultant'),('stipend','Stipend'), ('trainee','Trainee')]  
+    #EXP_LIST = [(str(j),str(j)) for j in range(0,26)]
+    EXP_LIST = [(j,j) for j in range(0,26)]
+    
+    def _default_employee(self, cr, uid, context=None):
+        emp_ids = self.pool.get('hr.employee').search(cr, uid, [('user_id','=',uid)], context=context)
+        return emp_ids and emp_ids[0] or False
+    
+    def onchange_job(self, cr, uid, ids, job_id, context=None):
+        job_description =''
+        res = {'value': {'job_desc': ''}}
+        obj_job = self.pool.get('hr.job')           
+            
+        if job_id:
+            record = obj_job.browse(cr,uid,job_id,context=context)
+            if record:    
+                job_description = record.description
+        
+        res['value']['job_desc'] = job_description                 
+        return res
+    
+    def _get_job_desc(self, cr, uid, ids, name, args, context=None):
+                
+        result = {}
+        job_description =''
+        
+        job_value = self.pool.get('ids.mrf').read(cr, uid, ids[0], ['job_id'])
+        
+        if job_value and job_value['job_id']:            
+            job_id = job_value['job_id'][0]
+                        
+            if job_id:
+                for self_obj in self.pool.get('hr.job').browse(cr,uid,[job_id],context=context):
+                    if self_obj.description:
+                        job_description = self_obj.description
+                
+        for self_obj_new in self.browse(cr, uid, ids, context=context):
+            result[self_obj_new.id] = job_description                     
+                
+        return result 
+    
+    _columns = {
+                'mrf_number':fields.char('MRF Number', size=15, readonly=True),
+                'department_id' : fields.many2one('hr.department', 'From Department', required=True),                
+                'requested_employee_id' : fields.many2one('hr.employee','Requested By', help='This area is automatically filled by the user who raises the MRF'),
+                'requested_user_id':fields.related('requested_employee_id', 'user_id', type='many2one', relation='res.users', string='User', store=True),
+                'request_date':fields.date('Date'),
+                'category' : fields.selection([('additional','Additional'),('replacement','Replacement')], 'Category', required=True),
+                'job_id' : fields.many2one('hr.job','Designation', required=True),                
+                'name' : fields.char('Subject', size = 30, required = True),
+                'number' : fields.selection(NUMBER_LIST, 'Number to Recruit', required=True),
+                'employee_type' : fields.selection(EMPLOYEE_TYPE_LIST, 'Employee Type', required=True),
+                'hired' : fields.char('Already Hired', size = 3),
+                'time_frame' : fields.date('Time Frame'),                
+                'experience_from' : fields.selection(EXP_LIST, required=True),
+                'experience_to' : fields.selection(EXP_LIST, required=True),
+                'ctc' : fields.float('CTC (in lacs)', size = 200, required=True),
+                'remarks' : fields.text('Remarks', size = 200),
+                'job_desc':fields.function(_get_job_desc, type='text', method=True, store=False, readonly=True, string='Job Description'),
+                'manager_id1': fields.many2one('hr.employee', 'First Approval', invisible=False, readonly=True, help='This area is automatically filled by the user who approve/validate the resignation at first level'),
+                'manager_id2': fields.many2one('hr.employee', 'Second Approval', invisible=False, readonly=True, help='This area is automatically filled by the user who approve/validate the resignation at second level'),
+                'manager_id3': fields.many2one('hr.employee', 'Third Approval', invisible=False, readonly=True, help='This area is automatically filled by the user who approve/validate the resignation at third level'),
+                #'manager_id4': fields.many2one('hr.employee', 'Fourth Approval', invisible=False, readonly=True, help='This area is automatically filled by the user who approve/validate the resignation at fourth level'),
+                #'state': fields.selection([('draft','Draft'),('submit','To Approve'),('validate1','Second Approval'),('validate2','Third Approval'),('validate3','Fourth Approval'),('validate','Approved'),('reject','Rejected')], 'State', readonly=True),
+                'state': fields.selection([('draft','Draft'),('submit','To Approve'),('validate1','Second Approval'),('validate2','Third Approval'),('validate','Approved'),('reject','Rejected')], 'State', readonly=True),
+                #'is_hr_manager':fields.function(is_hr_manager, type='boolean', method=True, store=False, string='Visibility'),                            
+                         
+                }
+    
+    _rec_name = 'mrf_number'
+    
+    _defaults = {
+                'state': 'draft',
+                'hired': '0',
+                'request_date': fields.date.context_today,
+                'requested_employee_id': _default_employee
+                }
+    
+    _sql_constraints = [
+        ('date_check', "CHECK (time_frame >= now())", "Time Frame date should be greater than current date."),
+        ('emp_check', "CHECK (experience_to >= experience_from)", "Experience To should be equal to or greater than Experience From.")        
+    ] 
+    
+    def create(self, cr, uid, vals, context=None):
+        vals['mrf_number']=self.pool.get('ir.sequence').get(cr, uid,'ids.mrf')
+        res=super(ids_mrf, self).create(cr, uid, vals)
+        return res
+    
+    '''def write(self, cr, uid, ids, vals, context=None):
+        
+        vals['experience_from'] = int(vals['experience_from'])
+        vals['experience_to'] = int(vals['experience_to']) 
+        res=super(ids_mrf, self).write(cr, uid, ids, vals)
+        return res'''
+        
+    def unlink(self, cr, uid, ids, context=None):
+        for rec in self.browse(cr, uid, ids, context=context):
+            if rec.state in ['validate', 'reject']:
+                raise osv.except_osv(_('Warning!'),_('You cannot delete Approved or Rejected MRF.'))
+        return super(ids_mrf, self).unlink(cr, uid, ids, context)
+    
+    def mrf_submit(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {'state': 'submit'})     
+
+    def mrf_first_validate(self, cr, uid, ids, context=None):
+        self._check_validate(cr, uid, ids, context=context)   
+        self.mrf_first_validate_notificate(cr, uid, ids, context=context)
+        return self.write(cr, uid, ids, {'state':'validate1', 'manager_id1': self._default_employee(cr, uid, context)})  
+    
+    def mrf_second_validate(self, cr, uid, ids, context=None):
+        self._check_validate(cr, uid, ids, context=context)   
+        self.mrf_second_validate_notificate(cr, uid, ids, context=context)
+        return self.write(cr, uid, ids, {'state':'validate2', 'manager_id2': self._default_employee(cr, uid, context)})  
+    
+    def mrf_third_validate(self, cr, uid, ids, context=None):
+        self._check_validate(cr, uid, ids, context=context)   
+        self.mrf_third_validate_notificate(cr, uid, ids, context=context)
+        return self.write(cr, uid, ids, {'state':'validate3', 'manager_id3': self._default_employee(cr, uid, context)})  
+    
+    def mrf_validate(self, cr, uid, ids, context=None):   
+        
+        self._check_validate(cr, uid, ids, context=context)
+        self.mrf_validate_notificate(cr, uid, ids, context=context)
+        self.update_job_positions(cr, uid, ids, 'add', context=context)
+                
+        return self.write(cr, uid, ids, {'state':'validate', 'manager_id3': self._default_employee(cr, uid, context)})
+        return False  
+    
+    def mrf_reject(self, cr,uid, ids, context=None):
+        self.mrf_reject_notificate(cr, uid, ids, context=context)
+        obj_mrf = self.browse(cr, uid, ids)
+        state = ''
+        for record in obj_mrf:            
+            state = record.state
+        
+        #if job positions has been added to hr_jobs table
+        if state == 'validate':
+            self.update_job_positions(cr, uid, ids, 'reject', context=context)
+        
+        return self.write(cr, uid, ids, {'state':'reject'})
+    
+    def _check_validate(self, cr, uid, ids, context=None):
+        
+        users_obj = self.pool.get('res.users')
+        
+        if not users_obj.has_group(cr, uid, 'base.group_hr_manager'):
+            for mrf in self.browse(cr, uid, ids, context=context):
+                if mrf.requested_employee_id.user_id.id == uid:
+                    raise osv.except_osv(_('Warning!'), _('You cannot approve your own requested MRF'))
+                if (mrf.manager_id1 and mrf.manager_id1.user_id.id == uid) or (mrf.manager_id2 and mrf.manager_id2.user_id.id == uid) or (mrf.manager_id3 and mrf.manager_id3.user_id.id == uid):
+                    raise osv.except_osv(_('Warning!'), _('You have already approved the MRF'))
+        return True
+    
+    def update_job_positions(self, cr, uid, ids, ops, context=None):
+        obj_mrf = self.browse(cr, uid, ids)
+        job_id = 0
+        no_of_recruitment = 0        
+        for record in obj_mrf:
+            
+            job_id = record.job_id.id
+            no_of_recruitment = record.number            
+                
+            #update hr_job table with new openings
+            obj_job = self.pool.get('hr.job')
+            record = obj_job.browse(cr,uid,job_id,context=context)
+            current_openings = record.no_of_recruitment
+            if ops == 'add':
+                obj_job.write(cr, uid , [job_id], {'no_of_recruitment':float(no_of_recruitment)+current_openings})
+            else:
+                obj_job.write(cr, uid , [job_id], {'no_of_recruitment':float(no_of_recruitment)-current_openings})
+            
+    # -----------------------------
+    # OpenChatter and notifications
+    # -----------------------------
+    
+    def mrf_first_validate_notificate(self, cr, uid, ids, context=None):
+        for obj in self.browse(cr, uid, ids, context=context):
+            self.message_post(cr, uid, [obj.id],
+                _("MRF approved, waiting for second level approval."), context=context)
+            
+    def mrf_second_validate_notificate(self, cr, uid, ids, context=None):
+        for obj in self.browse(cr, uid, ids, context=context):
+            self.message_post(cr, uid, [obj.id],
+                _("MRF approved, waiting for third level approval."), context=context)
+
+    def mrf_third_validate_notificate(self, cr, uid, ids, context=None):
+        for obj in self.browse(cr, uid, ids, context=context):
+            self.message_post(cr, uid, [obj.id],
+                _("MRF approved, waiting for fourth level approval."), context=context)
+            
+    def mrf_validate_notificate(self, cr, uid, ids, context=None):
+        for obj in self.browse(cr, uid, ids, context=context):
+            self.message_post(cr, uid, [obj.id],
+                _("MRF approved."), context=context)
+    
+    def mrf_reject_notificate(self, cr, uid, ids, context=None):
+        for obj in self.browse(cr, uid, ids, context=context):
+            self.message_post(cr, uid, [obj.id],
+                _("MRF Rejected."), context=context)
+            
+class hr_applicant(osv.osv):
+    
+    _inherit="hr.applicant"
+    
+    _columns = {
+        'mrf_id' : fields.many2one('ids.mrf', 'MRF', required=True)    
+    }   
+    
+    def onchange_mrf(self, cr, uid, ids, mrf_id, context=None):
+        if mrf_id:
+            mrf_record = self.pool.get('ids.mrf').browse(cr, uid, mrf_id, context=context)
+            if mrf_record and mrf_record.job_id:
+                return {'value': {'job_id': mrf_record.job_id.id}}
+        return {}

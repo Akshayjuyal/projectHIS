@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/IDS-CLIENTODOO-2016/!svn/ver/397/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward/view
+END
+ids_reward_details.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/465/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward/view/ids_reward_details.xml
+END
+ids_reward_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/397/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward/view/ids_reward_report.xml
+END
+hr_reward_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/376/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward/view/hr_reward_view.xml
+END
+hr_reward_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward/view/hr_reward_data.xml
+END

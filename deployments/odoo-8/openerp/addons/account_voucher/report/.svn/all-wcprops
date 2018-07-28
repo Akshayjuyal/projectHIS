@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_voucher/report
+END
+account_voucher_sales_receipt.py
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_voucher/report/account_voucher_sales_receipt.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_voucher/report/__init__.py
+END
+account_voucher_sales_receipt_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_voucher/report/account_voucher_sales_receipt_view.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_voucher/report/__init__.pyc
+END
+account_voucher_sales_receipt.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_voucher/report/account_voucher_sales_receipt.pyc
+END

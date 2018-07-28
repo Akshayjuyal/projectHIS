@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_recruitment/wizard
+END
+hr_recruitment_create_partner_job_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_recruitment/wizard/hr_recruitment_create_partner_job_view.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_recruitment/wizard/__init__.py
+END
+hr_recruitment_create_partner_job.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_recruitment/wizard/hr_recruitment_create_partner_job.pyc
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_recruitment/wizard/__init__.pyc
+END
+hr_recruitment_create_partner_job.py
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_recruitment/wizard/hr_recruitment_create_partner_job.py
+END

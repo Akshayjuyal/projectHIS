@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/project_timesheet/security
+END
+ir.model.access.csv
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/project_timesheet/security/ir.model.access.csv
+END
+project_timesheet_security.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/project_timesheet/security/project_timesheet_security.xml
+END

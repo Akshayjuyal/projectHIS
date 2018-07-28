@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="ids_assets_backend" name="ids_emp_change assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/ids_emp_change/static/src/js/custom_widget.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

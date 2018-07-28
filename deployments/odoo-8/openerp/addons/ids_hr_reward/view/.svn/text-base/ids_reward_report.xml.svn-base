@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+            id="hr_reward_report"
+            model="ids.hr.reward"
+            string="Reward and Recognition Report"
+            report_type="qweb-pdf"
+            name="ids_hr_reward.ids_reward_details"
+            file="ids_hr_reward.ids_reward_details"
+            attachment_use="True"
+    		attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+        />
+      
+    </data>
+</openerp>

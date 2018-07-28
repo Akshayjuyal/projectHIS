@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+    	<!-- Employee No Dues Form -->
+    	
+    	<record id="emp_no_dues_tree_view" model="ir.ui.view">
+            <field name="name">emp.no.dues.tree</field>
+            <field name="model">emp.no.dues</field>
+            <field name="arch" type="xml">
+                <tree string="Employee No Dues">
+                    <field name="employee_id"/>
+                    <field name="job_id" />	
+                    <field name="resign_id" />	
+                    <field name="capture_date" />
+                    <field name="last_date" />
+                    <field name="state" />  
+                </tree>
+            </field>
+        </record>
+        
+        <record id="emp_no_dues_form_view" model="ir.ui.view">
+            <field name="name">emp.no.dues.form</field>
+            <field name="model">emp.no.dues</field>
+            <field name="arch" type="xml">
+                <form string="Employee No Dues">
+                	<header>
+                		<button string="Submit" name="submit_draft" states="draft" type="object" groups="ids_emp.group_location_hr" class="oe_highlight" />
+						<button string="Submit" name="submit_phase1" states="phase1" type="object" class="oe_highlight" groups="ids_emp.group_timesheet_validate"/>
+	                    <button string="Submit" name="submit_phase2" states="phase2" type="object" class="oe_highlight" groups="ids_technical_information.group_it"/>
+	                    <button string="Submit" name="submit_phase3" states="phase3" type="object" class="oe_highlight" groups="ids_employee_exit.group_hr_admin"/>
+	                    <field name="state" widget="statusbar" />                                                                        
+                    </header>
+                        <group col="4">
+                            <field name="employee_id" attrs="{'readonly':[('state', 'not in', ('draft'))]}" on_change="onchange_employee(employee_id)" />
+			    			<field name="job_id" />			    			
+                            <field name="department_id" />
+                            <field name="division_id" />
+                            <field name="location_id" />
+                            <field name="dob" />
+                            <field name="gender" />
+                            <field name="mobile_no" />
+                            <field name="joining_date" />
+                            <field name="confirmation_status" />
+                            <field name="resign_id" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            <field name="capture_date" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            <field name="last_date" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>                      
+                        </group>
+                        <notebook>
+                        	<page string="No Dues Details">
+                        		<group col="4" string="No Dues- Operations" groups="ids_emp.group_location_hr,ids_emp.group_timesheet_validate"> 
+                            		<field name="email_control" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="email_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase1'))],'required':[('state', 'in', ('phase1'))]}"/>
+                           	 		<field name="internet_control" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="internet_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase1'))],'required':[('state', 'in', ('phase1'))]}" />
+                            		<field name="remote_control" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="remote_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase1'))],'required':[('state', 'in', ('phase1'))]}"/>
+                           	 		<field name="software_requirement" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="software_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase1'))],'required':[('state', 'in', ('phase1'))]}"/>
+                            		<field name="application_share" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                           	 		<field name="application_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase1'))],'required':[('state', 'in', ('phase1'))]}"/>
+                            		<field name="data_backup" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="data_backup_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase1'))],'required':[('state', 'in', ('phase1'))]}"/>
+                            		<field name="handover_takeover" attrs="{'readonly':[('state', 'not in', ('draft','phase1'))],'required':[('state', 'in', ('phase1'))]}"/>
+                            		<field name="handover_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase1'))],'required':[('state', 'in', ('phase1'))]}"/>
+                            		<field name="submitted_by_operation" readonly='1'/>
+                            		<field name="submitted_on_operation" readonly='1'/>
+		                        </group>
+		                        <group col="6" string="No Dues- Technical" groups="ids_emp.group_location_hr,ids_technical_information.group_it"> 
+		                        	<field name="login_name_tech" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+		                        	<field name="login_name_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                           	 		<field name="login_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="allocation_it_asset" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="it_assets_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                           	 		<field name="asset_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="email_id_tech" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="email_id_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="email_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                           	 		<field name="internet_control_tech" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="internal_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="internet_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                           	 		<field name="backup_setup_tech" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="backup_setup_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="backup_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="software_requirement_tech" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="software_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="software_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="application_share_tech" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            		<field name="appliaction_share_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="application_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="submitted_by_technical" readonly='1'/>
+                            		<field name="submitted_on_technical" readonly='1'/>
+		                        </group>
+	                        	<group col="4" string="No Dues- Facility" groups="ids_emp.group_location_hr,ids_employee_exit.group_hr_admin"> 
+		                        	<field name="icard_return" attrs="{'readonly':[('state', 'not in', ('phase3'))],'required':[('state', 'in', ('phase3'))]}"/>
+                           	 		<field name="access_card_return" attrs="{'readonly':[('state', 'not in', ('phase3'))],'required':[('state', 'in', ('phase3'))]}"/>
+                            		<field name="keys_return" attrs="{'readonly':[('state', 'not in', ('phase3'))],'required':[('state', 'in', ('phase3'))]}"/>
+                            		<field name="headphone_return" attrs="{'readonly':[('state', 'not in', ('phase3'))],'required':[('state', 'in', ('phase3'))]}"/>
+                           	 		<field name="name_delete" attrs="{'readonly':[('state', 'not in', ('phase3'))],'required':[('state', 'in', ('phase3'))]}"/>
+                            		<field name="canteen_dues" attrs="{'readonly':[('state', 'not in', ('phase3'))],'required':[('state', 'in', ('phase3'))]}"/>
+                            		<field name="library_book" attrs="{'readonly':[('state', 'not in', ('phase3'))],'required':[('state', 'in', ('phase3'))]}"/>
+                            		<field name="remarks" attrs="{'readonly':[('state', 'not in', ('phase3'))],'required':[('state', 'in', ('phase3'))]}"/>
+                            		<field name="submitted_by_facility" readonly='1'/>
+                            		<field name="submitted_on_facility" readonly='1'/>
+		                        </group>
+	                        </page>
+	                        
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_emp_no_dues" model="ir.actions.act_window">
+            <field name="name">Employee No Dues</field>
+            <field name="res_model">emp.no.dues</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>       	
+        <menuitem id="menu_emp_no_dues" action="open_emp_no_dues" parent="ids_employee_separation.ids_employee_seperation_main" sequence="2" groups="ids_emp.group_location_hr,ids_emp.group_business_head,ids_emp.group_timesheet_validate"/>
+        
+        
+        <!-- Employee Full and Final -->
+        <record id="ids_employee_exit_tree_view" model="ir.ui.view">
+            <field name="name">ids.employee.exit.tree</field>
+            <field name="model">ids.employee.exit</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Full &amp; Final">
+                    <field name="employee_id"/>
+                    <field name="job_id" />	
+                    <field name="resign_id" />	
+                    <field name="capture_date" />
+                    <field name="last_date" />  
+                </tree>
+            </field>
+        </record>
+        
+        <record id="ids_employee_exit_form_view" model="ir.ui.view">
+            <field name="name">ids.employee.exit.form</field>
+            <field name="model">ids.employee.exit</field>
+            <field name="arch" type="xml">
+                <form string="Employee Full &amp; Final">
+                	<header>
+                		<button string="Submit" name="submit_draft" states="draft" type="object" class="oe_highlight" groups="ids_emp.group_location_hr"/>
+						<button string="Accepted" name="submit_phase1" states="phase1" type="object" class="oe_highlight" groups="ids_emp.group_business_head"/>
+						<button string="Not Accepted" name="cancel_phase1" states="phase1" type="object" class="oe_highlight" groups="ids_emp.group_business_head"/>
+	                    <button string="Submit" name="submit_phase2" states="phase2" type="object" class="oe_highlight" groups="base.group_hr_manager"/>
+	                    <button string="Accepted" name="submit_phase3" states="phase3" type="object" class="oe_highlight" groups="base.group_hr_manager"/>
+	                    <button string="Recheck" name="cancel_phase3" states="phase3" type="object" class="oe_highlight" groups="base.group_hr_manager"/>
+	                    <field name="state" widget="statusbar" />                                                                        
+                    </header>
+                        <group col="4">
+                            <field name="employee_id" attrs="{'readonly':[('state', 'not in', ('draft'))]}" on_change="onchange_employee(employee_id)" />
+			    			<field name="job_id" />			    			
+                            <field name="department_id" />
+                            <field name="division_id" />
+                            <field name="location_id" />
+                            <field name="dob" />
+                            <field name="gender" />
+                            <field name="mobile_no" />
+                            <field name="joining_date" />
+                            <field name="confirmation_status" />
+                            <field name="resign_id" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            <field name="nodues_id" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            <field name="capture_date" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                            <field name="last_date" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>                      
+                        </group>
+                        <notebook>
+                        	<page string="No Dues Details">
+		                        <group col="4" string="No Dues- Operations"> 
+                            		<field name="email_control" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="email_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                           	 		<field name="internet_control" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="internet_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="remote_control" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="remote_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                           	 		<field name="software_requirement" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="software_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="application_share" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                           	 		<field name="application_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="data_backup" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="data_backup_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="handover_takeover" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="handover_remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="submitted_by_operation" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="submitted_on_operation" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        </group>
+		                        <group col="6" string="No Dues- Technical"> 
+		                        	<field name="login_name_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        	<field name="login_name_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                           	 		<field name="login_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="allocation_it_asset" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="it_assets_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                           	 		<field name="asset_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="email_id_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="email_id_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="email_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                           	 		<field name="internet_control_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="internal_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="internet_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                           	 		<field name="backup_setup_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="backup_setup_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="backup_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="software_requirement_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="software_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="software_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="application_share_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="appliaction_share_disable" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="application_remarks_tech" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" required='1'/>
+                            		<field name="submitted_by_technical" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="submitted_on_technical" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        </group>
+		                        <group col="4" string="No Dues- Facility"> 
+		                        	<field name="icard_return" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                           	 		<field name="access_card_return" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="keys_return" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="headphone_return" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                           	 		<field name="name_delete" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="canteen_dues" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="library_book" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="remarks" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="submitted_by_facility" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="submitted_on_facility" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        </group>
+	                        </page>
+	                        <page string="Leave Details">
+	                        	<group col="4" string="Leave Details"> 
+		                        	<field name="leave_detail_ids" widget="one2many_list" colspan="4" nolabel="1" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}">
+					            		<tree string="Leave Details">
+			                                <field name="holiday_status_id" />
+			                                <field name="max_leaves" />
+			                                <field name="leaves_taken" />	
+			                                <field name="remaining_leaves" />			                                	                                                                                                                              
+			                            </tree>	                                                    
+			                        </field>
+		                        </group>
+	                        </page>	                        
+	                        <page string="Notice Period Details">
+	                        	<group col="4" string="Notice Period Details"> 
+		                        	<field name="np_required" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" on_change="calculate_shortfall(employee_id,np_required,capture_date,last_date)"/>
+                           	 		<field name="reason_no" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="shortfall" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="shortfall_reason" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        </group>
+	                        </page>
+	                        <page string="Gratuity Details">
+	                        	<group col="4" string="Gratuity Details">
+	                        		<field name="eligibility" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" on_change="onchange_last_wages(last_wages,eligibility,gratuity_years)"/>       			
+                           	 		<field name="service_period" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                           	 		<field name="last_wages" on_change="onchange_last_wages(last_wages,eligibility,gratuity_years)" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="gratuity_years" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}" on_change="onchange_last_wages(last_wages,eligibility,gratuity_years)"/>
+                            		<field name="amount_claimed" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		            			</group>
+	                        </page>
+	                        <page string="Aggrement Details">
+	                        	<group col="6" string="Aggrement Details"> 
+		                        	<field name="service_agreement" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                           	 		<field name="start_date" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="end_date" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="recoverable_applicable" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="amount" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="valid_date" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        </group>
+	                        </page>
+	                        <page string="Attendance Details">
+	                        	<group col="4" string="Attendance Details"> 
+		                        	<field name="last_month_days" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                           	 		<field name="cur_month_days" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        </group>
+	                        </page>
+	                        <page string="Bonus Information">
+	                        	<group col="6" string="Bonus Information"> 
+		                        	<field name="bonus" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                           	 		<field name="lta" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="loyalty" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="bonus_amount" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="lta_amount" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="loyalty_amount" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        </group>
+	                        </page>
+	                        <page string="Allowance Details">
+	                        	<group col="4" string="Allowance Details"> 
+		                        	<field name="night_allow" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                           	 		<field name="night_month" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="ot_allow" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="ot_month" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="attendance_allow" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="attendance_month" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="prod_incentive" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+                            		<field name="incentive_month" attrs="{'readonly':[('state', 'not in', ('draft','phase2','completed'))]}"/>
+		                        </group>
+	                        </page>
+	                        <page string="Remarks">
+	                        	<group col="4"> 
+		                        	<field name="group_hr_remarks" attrs="{'readonly':[('state', 'not in', ('draft'))],'required':[('state', 'in', ('draft'))]}"/>
+                           	 		<field name="group_head_remarks" attrs="{'readonly':[('state', 'not in', ('phase1'))],'required':[('state', 'in', ('phase1'))]}"/>
+                            		<field name="corp_hr_remarks" attrs="{'readonly':[('state', 'not in', ('phase2'))],'required':[('state', 'in', ('phase2'))]}"/>
+                            		<field name="hr_head_remarks" attrs="{'readonly':[('state', 'not in', ('phase3','completed'))],'required':[('state', 'in', ('phase3','completed'))]}"/>
+                            		<field name="image_sign" widget='image' attrs="{'readonly':[('state', 'not in', ('phase3','completed'))],'required':[('state', 'in', ('phase3','completed'))]}"/>
+		                        </group>
+	                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_ids_employee_exit" model="ir.actions.act_window">
+            <field name="name">Employee Full &amp; Final</field>
+            <field name="res_model">ids.employee.exit</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>       	
+        <menuitem id="menu_ids_employee_exit" action="open_ids_employee_exit" parent="ids_employee_separation.ids_employee_seperation_main" sequence="3" groups="ids_emp.group_location_hr,ids_emp.group_business_head"/>
+        
+   </data>
+</openerp>

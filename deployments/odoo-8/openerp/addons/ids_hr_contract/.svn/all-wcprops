@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/IDS-CLIENTODOO-2016/!svn/ver/470/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_contract
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/516/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_contract/__init__.py
+END
+ids_hr_contract.py
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/517/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_contract/ids_hr_contract.py
+END
+ids_hr_contract.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/460/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_contract/ids_hr_contract.pyc
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/460/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_contract/__init__.pyc
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/IDS-CLIENTODOO-2016/!svn/ver/517/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_contract/__openerp__.py
+END

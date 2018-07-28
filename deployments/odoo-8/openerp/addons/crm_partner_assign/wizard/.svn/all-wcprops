@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/crm_partner_assign/wizard
+END
+crm_channel_interested.py
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/crm_partner_assign/wizard/crm_channel_interested.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/crm_partner_assign/wizard/__init__.py
+END
+crm_channel_interested_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/crm_partner_assign/wizard/crm_channel_interested_view.xml
+END
+crm_forward_to_partner.py
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/crm_partner_assign/wizard/crm_forward_to_partner.py
+END
+crm_forward_to_partner_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/crm_partner_assign/wizard/crm_forward_to_partner_view.xml
+END

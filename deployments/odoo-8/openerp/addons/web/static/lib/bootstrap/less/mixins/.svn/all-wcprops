@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins
+END
+background-variant.less
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/background-variant.less
+END
+grid.less
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/grid.less
+END
+vendor-prefixes.less
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/vendor-prefixes.less
+END
+gradients.less
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/gradients.less
+END
+text-overflow.less
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/text-overflow.less
+END
+size.less
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/size.less
+END
+buttons.less
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/buttons.less
+END
+tab-focus.less
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/tab-focus.less
+END
+labels.less
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/labels.less
+END
+text-emphasis.less
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/text-emphasis.less
+END
+image.less
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/image.less
+END
+table-row.less
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/table-row.less
+END
+pagination.less
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/pagination.less
+END
+nav-vertical-align.less
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/nav-vertical-align.less
+END
+hide-text.less
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/hide-text.less
+END
+grid-framework.less
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/grid-framework.less
+END
+alerts.less
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/alerts.less
+END
+reset-filter.less
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/reset-filter.less
+END
+center-block.less
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/center-block.less
+END
+resize.less
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/resize.less
+END
+border-radius.less
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/border-radius.less
+END
+progress-bar.less
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/progress-bar.less
+END
+list-group.less
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/list-group.less
+END
+panels.less
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/panels.less
+END
+forms.less
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/forms.less
+END
+nav-divider.less
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/nav-divider.less
+END
+responsive-visibility.less
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/responsive-visibility.less
+END
+opacity.less
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/opacity.less
+END
+clearfix.less
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib/bootstrap/less/mixins/clearfix.less
+END

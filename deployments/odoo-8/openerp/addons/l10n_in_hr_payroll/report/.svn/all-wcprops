@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report
+END
+payslip_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/payslip_report_view.xml
+END
+report_hr_yearly_salary_detail.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/report_hr_yearly_salary_detail.pyc
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/__init__.py
+END
+report_payroll_advice.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/report_payroll_advice.pyc
+END
+payment_advice_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/payment_advice_report_view.xml
+END
+payslip_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/payslip_report.py
+END
+report_payslip_details.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/report_payslip_details.pyc
+END
+payment_advice_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/payment_advice_report.pyc
+END
+report_hr_salary_employee_bymonth.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/report_hr_salary_employee_bymonth.pyc
+END
+report_hr_salary_employee_bymonth.py
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/report_hr_salary_employee_bymonth.py
+END
+payment_advice_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/payment_advice_report.py
+END
+payslip_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/payslip_report.pyc
+END
+report_payslip_details.py
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/report_payslip_details.py
+END
+report_payroll_advice.py
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/report_payroll_advice.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/__init__.pyc
+END
+report_hr_yearly_salary_detail.py
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/l10n_in_hr_payroll/report/report_hr_yearly_salary_detail.py
+END

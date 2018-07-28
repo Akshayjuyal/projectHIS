@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_contract_hr_expense
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_contract_hr_expense/__init__.py
+END
+analytic_contract_hr_expense.py
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_contract_hr_expense/analytic_contract_hr_expense.py
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_contract_hr_expense/__openerp__.py
+END
+analytic_contract_hr_expense_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/analytic_contract_hr_expense/analytic_contract_hr_expense_view.xml
+END

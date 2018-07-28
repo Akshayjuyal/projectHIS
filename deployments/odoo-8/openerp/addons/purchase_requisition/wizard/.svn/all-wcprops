@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard
+END
+purchase_requisition_partner.py
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard/purchase_requisition_partner.py
+END
+bid_line_qty_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard/bid_line_qty_view.xml
+END
+purchase_requisition_partner.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard/purchase_requisition_partner.pyc
+END
+purchase_requisition_partner_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard/purchase_requisition_partner_view.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard/__init__.py
+END
+bid_line_qty.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard/bid_line_qty.pyc
+END
+bid_line_qty.py
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard/bid_line_qty.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_requisition/wizard/__init__.pyc
+END

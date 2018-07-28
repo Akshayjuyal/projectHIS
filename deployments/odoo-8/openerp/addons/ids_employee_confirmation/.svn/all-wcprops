@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/446/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/503/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/__init__.py
+END
+ids_employee_confirmation.py
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/498/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/ids_employee_confirmation.py
+END
+ids_employee_confirmation.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/457/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/ids_employee_confirmation.pyc
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/457/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/__init__.pyc
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/507/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/__openerp__.py
+END

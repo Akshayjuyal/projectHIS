@@ -1,0 +1,115 @@
+9
+
+dir
+257
+http://192.168.72.39/IDS-CLIENTODOO-2016/IDS_Internal_HRMS/ids_internal8/openerp/addons/web/static/lib
+http://192.168.72.39/IDS-CLIENTODOO-2016
+
+
+
+2016-06-06T10:54:43.808552Z
+100
+ajay.t
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+92d28da7-6218-4103-92d1-27500097bb83
+
+backbone
+dir
+
+bootstrap
+dir
+
+ckeditor
+dir
+
+cleditor
+dir
+
+datejs
+dir
+
+es5-shim
+dir
+
+fontawesome
+dir
+
+jquery
+dir
+
+jquery.autosize
+dir
+
+jquery.ba-bbq
+dir
+
+jquery.blockUI
+dir
+
+jquery.form
+dir
+
+jquery.hotkeys
+dir
+
+jquery.placeholder
+dir
+
+jquery.scrollTo
+dir
+
+jquery.textext
+dir
+
+jquery.timeago
+dir
+
+jquery.ui
+dir
+
+jquery.ui.bootstrap
+dir
+
+jquery.ui.notify
+dir
+
+jquery.ui.timepicker
+dir
+
+jquery.validate
+dir
+
+py.js
+dir
+
+qunit
+dir
+
+qweb
+dir
+
+select2
+dir
+
+spinjs
+dir
+
+underscore
+dir
+
+underscore.string
+dir
+

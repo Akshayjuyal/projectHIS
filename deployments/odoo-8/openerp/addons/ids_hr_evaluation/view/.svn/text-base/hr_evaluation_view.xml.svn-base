@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="view_hr_evaluation_form_inherit" model="ir.ui.view">
+            <field name="name">hr_evaluation.evaluation.form.inherit</field>
+            <field name="model">hr_evaluation.evaluation</field>
+            <field name="inherit_id" ref="hr_evaluation.view_hr_evaluation_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//form[@string='Appraisal']/header" position="replace">
+            		<header>
+	                    <button name="button_plan_in_progress" string="Start Appraisal" states="draft" type="object" class="oe_highlight"/>
+	                    <button name="button_final_validation" string="Validate Appraisal" states="wait" type="object" class="oe_highlight" groups="ids_emp.group_business_head" />
+	                    <button name="button_done" string="Done" states="progress" type="object" class="oe_highlight" groups="ids_emp.group_business_head" />
+	                    <button name="button_draft" string="Reset to Draft" states="cancel" type="object" />
+	                    <button name="button_cancel" string="Cancel Appraisal" states="draft,wait,progress" type="object"/>
+	                    <field name="state" widget="statusbar" statusbar_visible="draft,progress,wait,done" statusbar_colors='{"progress":"blue"}'/>
+	                </header>
+			    </xpath>
+	            <xpath expr="//form[@string='Appraisal']/sheet/group[@string='Appraisal Forms']" position="before">
+			    	<group>
+						<field name="emp_code" />
+						<field name="job_id" on_change="onchange_employee_id(employee_id)" />
+			      		<field name="department_id" />
+						<field name="joining_date" />
+			    	</group>
+	            </xpath>
+	            <xpath expr="//form[@string='Appraisal']/sheet/group[@string='Appraisal Forms']" position="after">
+			    	<group string="HOD Notes" >
+                        <field nolabel="1" name="note_hod" placeholder="Appraisal Summary..." />
+                    </group>
+	            </xpath>
+	            <xpath expr="//form[@string='Appraisal']/sheet/group/group/field[@name='rating']" position="replace">
+	            	<field name="rating" attrs="{'readonly':[('state','&lt;&gt;','progress')], 'required':[('state','=','progress')]}" />
+	            </xpath>
+	            <xpath expr="//form[@string='Appraisal']/sheet/h1/field[@name='employee_id']" position="attributes">
+	            	<attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+	            </xpath>
+	            <xpath expr="//form[@string='Appraisal']/sheet/h1/field[@name='date']" position="attributes">
+	            	<attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+	            </xpath>
+	            <xpath expr="//form[@string='Appraisal']/sheet/h2/field[@name='plan_id']" position="attributes">
+	            	<attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+	            </xpath>	            
+            </field>
+        </record>
+        <record id="view_hr_evaluation_tree_inherit" model="ir.ui.view">
+            <field name="name">hr_evaluation.evaluation.tree.inherit</field>
+            <field name="model">hr_evaluation.evaluation</field>
+            <field name="inherit_id" ref="hr_evaluation.view_hr_evaluation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='employee_id']" position="after">
+		    		<field name="emp_code" />		    
+                </xpath>
+            </field>
+        </record>
+        
+        <!--<delete id="menu_eval_hr" model="ir.ui.menu"/>-->
+        <delete id="hr_evaluation.menu_open_view_hr_evaluation_tree" model="ir.ui.menu"/>
+        <!--<menuitem name="Appraisal Management System" parent="hr.menu_hr_root" id="menu_eval_hr" sequence="25"/>-->
+        <menuitem name="Appraisals" parent="hr_evaluation.menu_eval_hr" id="hr_evaluation.menu_open_view_hr_evaluation_tree"
+            action="hr_evaluation.open_view_hr_evaluation_tree" groups="base.group_hr_user,ids_emp.group_business_head"/>
+    </data>
+</openerp>

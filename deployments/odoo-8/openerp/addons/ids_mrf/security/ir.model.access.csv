@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ids_mrf_request,mrf leave request,model_ids_mrf,ids_mrf.group_hr_mrf,1,1,1,0
+access_ids_mrf_approval,mrf leave approval,model_ids_mrf,base.group_hr_manager,1,1,1,0
+access_ids_mrf_approval BH,mrf leave approval,model_ids_mrf,ids_emp.group_business_head,1,1,1,0
+access_ids_mrf_approval PDG,mrf leave approval,model_ids_mrf,ids_emp.group_business_pdg,1,1,1,0

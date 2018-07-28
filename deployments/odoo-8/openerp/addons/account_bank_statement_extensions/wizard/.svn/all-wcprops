@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/wizard
+END
+confirm_statement_line_wizard.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/wizard/confirm_statement_line_wizard.xml
+END
+confirm_statement_line.py
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/wizard/confirm_statement_line.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/wizard/__init__.py
+END
+cancel_statement_line_wizard.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/wizard/cancel_statement_line_wizard.xml
+END
+cancel_statement_line.py
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/wizard/cancel_statement_line.py
+END

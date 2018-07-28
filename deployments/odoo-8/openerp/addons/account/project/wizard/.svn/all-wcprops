@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard
+END
+account_analytic_balance_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_balance_report.py
+END
+account_analytic_cost_ledger_for_journal_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_cost_ledger_for_journal_report.py
+END
+account_analytic_cost_ledger_for_journal_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_cost_ledger_for_journal_report.pyc
+END
+account_analytic_balance_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_balance_report.pyc
+END
+account_analytic_cost_ledger_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_cost_ledger_report.pyc
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/__init__.py
+END
+account_analytic_journal_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_journal_report.pyc
+END
+project_account_analytic_line.py
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/project_account_analytic_line.py
+END
+account_analytic_inverted_balance_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_inverted_balance_report.xml
+END
+account_analytic_chart.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_chart.pyc
+END
+account_analytic_inverted_balance_report.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_inverted_balance_report.pyc
+END
+account_analytic_chart_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_chart_view.xml
+END
+account_analytic_journal_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_journal_report_view.xml
+END
+account_analytic_cost_ledger_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_cost_ledger_view.xml
+END
+account_analytic_inverted_balance_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_inverted_balance_report.py
+END
+account_analytic_balance_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_balance_report_view.xml
+END
+account_analytic_cost_ledger_for_journal_report_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_cost_ledger_for_journal_report_view.xml
+END
+account_analytic_chart.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_chart.py
+END
+project_account_analytic_line.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/project_account_analytic_line.pyc
+END
+account_analytic_journal_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_journal_report.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/__init__.pyc
+END
+project_account_analytic_line_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/project_account_analytic_line_view.xml
+END
+account_analytic_cost_ledger_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/project/wizard/account_analytic_cost_ledger_report.py
+END

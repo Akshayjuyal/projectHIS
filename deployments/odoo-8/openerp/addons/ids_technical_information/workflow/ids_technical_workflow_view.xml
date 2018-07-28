@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="technical_details_workflow" model="workflow">
+            <field name="name">technical.process</field>
+            <field name="osv">ids.technical.information</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Activity -->
+        
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="technical_details_workflow"/>
+            <field name="flow_start">True</field>
+            <field name="kind">dummy</field>
+            <field name="name">draft</field>
+        </record>            
+        
+        <record id="act_submit" model="workflow.activity">
+            <field name="wkf_id" ref="technical_details_workflow"/>
+            <field name="kind">function</field>
+            <field name="action">tech_submit()</field>
+            <field name="name">submit</field>
+        </record>
+        
+        <record id="act_validate1" model="workflow.activity">
+            <field name="wkf_id" ref="technical_details_workflow"/>
+            <field name="kind">function</field>
+            <field name="action">tech_first_validate()</field>
+            <field name="name">validate1</field>
+            <field name="split_mode">OR</field>
+        </record>
+        
+        <record id="act_validate2" model="workflow.activity">
+            <field name="wkf_id" ref="technical_details_workflow"/>
+            <field name="kind">function</field>
+            <field name="action">tech_second_validate()</field>
+            <field name="name">validate2</field>
+            <field name="split_mode">OR</field>
+        </record>
+        
+        <record id="act_validate3" model="workflow.activity">
+            <field name="wkf_id" ref="technical_details_workflow"/>
+            <field name="kind">function</field>
+            <field name="action">tech_third_validate()</field>
+            <field name="name">validate3</field>
+            <field name="split_mode">OR</field>
+        </record>
+        
+        <record id="act_validate" model="workflow.activity">
+            <field name="wkf_id" ref="technical_details_workflow"/>
+            <field name="kind">function</field>
+            <field name="action">tech_validate()</field>
+            <field name="name">approve</field>
+        </record>
+        
+        <record id="act_reject" model="workflow.activity">
+            <field name="wkf_id" ref="technical_details_workflow"/>
+            <field name="flow_stop">True</field>            
+            <field name="kind">function</field>
+            <field name="action">tech_reject()</field>
+            <field name="name">reject</field>
+        </record>
+        
+        <!-- Transistion -->
+
+        <record id="trans_draft_submit" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_submit"/>  
+            <field name="group_id" ref="base.group_hr_manager"/>          
+        </record>  
+             
+        <record id="trans_submit_reject" model="workflow.transition">
+            <field name="act_from" ref="act_submit"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>  
+        
+        <record id="trans_validate1_reject" model="workflow.transition">
+            <field name="act_from" ref="act_validate1"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>  
+        
+        <record id="trans_validate2_reject" model="workflow.transition">
+            <field name="act_from" ref="act_validate2"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="trans_submit_reject_bh" model="workflow.transition">
+            <field name="act_from" ref="act_submit"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="ids_emp.group_it"/>
+        </record>  
+        
+        <record id="trans_submit_validate1_bh" model="workflow.transition">
+            <field name="act_from" ref="act_submit"/>
+            <field name="act_to" ref="act_validate1"/>
+            <field name="signal">signal_first_validate</field>
+            <field name="group_id" ref="ids_emp.group_it"/>
+        </record>   
+        
+        <record id="trans_validate1_reject_bh" model="workflow.transition">
+            <field name="act_from" ref="act_validate1"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="ids_emp.group_it"/>
+        </record>          
+        
+        <record id="trans_submit_validate2_pdg" model="workflow.transition">
+            <field name="act_from" ref="act_submit"/>
+            <field name="act_to" ref="act_validate2"/>
+            <field name="signal">signal_second_validate</field>
+            <field name="group_id" ref="ids_emp.group_business_head"/>
+        </record>   
+        
+        <record id="trans_submit_reject_pdg" model="workflow.transition">
+            <field name="act_from" ref="act_submit"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="ids_emp.group_business_head"/>
+        </record> 
+        
+        <record id="trans_validate1_reject_pdg" model="workflow.transition">
+            <field name="act_from" ref="act_validate1"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="ids_emp.group_business_head"/>
+        </record> 
+        
+        <record id="trans_validate1_validate2_pdg" model="workflow.transition">
+            <field name="act_from" ref="act_validate1"/>
+            <field name="act_to" ref="act_validate2"/>
+            <field name="signal">signal_second_validate</field>
+            <field name="group_id" ref="ids_emp.group_business_head"/>
+        </record>  
+        
+        <record id="trans_validate2_reject_pdg" model="workflow.transition">
+            <field name="act_from" ref="act_validate2"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="ids_emp.group_business_head"/>
+        </record> 
+        
+        <record id="trans_submit_validate_manager" model="workflow.transition">
+            <field name="act_from" ref="act_submit"/>
+            <field name="act_to" ref="act_validate"/>
+            <field name="signal">signal_validate</field>
+            <field name="group_id" ref="ids_emp.group_business_pdg"/>
+        </record>
+        
+        <record id="trans_validate1_validate_manager" model="workflow.transition">
+            <field name="act_from" ref="act_validate1"/>
+            <field name="act_to" ref="act_validate"/>
+            <field name="signal">signal_validate</field>
+            <field name="group_id" ref="ids_emp.group_business_pdg"/>
+        </record>
+        
+        <record id="trans_validate2_validate_manager" model="workflow.transition">
+            <field name="act_from" ref="act_validate2"/>
+            <field name="act_to" ref="act_validate"/>
+            <field name="signal">signal_validate</field>
+            <field name="group_id" ref="ids_emp.group_business_pdg"/>
+        </record>
+        
+        <record id="trans_validate_reject" model="workflow.transition">
+            <field name="act_from" ref="act_validate"/>
+            <field name="act_to" ref="act_reject"/>
+            <field name="signal">signal_reject</field>
+            <field name="group_id" ref="ids_emp.group_business_pdg"/>
+        </record>
+       
+    </data>
+</openerp>

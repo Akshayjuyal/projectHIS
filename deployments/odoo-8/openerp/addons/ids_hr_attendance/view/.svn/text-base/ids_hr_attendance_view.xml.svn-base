@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="ids_hr_attendance_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.attendance.form.inherit.new</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_form" />
+            <field name="arch" type="xml">
+            	<xpath expr="/form/sheet/group/field[@name='employee_id']" position="replace">            	         	  	
+                <field name="employee_id" on_change="onchange_employee_id(division_id, employee_id)"/>
+                </xpath>
+                <xpath expr="//field[@name='employee_id']" position="after">
+                	<field name="division_id" invisible='1'/> 
+                	<field name="department_id" invisible='1'/> 
+                </xpath>            
+            </field>
+		</record>		
+		<record id="ids_hr_attendance_view_form_mgr" model="ir.ui.view">
+            <field name="name">hr.attendance.form.inherit.mgr</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_form" />
+            <field name="groups_id" eval="[(6, 0, [ref('ids_emp.group_location_hr') ])]" />                
+            <field name="arch" type="xml">            	         	  	
+            	<field name="name" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>
+                <field name="employee_id" position="attributes" on_change="onchange_employee_id(division_id, employee_id)">
+                   <attribute name="readonly">0</attribute>                   
+                </field>           
+            </field>
+		</record>		
+		<record id="ids_hr_attendance_view_form_user" model="ir.ui.view">
+            <field name="name">hr.attendance.form.inherit.user</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_form" />
+            <field name="groups_id" eval="[(6, 0, [ref('group_attendance_icon') ])]" />                
+            <field name="arch" type="xml">            	         	  	
+            	<field name="name" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>   
+                <field name="employee_id" position="attributes" on_change="onchange_employee_id(division_id, employee_id)">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+                <xpath expr="//field[@name='employee_id']" position="replace">
+                	<field name="employee_id" on_change="onchange_employee_id(division_id, employee_id)"/>  
+                </xpath>  
+                <xpath expr="//field[@name='employee_id']" position="after">
+                	<field name="division_id" invisible='1'/>
+                	<field name="department_id" invisible='1'/>   
+                </xpath>            
+            </field>
+		</record>	
+		<record id="ids_hr_timesheet_sheet_form_mgr" model="ir.ui.view">
+            <field name="name">hr.timesheet.sheet.form.inherit.mgr</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+            <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form" />
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_hr_manager') ])]" />                
+            <field name="arch" type="xml">            	         	  	
+            	<field name="attendances_ids" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>
+				<field name="employee_id" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>                        
+            </field>
+		</record>	
+		<record id="ids_hr_timesheet_sheet_form_usr" model="ir.ui.view">
+            <field name="name">hr.timesheet.sheet.form.inherit.usr</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+            <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form" />
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user') ])]" />                
+            <field name="arch" type="xml">            	         	  	
+            	<field name="attendances_ids" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>   
+				<field name="employee_id" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>                          
+            </field>
+		</record>
+		
+		<!-- filter on division by Ravneet               -->
+        <record id="view_hr_attendance_filter_inherit" model="ir.ui.view">
+            <field name="name">hr.attendance.filter.inherit</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_hr_attendance_filter" />
+            <field name="arch" type="xml">
+                <xpath expr="/search/group/filter[@string='Month']" position="after">
+                        <filter name="division" string="Division" context="{'group_by':'division_id'}"/>
+             	</xpath>
+            </field>
+        </record>
+		
+		<!-- Final Punch Tree View Start (Created By Satya) -->
+		<record id="final_punch_tree_view" model="ir.ui.view">
+			<field name="name">Final Punch</field>
+			<field name="model">final.punch</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree colors="red:state == 'update';black:state == 'draft';green:state == 'updated';indigo:state == 'updated_od'" editable="top">
+					<field name="date"/>
+					<field name="employee_id" on_change="onchange_employee_id(employee_id)"/>
+					<field name="od_check"/>
+					<field name="shift" on_change="onchange_shift_id(shift,date)"/>
+					<field name="in_time" />
+					<field name="out_time" />
+					<field name="worked_hours" widget='float_time'/>
+					<field name="location_id" />
+					<field name="division_id" invisible='1'/>
+					<field name="department_id" invisible='1'/>
+					<field name="flag" invisible="True"/>
+					<field name="remarks" attrs="{'required':[('od_check','=',True),]}"/>
+					<field name="state"/>
+					<button name="update_data" string="Update" class="oe_highlight" type="object" attrs="{'invisible':[('flag','=',False),]}"/>				
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Final Punch Form View Start (Created By Satya) -->
+		<record id="final_punch_form_view" model="ir.ui.view">
+			<field name="name">Final Punch</field>
+			<field name="model">final.punch</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<header>
+	                  <button string="Refresh" name="refresh" type="object" class="oe_highlight" attrs="{'invisible':[('out_time','>','2017-01-01 00:00:00')]}"/>
+					</header>
+					<group>
+					<field name="date"/>
+					<field name="employee_id" on_change="onchange_employee_id(employee_id)"/>
+					<field name="od_check"/>
+					<field name="shift" on_change="onchange_shift_id(shift,date)"/>
+					<field name="in_time" />
+					<field name="out_time" />
+					<field name="location_id" />
+					<field name="division_id" invisible='1'/>
+					<field name="department_id" invisible='1'/>
+					<field name="flag" invisible="True"/>
+					<field name="remarks" attrs="{'required':[('od_check','=',True),]}"/>
+					<field name="worked_hours" widget='float_time'/>
+					<field name="current_worked_hours" widget='float_time' attrs="{'invisible':[('out_time','>','2017-01-01 00:00:00')]}"/>
+					<field name="state"/>
+					<button name="update_data" string="Update" class="oe_highlight" type="object" attrs="{'invisible':[('flag','=',False),]}"/>				
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="view_final_filter" model="ir.ui.view">
+            <field name="name">Final Punch</field>
+            <field name="model">final.punch</field>
+            <field name="arch" type="xml">
+                <search string="HR Attendance Search">
+                    <field name="employee_id" string="Employee"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Month" icon="terp-personal" domain="[]" context="{'group_by':'date'}"/>
+                        <filter string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <filter string="My Attendance" name="my_attendance" domain="[('employee_id.user_id.id', '=', uid)]" />
+                        <filter string="Division" name="division" context="{'group_by':'division_id'}"/>
+                        <filter string="Department" name="department_id" context="{'group_by':'department_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+		<!-- Final Punch Action Start (Created By Satya) -->
+		<record id="final_punch_action" model="ir.actions.act_window">
+            <field name="name">Final Attendances</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">final.punch</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_my_attendance":1}</field>
+            <field name="search_view_id" ref="view_final_filter"/>
+        </record>
+        <!-- Final Punch Menu Start (Created By Satya) -->
+       <menuitem id="menu_final_punch" name="Final/Missed Attendances" parent="hr_attendance.menu_hr_attendance" action="final_punch_action" sequence="21" groups="base.group_hr_attendance"/>
+	
+	<!-- Missed Punch Tree View Start (Created By Satya) -->
+	<record id="missed_punch_tree_view" model="ir.ui.view">
+			<field name="name">Missed Punch</field>
+			<field name="model">missed.punch</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree  editable="top">
+					<field name="date"/>
+					<field name="employee_id"/>
+					<field name="shift" on_change="onchange_shift(shift)"/>
+					<field name="in_time"/>
+					<field name="out_time"/>
+					<field name="worked_hours" widget='float_time'/>
+					<field name="location_id"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Missed Punch Form View Start (Created By Satya) -->
+		<record id="missed_punch_form_view" model="ir.ui.view">
+			<field name="name">Missed Punch</field>
+			<field name="model">missed.punch</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+					<field name="date"/>
+					<field name="employee_id"/>
+					<field name="shift" on_change="onchange_shift(shift)"/>
+					
+					<field name="in_time"/>
+					<field name="out_time"/>
+					<field name="location_id"/>
+					<field name="worked_hours" widget='float_time'/>
+					</group>
+				</form>
+			</field>
+		</record>
+		<!-- Missed Punch Action Start (Created By Satya) -->
+		<record id="missed_punch_action" model="ir.actions.act_window">
+            <field name="name">Missed Punch</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">missed.punch</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- Missed Punch Menu Start (Created By Satya) -->
+       <!-- <menuitem id="menu_missed_punch" name="Missed Punch" parent="hr_attendance.menu_hr_attendance" action="missed_punch_action" sequence="20" groups="base.group_hr_attendance"/> -->	
+	
+	<!-- Biometric Attendance Tree View Start (Created By Satya) -->
+	<record id="biometric_data_tree_view" model="ir.ui.view">
+			<field name="name">Biometric Attendance</field>
+			<field name="model">biometric.data</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="emp_code"/>
+					<field name="name" string='In/Out'/>
+					<field name="mechine_id" invisible='1'/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Biometric Attendance Form View Start (Created By Satya) -->
+		<record id="biometric_data_form_view" model="ir.ui.view">
+			<field name="name">Biometric Attendance</field>
+			<field name="model">biometric.data</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+					<field name="name"/>
+					<field name="emp_code"/>
+					<field name="mechine_id"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		<!-- Biometric Attendance Action Start (Created By Satya) -->
+		<record id="biometric_data_action" model="ir.actions.act_window">
+            <field name="name">Biometric Attendance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">biometric.data</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <!-- Biometric Attendance Menu Start (Created By Satya) -->
+       <menuitem id="biometric_data_punch" name="Biometric Attendance" parent="hr_attendance.menu_hr_attendance" action="biometric_data_action" sequence="19" groups="base.group_hr_attendance"/>
+	
+	
+	<!-- Mark Attendance Tree View Start (Created By Satya) -->
+	<record id="mark_attendance_tree_view" model="ir.ui.view">
+			<field name="name">Mark Attendance</field>
+			<field name="model">mark.attendance</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="date_from"/>
+					<field name="date_to"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Mark Attendance Form View Start (Created By Satya) -->
+		<record id="mark_attendance_form_view" model="ir.ui.view">
+			<field name="name">Mark Attendance</field>
+			<field name="model">mark.attendance</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+					<group>
+					<field name="date_from" required='1'/>
+					</group>
+					<group>
+				    <field name="date_to" required='1'/>
+					</group>
+					</group>
+					<button name="mark_attendance" string="Mark Attendance" type="object" icon="gtk-ok" class="oe_highlight"/>  
+
+				</form>
+			</field>
+		</record>
+		<!-- Mark Attendance Action Start (Created By Satya) -->
+		<record id="mark_attendance_action" model="ir.actions.act_window">
+            <field name="name">Mark Attendance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mark.attendance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- Mark Attendance Menu Start (Created By Satya) -->
+       <menuitem id="menu_mark_attendance" name="Mark Attendance" parent="hr_attendance.menu_hr_attendance" action="mark_attendance_action" sequence="21" groups="base.group_hr_attendance"/>
+	
+		<!-- Mark Attendance Tree View Start (Created By Satya) -->
+	<record id="mark_missed_attendance_tree_view" model="ir.ui.view">
+			<field name="name">Mark Attendance</field>
+			<field name="model">marked.missed.punch</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="date_from"/>
+					<field name="date_to"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Marked/Missed Attendance Form View Start -->
+		<record id="marked_missed_attendance_form_view" model="ir.ui.view">
+			<field name="name">Marked/Marked Attendance</field>
+			<field name="model">marked.missed.punch</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+					<group>
+					<field name="date_from" required='1'/>
+					</group>
+					<group>
+				    <field name="date_to" required='1'/>
+					</group>
+					</group>
+					<button name="markmiss_attendance" string="Mark Final/Missed Punch" type="object" icon="gtk-ok" class="oe_highlight"/>  
+
+				</form>
+			</field>
+		</record>
+		<!-- Mark Attendance Action Start (Created By Satya) -->
+		<record id="marked_missed_attendance_action" model="ir.actions.act_window">
+            <field name="name">Marked/Missed Attendance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">marked.missed.punch</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- Mark Attendance Menu Start (Created By Satya) -->
+       <menuitem id="menu_marked_missed_attendance" name="Mark Final/Missed Attendances" parent="hr_attendance.menu_hr_attendance" action="marked_missed_attendance_action" sequence="21" groups="base.group_hr_attendance"/>
+	
+	
+	<!--  Employee Shift Tree View Start (Created By Satya) -->
+		<record id="employee_shift_tree_view" model="ir.ui.view">
+			<field name="name">Employee Shift</field>
+			<field name="model">employee.shift</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="code"/>
+					<field name="start_time" widget="float_time"/>
+					<field name="end_time" widget="float_time"/>
+					<field name="Shift_hours" invisible="1" />
+					<field name="shift_worked_hours" widget="float_time" />
+					<field name="division_id" />
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Employee Shift Form View Start (Created By Satya) -->
+		<record id="employee_shift_form_view" model="ir.ui.view">
+			<field name="name">Employee Shift</field>
+			<field name="model">employee.shift</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+					<field name="name"/>
+					<field name="code"/>
+					<field name="start_time" widget="float_time"/>
+					<field name="end_time" widget="float_time" />
+					<field name="Shift_hours" invisible="1"/>
+					<field name="shift_worked_hours" widget="float_time" />
+					<field name="division_id" />
+					<field name="note" />
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Employee Shift Action Start (Created By Satya) -->
+		<record id="employee_shift_action" model="ir.actions.act_window">
+            <field name="name">Shift</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employee.shift</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- Employee Shift Menu Start (Created By Satya) -->
+       <menuitem id="menu_employee_shift" name="Shift" action="employee_shift_action" parent="hr.menu_hr_configuration" sequence="22"/>
+	</data>
+</openerp>   
+        

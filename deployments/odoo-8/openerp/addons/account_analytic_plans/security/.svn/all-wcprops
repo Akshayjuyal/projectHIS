@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/security
+END
+ir.model.access.csv
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/security/ir.model.access.csv
+END
+account_analytic_plan_security.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/security/account_analytic_plan_security.xml
+END

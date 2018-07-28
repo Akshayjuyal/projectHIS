@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/214/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_employee_background
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/518/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_employee_background/__init__.py
+END
+ids_hr_employee_background_detail.py
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/IDS-CLIENTODOO-2016/!svn/ver/518/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_employee_background/ids_hr_employee_background_detail.py
+END
+ids_hr_employee_background_detail.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_employee_background/ids_hr_employee_background_detail.pyc
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_employee_background/__init__.pyc
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/518/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_employee_background/__openerp__.py
+END

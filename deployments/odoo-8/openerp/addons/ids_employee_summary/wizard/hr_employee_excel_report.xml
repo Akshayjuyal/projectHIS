@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<record id="view_hr_employee_excel_report_form" model="ir.ui.view">
+            <field name="name">HR Employee Excel Export</field>
+            <field name="model">hr.employee.excel.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Export Employee List" >
+					<group>
+						<group>
+							<field name="company_id"/>
+							<field name="division_id"/>
+						</group>
+						<group>
+							<field name="status" required='1'/>
+					    </group>
+                    </group>
+                   
+                    <footer>
+                        <button name="genarate_excel_report" string="Proceed" type="object" class="oe_highlight"/>
+                        or 
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_hr_employee_excel_report" model="ir.actions.act_window">
+            <field name="name">Employee Summary Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.excel.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+			
+		<menuitem 
+            action="action_hr_employee_excel_report"
+            id="menu_action_hr_employee_excel_report_wizard"
+            parent="hr.menu_hr_reporting" 
+            />
+            
+        
+       <record id="wizard_excel_report" model="ir.ui.view">
+			<field name="name">wizard.excel.report</field>
+			<field name="model">wizard.excel.report</field>
+			<field name="arch" type="xml">
+				<form string="Overdue Excel Report">
+					<group>
+						<field name="name" invisible="1"/>
+						<h1>
+							<field name="report" filename="name"/>
+						</h1>
+					</group>
+					<footer>
+						<button special="cancel" string="_Close" class="oe_link"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+            
+	
+	</data>
+</openerp>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+	    <!-- Workflow definition 
+	        1. open->start (no signal)
+	        2. start -> reject (reject signal)
+	        3. start->submit (submit signal)
+	        4. submit -> recommend (recommend signal)
+	        5. submit -> reject (reject  signal)
+	        6. recommend -> approve (final approval)  
+	        7. recommend -> reject (reject signal)	
+	    -->
+	
+	    <record model="workflow" id="wkf_emp_confirmation">
+	        <field name="name">hr.wkf.employee.confirmation</field>
+	        <field name="osv">ids.employee.confirmation</field>
+	        <field name="on_create">True</field>
+	    </record>
+	
+	    <record model="workflow.activity" id="act_open"> <!-- draft -->
+	        <field name="wkf_id" ref="wkf_emp_confirmation" />
+	        <field name="flow_start">True</field>
+	        <field name="name">open</field>
+	    </record>
+	
+	    <record model="workflow.activity" id="act_start"> <!-- submitted -->
+	        <field name="wkf_id" ref="wkf_emp_confirmation" />
+	        <field name="name">start</field>
+	        <field name="kind">function</field>
+	        <field name="action">confirmation_hr_start()</field>	        
+	    </record>    
+	
+	    <record model="workflow.activity" id="act_submit"> <!-- first_accepted -->
+	        <field name="wkf_id" ref="wkf_emp_confirmation" />	        
+	        <field name="kind">function</field>
+	        <field name="action">confirmation_employee_submit()</field>
+	        <field name="name">submit</field>	        
+	    </record>
+	    
+	    <record model="workflow.activity" id="act_recommend"> <!-- accepted -->
+	        <field name="wkf_id" ref="wkf_emp_confirmation" />
+	        <field name="kind">function</field>
+	        <field name="action">confirmation_manager_recommend()</field>
+	        <field name="name">recommend</field>
+	    </record>
+	    
+	    <record model="workflow.activity" id="act_approve"> <!-- accepted -->
+	        <field name="wkf_id" ref="wkf_emp_confirmation" />
+	        <field name="kind">function</field>
+	        <field name="action">confirmation_bh_approve()</field>
+	        <field name="name">approve</field>
+	    </record>
+	    
+	    <record model="workflow.activity" id="act_confirm_employee"> <!-- accepted -->
+	        <field name="wkf_id" ref="wkf_emp_confirmation" />
+	        <field name="kind">function</field>
+	        <field name="action">confirmation_hr_employee_confirm()</field>
+	        <field name="name">confirm</field>
+	    </record>
+	
+	    <record model="workflow.activity" id="act_reject"> <!-- refused -->
+	        <field name="wkf_id" ref="wkf_emp_confirmation" />
+	        <field name="flow_stop">True</field>
+	        <field name="kind">function</field>
+	        <field name="action">confirmation_reject()</field>
+	        <field name="name">reject</field>
+	    </record>
+	
+	    <!--
+	        workflow transition
+	    -->
+	
+	    <record model="workflow.transition" id="trans_open_start"> <!-- 1. open->start (no signal) -->
+	        <field name="act_from" ref="act_open" />
+	        <field name="act_to" ref="act_open" />
+	        <field name="group_id" ref="ids_emp.group_location_hr"/>
+	    </record>
+	    
+	    <record model="workflow.transition" id="trans_start_submit"> <!-- 2. s->first_accepted (validate signal)-->
+	        <field name="act_from" ref="act_open" />
+	        <field name="act_to" ref="act_start" />
+	        <field name="signal">signal_manager_submit</field>
+	        <field name="group_id" ref="ids_emp.group_location_hr"/>
+	   </record>
+	
+	    <record model="workflow.transition" id="trans_start_submit"> <!-- 2. s->first_accepted (validate signal)-->
+	        <field name="act_from" ref="act_start" />
+	        <field name="act_to" ref="act_submit" />
+	        <field name="signal">signal_employee_submit</field>
+	        <field name="group_id" ref="ids_emp.group_location_hr"/>
+	    </record>
+	
+	    <record model="workflow.transition" id="trans_start_reject"> <!-- 2. submitted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_start" />
+	        <field name="act_to" ref="act_reject" />
+	        <field name="signal">signal_reject</field>	       
+	        <field name="group_id" ref="ids_emp.group_location_hr"/>
+	    </record>
+	
+	    <record model="workflow.transition" id="trans_submit_reject"> <!-- 3. first_accepted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_submit" />
+	        <field name="act_to" ref="act_reject" />
+	        <field name="signal">signal_reject</field>
+	        <field name="group_id" ref="ids_emp.group_timesheet_validate"/>	        
+	    </record> 
+	    
+	    <record model="workflow.transition" id="trans_submit_recommend"> <!-- 2. submitted->first_accepted (validate signal)-->
+	        <field name="act_from" ref="act_submit" />
+	        <field name="act_to" ref="act_recommend" />
+	        <field name="signal">signal_manager_recommend</field>
+	        <field name="group_id" ref="ids_emp.group_timesheet_validate"/>
+	    </record> 
+	    
+	    <record model="workflow.transition" id="trans_recommend_reject_bh"> <!-- 3. first_accepted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_recommend" />
+	        <field name="act_to" ref="act_reject" />
+	        <field name="signal">signal_reject</field>
+	        <field name="group_id" ref="ids_emp.group_timesheet_validate"/>	        
+	    </record>
+	    
+	    <record model="workflow.transition" id="trans_recommend_approve_bh"> <!-- 3. first_accepted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_recommend" />
+	        <field name="act_to" ref="act_approve" />
+	        <field name="signal">signal_bh_approve</field>
+	        <field name="group_id" ref="ids_emp.group_timesheet_validate"/>	        
+	    </record>    
+		
+		 <record model="workflow.transition" id="trans_confirm_emp_hr"> <!-- 3. first_accepted->refused (refuse signal) -->
+	        <field name="act_from" ref="act_approve" />
+	        <field name="act_to" ref="act_confirm_employee" />
+	        <field name="signal">signal_hr_confirm_employee</field>
+	        <field name="group_id" ref="ids_emp.group_location_hr"/>	        
+	    </record>   
+	    
+	</data>
+</openerp>

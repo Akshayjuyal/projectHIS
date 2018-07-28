@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+       					
+        <record id="view_attendance_report_wizard" model="ir.ui.view">
+            <field name="name">attendance.report.wizard</field>
+            <field name="model">attendance.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Muster Roll register Report">
+                    <group col="8">
+                    	<field name="month" required='1'/>
+                    	<field name="year" required='1'/>
+                    	<field name="company_id" widget='selection'/>
+                    	<field name="division_id" widget='selection'/>
+                        <field name="user" invisible='1'/>
+                        <field name="user_company" invisible='1'/>
+                        <field name="filename" invisible="1"/>
+		                <field name="filedata" filename="filename" attrs="{'invisible':[('filedata','=',False)]}"/>
+                    </group>
+                    <group col="8">
+                    	
+		                <field name="filename1" invisible="1"/>
+		                <field name="filedata1" filename="filename1" attrs="{'invisible':[('filedata1','=',False)]}"/>
+		                <button name="print_report" string="Generate" type="object" class="oe_highlight"/>
+
+                    </group>
+                    <group>
+						<field name="mr_register_line" nolabel="1" readonly='1'>
+						<tree>
+							<field name="emp_code"/>
+							<field name="emp_name"/>
+							<field name="DATE"/>
+							<field name="DAY25"/>
+							<field name="DAY26"/>
+							<field name="DAY27"/>
+							<field name="DAY28"/>
+							<field name="DAY29"/>
+							<field name="DAY30"/>
+							<field name="DAY31"/>
+							<field name="DAY1"/>
+							<field name="DAY2"/>
+							<field name="DAY3"/>
+							<field name="DAY4"/>
+							<field name="DAY5"/>
+							<field name="DAY6"/>
+							<field name="DAY7"/>
+							<field name="DAY8"/>
+							<field name="DAY9"/>
+							<field name="DAY10"/>
+							<field name="DAY11"/>
+							<field name="DAY12"/>
+							<field name="DAY13"/>
+							<field name="DAY14"/>
+							<field name="DAY15"/>
+							<field name="DAY16"/>
+							<field name="DAY17"/>
+							<field name="DAY18"/>
+							<field name="DAY19"/>
+							<field name="DAY20"/>
+							<field name="DAY21"/>
+							<field name="DAY22"/>
+							<field name="DAY23"/>
+							<field name="DAY24"/>
+							<field name="LEAVE_CL"/>
+							<field name="LEAVE_PL"/>
+							<field name="LEAVE_SL"/>
+							<field name="LEAVE_CMP"/>
+							<field name="TWD"/>
+							<field name="TOFDAY"/>
+							<field name="DY_DIFF"/>
+							<field name="TWD_2"/>
+							<field name="IS_NIGHT"/>
+							<field name="TOTAL_P"/>
+							<field name="TOLAL_OFF_NHD" string="TOLAL_OFF_NHD"/>
+							<field name="PTL_LEAVE"/>
+							<field name="DEPT_CODE"/>
+						</tree>
+						</field>
+					</group>
+                   
+               </form>
+            </field>
+        </record>
+
+        <record id="action_view_muster_roll" model="ir.actions.act_window">
+            <field name="name">Muster Roll Register Report</field>
+            <field name="res_model">attendance.report.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_attendance_report_wizard"/>
+        </record>
+       <menuitem
+            name="Muster Roll Register Report"
+            parent="hr.menu_hr_reporting"
+            id="menu_hr_muster_roll_register" action="action_view_muster_roll" sequence="9"/>
+	</data>
+</openerp>

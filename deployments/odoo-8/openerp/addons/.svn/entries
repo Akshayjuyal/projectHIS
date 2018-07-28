@@ -1,0 +1,1003 @@
+9
+
+dir
+257
+http://192.168.72.39/IDS-CLIENTODOO-2016/IDS_Internal_HRMS/ids_internal8/openerp/addons
+http://192.168.72.39/IDS-CLIENTODOO-2016
+
+
+
+2016-12-15T06:40:06.993326Z
+257
+ravneet.kaur
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+92d28da7-6218-4103-92d1-27500097bb83
+
+__init__.py
+file
+
+
+
+
+2016-12-15T07:25:30.000000Z
+82da5d7fc88078810e9ff7354b153f82
+2016-06-06T10:54:43.808552Z
+100
+ajay.t
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1537
+
+__init__.pyc
+file
+
+
+
+
+2016-12-15T07:24:40.000000Z
+400cc5a05d97593e28dc4bf57d036e45
+2016-06-06T10:54:43.808552Z
+100
+ajay.t
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+592
+
+account
+dir
+
+account_accountant
+dir
+
+account_analytic_analysis
+dir
+
+account_analytic_default
+dir
+
+account_analytic_plans
+dir
+
+account_anglo_saxon
+dir
+
+account_asset
+dir
+
+account_bank_statement_extensions
+dir
+
+account_budget
+dir
+
+account_cancel
+dir
+
+account_chart
+dir
+
+account_check_writing
+dir
+
+account_followup
+dir
+
+account_payment
+dir
+
+account_sequence
+dir
+
+account_test
+dir
+
+account_voucher
+dir
+
+analytic
+dir
+
+analytic_contract_hr_expense
+dir
+
+analytic_user_function
+dir
+
+anonymization
+dir
+
+association
+dir
+
+auth_crypt
+dir
+
+auth_ldap
+dir
+
+auth_oauth
+dir
+
+auth_openid
+dir
+
+auth_signup
+dir
+
+base
+dir
+
+base_action_rule
+dir
+
+base_gengo
+dir
+
+base_geolocalize
+dir
+
+base_iban
+dir
+
+base_import
+dir
+
+base_import_module
+dir
+
+base_report_designer
+dir
+
+base_setup
+dir
+
+base_vat
+dir
+
+board
+dir
+
+bus
+dir
+
+calendar
+dir
+
+claim_from_delivery
+dir
+
+contacts
+dir
+
+crm
+dir
+
+crm_claim
+dir
+
+crm_helpdesk
+dir
+
+crm_mass_mailing
+dir
+
+crm_partner_assign
+dir
+
+crm_profiling
+dir
+
+crm_project_issue
+dir
+
+decimal_precision
+dir
+
+delivery
+dir
+
+document
+dir
+
+edi
+dir
+
+email_template
+dir
+
+event
+dir
+
+event_sale
+dir
+
+fetchmail
+dir
+
+fleet
+dir
+
+gamification
+dir
+
+gamification_sale_crm
+dir
+
+google_account
+dir
+
+google_calendar
+dir
+
+google_drive
+dir
+
+google_spreadsheet
+dir
+
+hr
+dir
+
+hr_applicant_document
+dir
+
+hr_attendance
+dir
+
+hr_biometric_machine-master
+dir
+
+hr_contract
+dir
+
+hr_evaluation
+dir
+
+hr_expense
+dir
+
+hr_gamification
+dir
+
+hr_holidays
+dir
+
+hr_payroll
+dir
+
+hr_payroll_account
+dir
+
+hr_recruitment
+dir
+
+hr_timesheet
+dir
+
+hr_timesheet_invoice
+dir
+
+hr_timesheet_sheet
+dir
+
+hw_blackbox_be
+dir
+
+hw_escpos
+dir
+
+hw_posbox_homepage
+dir
+
+hw_posbox_upgrade
+dir
+
+hw_proxy
+dir
+
+hw_scale
+dir
+
+hw_scanner
+dir
+
+ids_emp
+dir
+
+ids_emp_change
+dir
+
+ids_emp_medical
+dir
+
+ids_employee_confirmation
+dir
+
+ids_employee_exit
+dir
+
+ids_employee_separation
+dir
+
+ids_hr_attendance
+dir
+
+ids_hr_contract
+dir
+
+ids_hr_employee_background
+dir
+
+ids_hr_evaluation
+dir
+
+ids_hr_expenses
+dir
+
+ids_hr_holidays_extension
+dir
+
+ids_hr_public_holidays
+dir
+
+ids_hr_reward
+dir
+
+ids_hr_roster
+dir
+
+ids_hr_timesheet
+dir
+
+
+
+delete
+
+ids_hr_timesheets
+dir
+
+ids_hr_transfer
+dir
+
+ids_mrf
+dir
+
+ids_salary
+dir
+
+ids_technical_information
+dir
+
+ids_tours_travels
+dir
+
+im_chat
+dir
+
+im_livechat
+dir
+
+im_odoo_support
+dir
+
+knowledge
+dir
+
+l10n_ae
+dir
+
+l10n_ar
+dir
+
+l10n_at
+dir
+
+l10n_be
+dir
+
+l10n_be_coda
+dir
+
+l10n_be_hr_payroll
+dir
+
+l10n_be_hr_payroll_account
+dir
+
+l10n_be_intrastat
+dir
+
+l10n_be_invoice_bba
+dir
+
+l10n_bo
+dir
+
+l10n_br
+dir
+
+l10n_ca
+dir
+
+l10n_ch
+dir
+
+l10n_cl
+dir
+
+l10n_cn
+dir
+
+l10n_co
+dir
+
+l10n_cr
+dir
+
+l10n_de
+dir
+
+l10n_do
+dir
+
+l10n_ec
+dir
+
+l10n_es
+dir
+
+l10n_et
+dir
+
+l10n_eu_service
+dir
+
+l10n_fr
+dir
+
+l10n_fr_hr_payroll
+dir
+
+l10n_fr_rib
+dir
+
+l10n_gr
+dir
+
+l10n_gt
+dir
+
+l10n_hn
+dir
+
+l10n_hr
+dir
+
+l10n_hu
+dir
+
+l10n_in
+dir
+
+l10n_in_hr_payroll
+dir
+
+l10n_it
+dir
+
+l10n_jp
+dir
+
+l10n_lu
+dir
+
+l10n_ma
+dir
+
+l10n_multilang
+dir
+
+l10n_mx
+dir
+
+l10n_nl
+dir
+
+l10n_no
+dir
+
+l10n_pa
+dir
+
+l10n_pe
+dir
+
+l10n_pl
+dir
+
+l10n_pt
+dir
+
+l10n_ro
+dir
+
+l10n_sa
+dir
+
+l10n_sg
+dir
+
+l10n_si
+dir
+
+l10n_syscohada
+dir
+
+l10n_th
+dir
+
+l10n_tr
+dir
+
+l10n_uk
+dir
+
+l10n_us
+dir
+
+l10n_uy
+dir
+
+l10n_ve
+dir
+
+l10n_vn
+dir
+
+lunch
+dir
+
+mail
+dir
+
+marketing
+dir
+
+marketing_campaign
+dir
+
+marketing_campaign_crm_demo
+dir
+
+marketing_crm
+dir
+
+mass_mailing
+dir
+
+membership
+dir
+
+mrp
+dir
+
+mrp_byproduct
+dir
+
+mrp_operations
+dir
+
+mrp_repair
+dir
+
+multi_company
+dir
+
+note
+dir
+
+note_pad
+dir
+
+pad
+dir
+
+pad_project
+dir
+
+payment
+dir
+
+payment_adyen
+dir
+
+payment_authorize
+dir
+
+payment_buckaroo
+dir
+
+payment_ogone
+dir
+
+payment_paypal
+dir
+
+payment_sips
+dir
+
+payment_transfer
+dir
+
+point_of_sale
+dir
+
+portal
+dir
+
+portal_claim
+dir
+
+portal_gamification
+dir
+
+portal_project
+dir
+
+portal_project_issue
+dir
+
+portal_sale
+dir
+
+portal_stock
+dir
+
+pos_discount
+dir
+
+pos_restaurant
+dir
+
+procurement
+dir
+
+procurement_jit
+dir
+
+procurement_jit_stock
+dir
+
+product
+dir
+
+product_email_template
+dir
+
+product_expiry
+dir
+
+product_extended
+dir
+
+product_margin
+dir
+
+product_visible_discount
+dir
+
+project
+dir
+
+project_issue
+dir
+
+project_issue_sheet
+dir
+
+project_timesheet
+dir
+
+purchase
+dir
+
+purchase_analytic_plans
+dir
+
+purchase_double_validation
+dir
+
+purchase_requisition
+dir
+
+report
+dir
+
+report_intrastat
+dir
+
+report_webkit
+dir
+
+resource
+dir
+
+sale
+dir
+
+sale_analytic_plans
+dir
+
+sale_crm
+dir
+
+sale_journal
+dir
+
+sale_layout
+dir
+
+sale_margin
+dir
+
+sale_mrp
+dir
+
+sale_order_dates
+dir
+
+sale_service
+dir
+
+sale_stock
+dir
+
+sales_team
+dir
+
+share
+dir
+
+stock
+dir
+
+stock_account
+dir
+
+stock_dropshipping
+dir
+
+stock_invoice_directly
+dir
+
+stock_landed_costs
+dir
+
+stock_picking_wave
+dir
+
+subscription
+dir
+
+survey
+dir
+
+survey_crm
+dir
+
+test_access_rights
+dir
+
+test_convert
+dir
+
+test_converter
+dir
+
+test_documentation_examples
+dir
+
+test_exceptions
+dir
+
+test_impex
+dir
+
+test_inherit
+dir
+
+test_inherits
+dir
+
+test_limits
+dir
+
+test_new_api
+dir
+
+test_uninstall
+dir
+
+test_workflow
+dir
+
+warning
+dir
+
+web
+dir
+
+web_api
+dir
+
+web_calendar
+dir
+
+web_diagram
+dir
+
+web_gantt
+dir
+
+web_graph
+dir
+
+web_kanban
+dir
+
+web_kanban_gauge
+dir
+
+web_kanban_sparkline
+dir
+
+web_linkedin
+dir
+
+web_tests
+dir
+
+web_tests_demo
+dir
+
+web_view_editor
+dir
+
+website
+dir
+
+website_blog
+dir
+
+website_certification
+dir
+
+website_crm
+dir
+
+website_crm_partner_assign
+dir
+
+website_customer
+dir
+
+website_event
+dir
+
+website_event_sale
+dir
+
+website_event_track
+dir
+
+website_forum
+dir
+
+website_forum_doc
+dir
+
+website_gengo
+dir
+
+website_google_map
+dir
+
+website_hr
+dir
+
+website_hr_recruitment
+dir
+
+website_instantclick
+dir
+
+website_livechat
+dir
+
+website_mail
+dir
+
+website_mail_group
+dir
+
+website_membership
+dir
+
+website_partner
+dir
+
+website_payment
+dir
+
+website_project
+dir
+
+website_quote
+dir
+
+website_report
+dir
+
+website_sale
+dir
+
+website_sale_delivery
+dir
+
+website_sale_options
+dir
+
+website_twitter
+dir
+

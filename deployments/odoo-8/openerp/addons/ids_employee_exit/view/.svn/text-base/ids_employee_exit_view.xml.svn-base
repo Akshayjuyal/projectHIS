@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="ids_employee_exit_tree_view" model="ir.ui.view">
+            <field name="name">ids.employee.exit.tree</field>
+            <field name="model">ids.employee.exit</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Full &amp; Final">
+                    <field name="employee_id"/>
+                    <field name="emp_code"/>
+                    <field name="job_id" />	
+                    <field name="resign_id" />	
+                    <field name="capture_date" />
+                    <field name="last_date" />  
+                </tree>
+            </field>
+        </record>
+        
+        <record id="ids_employee_exit_form_view" model="ir.ui.view">
+            <field name="name">ids.employee.exit.form</field>
+            <field name="model">ids.employee.exit</field>
+            <field name="arch" type="xml">
+                <form string="Employee Full &amp; Final" version="7.0">
+                    <sheet>                        
+                        <group col="4">
+                            <field name="employee_id" on_change="onchange_employee(employee_id)" />
+			    			<field name="emp_code"/>                                
+			    			<field name="job_id" />			    			
+                            <field name="department_id" />
+                            <field name="joining_date" />
+                            <field name="confirmation_status" />
+                            <field name="resign_id" on_change="onchange_employee(employee_id)" />
+                            <field name="capture_date" />
+                            <field name="last_date" />                      
+                        </group>
+                        <notebook>
+	                        <page string="No Dues">
+	                        	<group col="4" string="No Due Details"> 
+		                        	<field name="due_detail_ids" widget="one2many_list" colspan="4" nolabel="1">
+					            		<tree string="Due Details" editable="bottom">
+			                                <field name="name" />
+			                                <field name="department_id" on_change="onchange_department(department_id)" />
+			                                <field name="responsible_employee_id" domain="[('department_id','=',department_id)]" />	
+			                                <field name="status" />
+			                                <field name="remarks" />			                                	                                                                                                                              
+			                            </tree>	                                                    
+			                        </field>
+		                        </group>
+	                        </page>	                        
+	                        <page string="Leave Details">
+	                        	<group col="4" string="Leave Details"> 
+		                        	<field name="leave_detail_ids" widget="one2many_list" colspan="4" nolabel="1">
+					            		<tree string="Leave Details">
+			                                <field name="holiday_status_id" />
+			                                <field name="max_leaves" />
+			                                <field name="leaves_taken" />	
+			                                <field name="remaining_leaves" />			                                	                                                                                                                              
+			                            </tree>	                                                    
+			                        </field>
+		                        </group>
+	                        </page>
+	                        <page string="Gratuity Details">
+	                        	<group col="4" string="Gratuity Details">       			
+		            				<field name="gratuity_detail_id" invisible="1" required="0" colspan="4" />
+		            				<field name="join_date" colspan="4" />
+		            				<field name="leave_date" colspan="4" />
+		            				<field name="years" colspan="4" />
+		            				<field name="eligible" colspan="4" on_change="onchange_eligibility(eligible,years)" />
+		            				<field name="gratuity_amount" colspan="4" />
+		            			</group>
+	                        </page>
+	                        <page string="Other Income/Investment Details">
+	                        	<group col="4" string="Other Income Details"> 
+		                        	<field name="other_income_detail_ids" widget="one2many_list" colspan="4" nolabel="1">
+					            		<tree string="Other Income Details" editable="bottom">
+			                                <field name="name" />
+			                                <field name="amount" />
+			                                <field name="description" />			                                			                                	                                                                                                                              
+			                            </tree>	                                                    
+			                        </field>
+		                        </group>
+	                        </page>
+	                        <page string="Full &amp; Final Settelment">
+	                        </page>
+                    </notebook>
+                    </sheet>
+                     
+                    <!--<div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>-->
+                    
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_ids_employee_exit" model="ir.actions.act_window">
+            <field name="name">Employee Full &amp; Final</field>
+            <field name="res_model">ids.employee.exit</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>       	
+        <menuitem id="menu_ids_employee_exit" action="open_ids_employee_exit" parent="ids_employee_separation.ids_employee_seperation_main" sequence="3" groups="base.group_user" />
+        
+        <record id="view_no_dues_configuration_tree" model="ir.ui.view">
+            <field name="name">ids.no.dues.config.tree</field>
+            <field name="model">ids.no.dues.config</field>
+            <field name="arch" type="xml">
+                <tree string="No Dues Configuration">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="responsible_employee_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_no_dues_configuration_form" model="ir.ui.view">
+            <field name="name">ids.no.dues.config.form</field>
+            <field name="model">ids.no.dues.config</field>
+            <field name="arch" type="xml">
+                <form string="No Dues Configuration" version="7.0">
+                    <sheet>                        
+                        <group col="4">
+                            <field name="name" colspan="4" />
+			    			<field name="department_id" on_change="onchange_department(department_id)"/>
+			    			<field name="responsible_employee_id" domain="[('department_id','=',department_id)]" />                                                
+                        </group>                        
+                    </sheet>                    
+                </form>
+            </field>
+        </record>
+        <record id="open_no_dues_configuration_view" model="ir.actions.act_window">
+            <field name="name">No Dues Configuration</field>
+            <field name="res_model">ids.no.dues.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="No Dues" action="open_no_dues_configuration_view" id="menu_no_dues_configuration_view" parent="hr.menu_hr_configuration" sequence="21"/>
+        
+        <record id="view_no_dues_emp_detail_tree" model="ir.ui.view">
+            <field name="name">ids.no.dues.emp.detail.tree</field>
+            <field name="model">ids.no.dues.emp.detail</field>
+            <field name="arch" type="xml">
+                <tree string="No Dues Details">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="responsible_employee_id"/>
+                    <field name="status"/>                   
+                </tree>
+            </field>
+        </record>
+        <record id="view_no_dues_emp_detail_form" model="ir.ui.view">
+            <field name="name">ids.no.dues.emp.detail.form</field>
+            <field name="model">ids.no.dues.emp.detail</field>
+            <field name="arch" type="xml">
+                <form string="No Dues Details" version="7.0">
+                    <sheet>                        
+                        <group col="4">
+                            <field name="name" colspan="4" />
+		                    <field name="department_id"/>
+		                    <field name="responsible_employee_id"/>
+		                    <field name="status"/>
+		                    <field name="date_done"/>
+		                    <field name="remarks" colspan="4" />                                                
+                        </group>                        
+                    </sheet>                    
+                </form>
+            </field>
+        </record>
+        <record id="open_no_dues_emp_detail_view" model="ir.actions.act_window">
+            <field name="name">No Dues Details</field>
+            <field name="res_model">ids.no.dues.emp.detail</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record> 
+        
+        <record id="view_other_income_configuration_tree" model="ir.ui.view">
+            <field name="name">ids.other.income.config.tree</field>
+            <field name="model">ids.other.income.config</field>
+            <field name="arch" type="xml">
+                <tree string="Other Income Configuration">
+                    <field name="name"/>
+                    <field name="amount"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_other_income_configuration_form" model="ir.ui.view">
+            <field name="name">ids.other.income.config.form</field>
+            <field name="model">ids.other.income.config</field>
+            <field name="arch" type="xml">
+                <form string="Other Income Configuration" version="7.0">
+                    <sheet>                        
+                        <group col="4">
+                            <field name="name" colspan="4" />
+			    			<field name="amount" colspan="4"/>
+			    			<field name="description" colspan="4" />                                                
+                        </group>                        
+                    </sheet>                    
+                </form>
+            </field>
+        </record>
+        <record id="open_other_income_configuration_view" model="ir.actions.act_window">
+            <field name="name">Other Income Configuration</field>
+            <field name="res_model">ids.other.income.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Other Income" action="open_other_income_configuration_view" id="menu_other_income_configuration_view" parent="hr.menu_hr_configuration" sequence="22"/>
+    </data>
+</openerp>

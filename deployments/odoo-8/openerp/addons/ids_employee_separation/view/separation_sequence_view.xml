@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Sequences for resignation number -->
+        <record id="separation_sequence" model="ir.sequence.type">
+            <field name="name">RGN Number</field>
+            <field name="code">ids.hr.employee.separation</field>
+        </record>
+
+        <record id="seq_ids_rgn" model="ir.sequence">
+            <field name="name">RGN Number</field>
+            <field name="code">ids.hr.employee.separation</field>
+            <field name="prefix">RGN-IDS-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

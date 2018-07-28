@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<openerp>
+  <data noupdate="0">
+     
+    <record id="group_hr_admin" model="res.groups">
+        <field name="name">HR Admin</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Admin</field>
+    </record>    
+   
+  </data>
+</openerp>

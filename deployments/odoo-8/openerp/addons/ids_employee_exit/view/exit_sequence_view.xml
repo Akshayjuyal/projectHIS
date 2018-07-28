@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Sequences for F&F number -->
+        <record id="fnf_sequence" model="ir.sequence.type">
+            <field name="name">F &amp; F Number</field>
+            <field name="code">ids.employee.exit</field>
+        </record>
+
+        <record id="seq_ids_fnf" model="ir.sequence">
+            <field name="name">F &amp; F Number</field>
+            <field name="code">ids.employee.exit</field>
+            <field name="prefix">F &amp; F-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        
+        <!-- Sequences for no dues number -->
+        <record id="nodues_sequence" model="ir.sequence.type">
+            <field name="name">No Dues Number</field>
+            <field name="code">emp.no.dues</field>
+        </record>
+
+        <record id="seq_ids_nodues" model="ir.sequence">
+            <field name="name">No Dues Number</field>
+            <field name="code">emp.no.dues</field>
+            <field name="prefix">No Dues-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

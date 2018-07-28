@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ids_emp_info_change_user,access_ids_emp_info_change,model_ids_emp_info_change,base.group_user,1,1,1,1
+access_ids_emp_info_change_manager,access_ids_emp_info_change,model_ids_emp_info_change,base.group_hr_manager,1,1,1,1

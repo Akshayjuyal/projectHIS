@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/static/src/css
+END
+account_bank_and_cash.css
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/static/src/css/account_bank_and_cash.css
+END
+account_move_reconciliation.css
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/static/src/css/account_move_reconciliation.css
+END
+account_move_line_quickadd.css
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/static/src/css/account_move_line_quickadd.css
+END
+account_bank_statement_reconciliation.css
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account/static/src/css/account_bank_statement_reconciliation.css
+END

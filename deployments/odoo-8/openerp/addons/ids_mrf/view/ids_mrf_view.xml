@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+	
+		<record id="mrf_details_tree_view" model="ir.ui.view">
+			<field name="name">ids.mrf.tree</field>
+			<field name="model">ids.mrf</field>			
+			<field name="arch" type="xml">
+				<tree colors="red:state == 'refused';blue:state == 'draft';purple:state == 'validated';green:state == 'submitted';black:state == 'validated1'" string="MRF">
+					<field name="mrf_number" />
+					<field name="request_date" />
+					<field name="department_id" />
+					<field name="requested_employee_id" />
+					<field name="name" />
+					<field name="category" />
+					<field name="job_id" />
+					<field name="number" />
+					<field name="state"/>			
+				</tree>
+			</field>
+		</record>
+		
+		<record id="mrf_details_form_view" model="ir.ui.view">
+			<field name="name">ids.mrf.form</field>
+			<field name="model">ids.mrf</field>			
+			<field name="arch" type="xml">
+				<form string="MRF Form">
+					<header>
+			                <button name="submit" states="draft" string="Submit" type="object" class="oe_highlight" groups="ids_mrf.group_hr_mrf"/>
+				    		<button name="validate" states="submitted" string="Validate" type="object" class="oe_highlight" groups="ids_emp.group_business_head"/>
+				    		<button name="refuse" states="submitted" string="Refuse" type="object" class="oe_highlight" groups="ids_emp.group_business_head"/>
+				    		<button name="approve" states="validated" string="Close" type="object" class="oe_highlight" groups="ids_emp.group_location_hr"/>
+		                    <button name="refuse" states="validated" string="Refuse" type="object" class="oe_highlight" groups="ids_emp.group_location_hr"/>
+				    		<field name="state" widget="statusbar" statusbar_visible="draft,submitted,validated,validated1" statusbar_colors='{"draft" : "blue", "submitted" : "green","validated" : "black","refused" : "black"}'/>
+				    </header>
+					<sheet>
+						<group col="4">						
+							<field name="department_id" widget="selection"  readonly='1'/>
+							<field name="name"  attrs="{'readonly':[('state','!=','draft')]}"/>		
+							<field name="category" attrs="{'readonly':[('state','!=','draft')]}" />	
+							<field name="job_id" on_change="onchange_job(job_id)" attrs="{'readonly':[('state','!=','draft')]}"/>						
+							<label for="experience_from" string="Experience (yrs.)" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <div><field name="experience_from" class="oe_inline"  attrs="{'readonly':[('state','!=','draft')]}"/> to <field name="experience_to" class="oe_inline" attrs="{'readonly':[('state','!=','draft')]}"/></div>							
+							<field name="ctc"  attrs="{'readonly':[('state','!=','draft')]}"/>							
+							<field name="employee_type" attrs="{'readonly':[('state','!=','draft')]}" />
+							<field name="number"  attrs="{'readonly':[('state','!=','draft')]}"/>								
+							<field name="time_frame" attrs="{'readonly':[('state','not in',['draft','submitted'])]}"/>
+							<field name="replace_remarks" attrs="{'readonly':[('state','!=','draft')],'invisible':[('category','!=','replacement')],'required':[('category','=','replacement')]}" />								
+							<newline/>																					
+							<field name="job_desc" colspan="4" attrs="{'readonly':[('state','!=','draft')]}"/>
+							<field name="job_spec" colspan="4" attrs="{'readonly':[('state','!=','draft')]}"/>
+							<field name="remarks" colspan="4" />							
+						</group>						
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>						
+					</div>	
+				</form>
+			</field>
+		</record>
+
+		<record id="mrf_details_action" model="ir.actions.act_window">
+			<field name="name">MRF Details</field>
+			<field name="res_model">ids.mrf</field>			
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>						
+		</record>
+		
+		<menuitem id="mrf_details_main" name="MRF Details"
+			parent="base.menu_crm_case_job_req_main" sequence="2"
+			action="mrf_details_action" />
+			
+		<!-- Hr applicant inherit MRF Details -->
+        <record id="crm_case_form_view_job_inherit" model="ir.ui.view">
+            <field name="name">crm.case.form.view.job.inherit</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@string='Job']/field[@name='job_id']" position="before">
+                	<field name="mrf_id" class="oe_inline" widget="selection" domain="[('state', '=', 'validated')]" on_change="onchange_mrf(mrf_id)"/>                  
+                </xpath>                                            
+            </field>
+        </record>
+
+	</data>
+</openerp>

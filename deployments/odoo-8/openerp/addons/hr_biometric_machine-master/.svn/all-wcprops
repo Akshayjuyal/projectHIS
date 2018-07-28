@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/287/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_biometric_machine-master
+END
+schedule.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/284/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_biometric_machine-master/schedule.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/284/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_biometric_machine-master/__init__.py
+END
+biometric_machine.py~
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/284/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_biometric_machine-master/biometric_machine.py~
+END
+biometric_machine.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/287/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_biometric_machine-master/biometric_machine.py
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/IDS-CLIENTODOO-2016/!svn/ver/284/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_biometric_machine-master/README.md
+END
+biometric_machine_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/284/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_biometric_machine-master/biometric_machine_view.xml
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/284/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_biometric_machine-master/__openerp__.py
+END

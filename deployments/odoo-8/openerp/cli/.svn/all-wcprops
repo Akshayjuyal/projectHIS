@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli
+END
+deploy.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/deploy.py
+END
+scaffold.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/scaffold.py
+END
+scaffold.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/scaffold.pyc
+END
+deploy.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/deploy.pyc
+END
+server.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/server.py
+END
+start.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/start.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/__init__.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/__init__.pyc
+END
+start.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/start.pyc
+END
+server.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/cli/server.pyc
+END

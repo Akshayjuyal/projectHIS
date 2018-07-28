@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+      
+    <record id="property_rule_hr_expense_supervisor_new" model="ir.rule">
+        <field name="name">HR Expense Users</field>
+        <field name="model_id" ref="model_hr_expense_expense"/>
+        <field name="domain_force">['|', ('employee_id', 'child_of', [user.employee_ids and user.employee_ids[0].id]), ('employee_id.department_id.manager_id.user_id.id', '=', user.id)]</field>
+        <field name="groups" eval="[(4,ref('ids_hr_expenses.group_hr_expenses'))]"/>
+    </record>
+    
+    <record id="property_rule_hr_expense_hr" model="ir.rule">
+        <field name="name">Tours HR Manager</field>
+        <field name="model_id" ref="model_hr_expense_expense"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,ref('base.group_hr_manager'))]"/>
+    </record>
+    
+    <record id="property_rule_hr_expense_hr_employee" model="ir.rule">
+        <field name="name">Tours Employee</field>
+        <field name="model_id" ref="model_hr_expense_expense"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+    
+    <record id="property_rule_ids_emp_business_head" model="ir.rule">
+        <field name="name">HR Expense Bussiness Head</field>
+        <field name="model_id" ref="model_hr_expense_expense"/>
+        <field name="domain_force">[(1,'=', 1)]</field>
+        <field name="groups" eval="[(4,ref('ids_emp.group_business_head'))]"/>
+    </record>
+	
+  </data>
+
+</openerp>

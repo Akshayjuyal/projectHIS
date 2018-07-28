@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_double_validation
+END
+purchase_double_validation_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_double_validation/purchase_double_validation_view.xml
+END
+purchase_double_validation_installer.py
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_double_validation/purchase_double_validation_installer.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_double_validation/__init__.py
+END
+purchase_double_validation_installer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_double_validation/purchase_double_validation_installer.xml
+END
+purchase_double_validation_workflow.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_double_validation/purchase_double_validation_workflow.xml
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/purchase_double_validation/__openerp__.py
+END

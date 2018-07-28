@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard
+END
+account_crossovered_analytic_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard/account_crossovered_analytic_view.xml
+END
+analytic_plan_create_model_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard/analytic_plan_create_model_view.xml
+END
+analytic_plan_create_model.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard/analytic_plan_create_model.pyc
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard/__init__.py
+END
+account_crossovered_analytic.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard/account_crossovered_analytic.pyc
+END
+account_crossovered_analytic.py
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard/account_crossovered_analytic.py
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard/__init__.pyc
+END
+analytic_plan_create_model.py
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_analytic_plans/wizard/analytic_plan_create_model.py
+END

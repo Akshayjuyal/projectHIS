@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="ids_emp_change">
+     <!-- <div>
+            <t t-foreach="widget.res" t-as="field">
+                <span class="oe_fields_color"
+                      t-attf-style="background-color:#ff0000;">
+                    <t t-esc="field"/>
+                </span>
+                <br/>
+            </t>
+        </div> -->
+</t>
+</templates> 

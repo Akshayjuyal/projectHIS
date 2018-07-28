@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ids_hr_reward_manager,access_ids_hr_reward_manager,model_ids_hr_reward,ids_employee_confirmation.group_hr_confirmation,1,1,1,0
+access_ids_hr_reward_bh,access_ids_hr_reward_bh,model_ids_hr_reward,ids_emp.group_business_head,1,1,1,0
+access_ids_hr_reward_user,access_ids_hr_reward_user,model_ids_hr_reward,base.group_hr_manager,1,0,0,0
+access_ids_hr_reward_award_user,access_ids_hr_reward_award_user,model_ids_hr_reward_award,base.group_user,1,0,0,0

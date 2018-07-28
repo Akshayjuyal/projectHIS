@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	<record id="timesheet_analysis_line_tree_view_new" model="ir.ui.view">
+			<field name="name">timesheet.analysis.line.tree</field>
+			<field name="model">timesheet.analysis.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Timesheet Analysis Line">
+								<field name="date"/>
+								<field name="emp_code"/>
+								<field name="employee_id"/>
+								<field name="total_attendance" sum="Total Attendance"/>
+								<field name="total_timesheet" sum="Total Timesheet"/>
+								<field name="total_billable" sum="Total Billable"/>
+								<field name="total_nonbillable" sum="Total Non-Billable"/>
+								<field name="utilization_avg" attrs="{'invisible':[('utilization_avg','=',0.0)]}"/>
+								<field name="utilization"/>
+				</tree>
+			</field>
+		</record>
+		<record id="timesheet_analysis_line_form_view" model="ir.ui.view">
+			<field name="name">timesheet.analysis.line.form</field>
+			<field name="model">timesheet.analysis.line</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Timesheet Attendance Analysis Line">
+					<group>
+					<group>
+						<field name="date"/>
+						<field name="emp_code"/>
+						<field name="employee_id"/>
+						<field name="total_attendance"/>
+						<field name="total_timesheet"/>
+					</group>
+					<group>
+						<field name="total_billable"/>
+						<field name="total_nonbillable"/>
+						<field name="utilization"/>
+					</group>
+					</group>
+					<group>
+					<field name="timesheet_lines" nolabel="1">
+	            		<tree string="Timesheet Lines">
+                            <field name="account_id" string='Project'/>
+                            <field name="project_category_id" />
+                            <field name="name" />	
+                            <field name="unit_amount" string='Duration'/>
+                        </tree>	                                                    
+                   </field>
+	              </group>
+				</form>
+			</field>
+		</record>     
+       <record id="timesheet_analysis_line_filter" model="ir.ui.view">
+            <field name="name">Timesheet Analysis Line</field>
+            <field name="model">timesheet.analysis.line</field>
+            <field name="arch" type="xml">
+                <search string="Timesheet Analysis Line">
+                    <group expand="0" string="Group By">
+                        <filter string="Employee" name='employee' icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+     <record id="timesheet_analysis_line_action" model="ir.actions.act_window">
+            <field name="name">Timesheet Analysis Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">timesheet.analysis.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_employee":1}</field>
+            <field name="search_view_id" ref="timesheet_analysis_line_filter"/>
+        </record>
+        
+        <!-- <menuitem
+            name="Timesheet Attendance Analysis Line"
+            parent="hr.menu_hr_reporting"
+            id="menu_hr_timesheet_attendance_analysis_line" action="timesheet_analysis_line_action" sequence="11"/>
+       					 -->
+        <record id="view_timesheet_attendance_analysis" model="ir.ui.view">
+            <field name="name">timesheet.attendance.analysis</field>
+            <field name="model">timesheet.attendance.analysis</field>
+            <field name="arch" type="xml">
+                <form string="Timesheet Attendance Analysis">
+                    <group col="4">
+                    	<field name="date_from"/>
+                    	<field name="date_to"/>
+		                <field name="filedata" filename="filename" attrs="{'invisible':[('filedata','=',False)]}"/>
+                    </group>
+                    <group col="8">
+                    	<h4 align="left" style="color:green;">
+                    	<field name="message" readonly='1' nolabel='1'/>
+                    	</h4>
+                    	<field name="flag" invisible='1'/>
+		                <!-- <field name="filename1" invisible="1"/>
+		                <field name="filedata1" filename="filename1" attrs="{'invisible':[('filedata1','=',False)]}"/> -->
+		                <button name="print_report" string="Generate" type="object" class="oe_highlight" attrs="{'invisible':[('flag','=',True)]}"/>
+						<button type="action" name="%(timesheet_analysis_line_action)d" string="View Report" class="oe_highlight" attrs="{'invisible':[('flag','=',False)]}"/>
+                    </group>
+               </form>
+            </field>
+        </record>
+		
+        <record id="action_view_timesheet_analysis" model="ir.actions.act_window">
+            <field name="name">Timesheet Analysis</field>
+            <field name="res_model">timesheet.attendance.analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_timesheet_attendance_analysis"/>
+            <!-- <field name="target">new</field> -->
+                    </record>
+       <menuitem
+            name="Timesheet Attendance Analysis"
+            parent="hr.menu_hr_reporting"
+            id="menu_hr_timesheet_attendance_analysis" action="action_view_timesheet_analysis" sequence="10"/>
+            
+       
+	</data>
+</openerp>

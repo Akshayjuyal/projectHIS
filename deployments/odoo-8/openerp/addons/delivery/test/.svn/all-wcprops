@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/delivery/test
+END
+delivery_cost.yml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/delivery/test/delivery_cost.yml
+END
+stock_move_values_with_invoice_before_delivery.yml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/delivery/test/stock_move_values_with_invoice_before_delivery.yml
+END

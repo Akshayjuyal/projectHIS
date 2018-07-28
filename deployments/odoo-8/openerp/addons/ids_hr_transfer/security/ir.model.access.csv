@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ids_hr_transfer_manager,access_ids_hr_transfer,model_ids_hr_department_transfer,base.group_hr_manager,1,0,0,0
+access_ids_hr_transfer_bh,access_ids_hr_transfer,model_ids_hr_department_transfer,ids_emp.group_business_head,1,1,1,0
+access_ids_hr_transfer_request,access_ids_hr_transfer,model_ids_hr_department_transfer,ids_employee_confirmation.group_hr_confirmation,1,1,1,0
+access_ids_hr_transfer_user,access_ids_hr_transfer,model_ids_hr_department_transfer,base.group_user,1,0,0,0

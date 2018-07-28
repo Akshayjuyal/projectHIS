@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+		
+		<!--Business Information -->
+		<record id="business_information_tree_view" model="ir.ui.view">
+			<field name="name">ids.business.tree</field>
+			<field name="model">ids.business.information</field>			
+			<field name="arch" type="xml">
+				<tree>
+					<field name="employee_id"/>
+					<field name="department_id"/>	
+				</tree>
+			</field>
+		</record>
+		
+		<record id="business_information_form_view" model="ir.ui.view">
+			<field name="name">ids.business.form</field>
+			<field name="model">ids.business.information</field>			
+			<field name="arch" type="xml">
+				<form string="Business Information">
+					<header>
+			                <button name="submit" states="draft" string="Submit to IT Team" type="object" class="oe_highlight" groups="ids_emp.group_timesheet_validate"/>
+			        		<field name="state" widget="statusbar" statusbar_visible="draft,submitted" statusbar_colors='{"submitted":"blue"}'/>
+			        </header>
+					<sheet>
+						 <group col="4">	
+							<field name="employee_id" attrs="{'readonly':[('state','=','submitted')]}" on_change="onchange_employee_id(employee_id)" />			
+							<field name="department_id" attrs="{'readonly':[('state','=','submitted')]}" />		
+							<newline/>	
+							<field name="email_control" />						
+							<field name="email_remarks" />
+							<field name="internet_control" />
+							<field name="internet_remarks" />
+							<field name="remote_control" />
+							<field name="application_share_access"  />
+							<field name="backup_remarks"/>
+							<field name="software_requirements"  />
+						</group>			 				
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="business_information_action" model="ir.actions.act_window">
+			<field name="name">Business Information</field>
+			<field name="res_model">ids.business.information</field>			
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>						
+		</record>
+		
+		<record id="view_business_filter" model="ir.ui.view">
+            <field name="name">Business Information</field>
+            <field name="model">ids.business.information</field>
+            <field name="arch" type="xml">
+	            <search string="Employees">
+                    <field name="employee_id" string="Employees"/>
+	    			<group expand="0" string="Group By">
+                        <filter string="Department" icon="terp-personal" domain="[]" context="{'group_by':'department_id'}"/>
+                    </group>
+		        </search>
+            </field>
+        </record>   
+		
+		
+		<menuitem id="menu_user_manage_root" name="User Management" sequence="0" parent="hr.menu_hr_root"></menuitem>
+		<menuitem id="ids_business_information_sub" name="Business Information" 
+			parent="menu_user_manage_root" sequence="0" action="business_information_action" />
+			
+		
+		
+		<!--Technical Information       -->
+		<record id="technical_information_tree_view" model="ir.ui.view">
+			<field name="name">ids.information.tree</field>
+			<field name="model">ids.technical.information</field>			
+			<field name="arch" type="xml">
+				<tree colors="blue:state == 'black';green:state == 'submitted'" string="Technical Information">
+					<field name="employee_id"/>
+					<field name="job_id"/>
+					<field name="department_id"/>
+					<field name="state"/>		
+				</tree>
+			</field>
+		</record>
+		
+		<record id="technical_information_form_view" model="ir.ui.view">
+			<field name="name">ids.information.form</field>
+			<field name="model">ids.technical.information</field>			
+			<field name="arch" type="xml">
+				<form string="Technical Information">
+					<header>
+			                <button name="submit" states="draft" string="Submit" type="object" class="oe_highlight" groups="ids_emp.group_it_team"/>
+				    	    <!-- <button name="validate" states="submitted" string="Update" type="object" class="oe_highlight" groups="ids_emp.group_it_team"/> -->
+		                    <!-- <button name="refuse" states="submitted" string="Set to Draft" type="object" class="oe_highlight" groups="ids_emp.group_it_team"/> -->
+			                <field name="state" widget="statusbar" statusbar_visible="draft,submitted" statusbar_colors='{"submitted":"blue"}'/>
+			        </header>
+					<sheet>
+						 <group col="4">	
+							<field name="employee_id" readonly="1" />			
+							<field name="department_id" readonly="1" />		
+							<field name="job_id" readonly="1" />
+						</group>
+						<group string="Business Information" col="4">	
+							<field name="email_control" readonly="1" />						
+							<field name="email_remarks" readonly="1" />
+							<field name="internet_control" readonly="1"  />
+							<field name="internet_remarks" readonly="1"  />
+							<field name="remote_control" readonly="1" />
+							<field name="application_share_access_busi" readonly="1"  />
+							<field name="backup_remarks" readonly="1" />
+							<field name="software_requirements" readonly="1"  />
+						</group>
+						<group string="Technical Information" col="4">
+							<field name="allocation_of_itassets" widget="selection"  />						
+							<field name="allocation_of_itassets_remarks" attrs="{'invisible':[('allocation_of_itassets','!=','yes'),]}"/>
+							<field name="email_created" />
+							<field name="email_created_remarks" attrs="{'invisible':[('email_created','!=','yes'),]}"/>
+							<field name="internet_access_control" />
+							<field name="internet_access_control_remarks" attrs="{'invisible':[('internet_access_control','!=','yes'),]}"/>
+							<field name="backup_setup" />
+							<field name="backup_setup_remarks" attrs="{'invisible':[('backup_setup','!=','yes'),]}"/>
+							<field name="software_provisioning_and_access_control" />
+							<field name="software_provisioning_and_access_control_remarks" attrs="{'invisible':[('software_provisioning_and_access_control','!=','yes'),]}"/>
+							<field name="application_share_access" />
+							<field name="application_share_access_remarks" attrs="{'invisible':[('application_share_access','!=','yes'),]}"/>
+						</group>
+						<group>
+							<field name="technical_notes" />
+						</group>			 				
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>						
+					</div>	
+				</form>
+			</field>
+		</record>
+
+		<record id="technical_information_action" model="ir.actions.act_window">
+			<field name="name">Technical Information</field>
+			<field name="res_model">ids.technical.information</field>			
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>						
+		</record>
+		
+		<record id="view_technical_filter" model="ir.ui.view">
+            <field name="name">Technical Information</field>
+            <field name="model">ids.technical.information</field>
+            <field name="arch" type="xml">
+	            <search string="Employees">
+                    <field name="employee_id" string="Employees"/>
+	    			<group expand="0" string="Group By">
+                        <filter string="Department" icon="terp-personal" domain="[]" context="{'group_by':'department_id'}"/>  
+                	</group>
+		        </search>
+            </field>
+        </record>
+	
+		<menuitem id="ids_technical_information_sub" name="Technical Information" 
+			parent="menu_user_manage_root" sequence="3" action="technical_information_action" />
+			
+
+	</data>
+</openerp>

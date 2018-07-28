@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard
+END
+hr_timesheet_analytic_profit.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_analytic_profit.pyc
+END
+hr_timesheet_analytic_profit.py
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_analytic_profit.py
+END
+hr_timesheet_final_invoice_create.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_final_invoice_create.pyc
+END
+hr_timesheet_invoice_create_final_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_invoice_create_final_view.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/__init__.py
+END
+hr_timesheet_invoice_create.py
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_invoice_create.py
+END
+hr_timesheet_analytic_profit_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_analytic_profit_view.xml
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/__init__.pyc
+END
+hr_timesheet_invoice_create.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_invoice_create.pyc
+END
+hr_timesheet_invoice_create_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_invoice_create_view.xml
+END
+hr_timesheet_final_invoice_create.py
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/hr_timesheet_invoice/wizard/hr_timesheet_final_invoice_create.py
+END

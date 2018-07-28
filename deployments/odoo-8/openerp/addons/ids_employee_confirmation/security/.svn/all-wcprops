@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/175/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/security
+END
+user_groups.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/security/user_groups.xml
+END
+ir.model.access.csv
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/security/ir.model.access.csv
+END
+ir_rule.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/175/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_employee_confirmation/security/ir_rule.xml
+END

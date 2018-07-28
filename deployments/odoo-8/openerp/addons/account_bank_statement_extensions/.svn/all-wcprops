@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions
+END
+res_partner_bank.py
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/res_partner_bank.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/__init__.py
+END
+account_bank_statement.py
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/account_bank_statement.py
+END
+account_bank_statement_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/account_bank_statement_report.xml
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/__openerp__.py
+END
+account_bank_statement_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/account_bank_statement_extensions/account_bank_statement_view.xml
+END

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- SEQUENCE FOR TOURS AND TRAVELS -->
+        <record id="tours_travels_num_sequence" model="ir.sequence.type">
+            <field name="name">Tours And Travels Number</field>
+            <field name="code">ids.tours.travels</field>
+        </record>
+
+        <record id="seq_ids_tours_travels" model="ir.sequence">
+            <field name="name">Travles/Expense Number</field>
+            <field name="code">ids.tours.travels</field>
+            <field name="prefix">TTR-IDS-</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

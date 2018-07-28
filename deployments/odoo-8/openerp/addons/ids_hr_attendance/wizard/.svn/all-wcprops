@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/IDS-CLIENTODOO-2016/!svn/ver/364/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_attendance/wizard
+END
+attendance_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/491/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_attendance/wizard/attendance_report.xml
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/IDS-CLIENTODOO-2016/!svn/ver/513/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_attendance/wizard/__init__.py
+END
+attendance_report.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/492/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_attendance/wizard/attendance_report.py
+END

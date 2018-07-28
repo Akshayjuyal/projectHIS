@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/IDS-CLIENTODOO-2016/!svn/ver/452/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward
+END
+hr_reward.py
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/IDS-CLIENTODOO-2016/!svn/ver/527/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward/hr_reward.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/IDS-CLIENTODOO-2016/!svn/ver/393/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward/__init__.py
+END
+__openerp__.py
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/IDS-CLIENTODOO-2016/!svn/ver/394/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_hr_reward/__openerp__.py
+END

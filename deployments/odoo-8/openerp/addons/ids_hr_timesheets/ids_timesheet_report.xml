@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         IDS Employee Timesheet Report
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+      
+        <record id="ids_timesheet_report" model="ir.ui.view">
+			<field name="name">ids_timesheet_report</field>
+			<field name="model">ids.timesheet.report</field>
+			<field name="arch" type="xml">
+			<form string="Timesheet Report">
+				<group name="action" col="4" colspan="2">
+				    <!-- <field name="name" invisible='1'/> -->
+			        <field name="from_date"/>
+			        <field name="to_date"/>
+			        <!-- <field name="month"/> -->
+	    		</group>
+			    <group>
+			        <field name="output_type"/>   
+			        <button name="print_timesheet_report" string="Print" type="object"
+					        class="oe_highlight"/>                  
+			    </group>
+			</form>
+			</field>
+        </record>
+        
+
+
+        <record id="action_ids_timesheet_report" model="ir.actions.act_window">
+            <field name="name">Timesheet Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ids.timesheet.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <!-- <field name="target">new</field> -->
+            <field name="view_id" ref="ids_timesheet_report"/>
+        </record>
+
+
+		<menuitem id="menu_ids_timesheet" name="Timesheet Report" parent="hr.menu_hr_reporting_timesheet"
+            action="action_ids_timesheet_report"/>
+            
+
+</data>
+</openerp>

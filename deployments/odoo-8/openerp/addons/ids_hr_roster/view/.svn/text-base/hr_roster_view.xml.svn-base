@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+       					
+        <record id="view_hr_roster" model="ir.ui.view">
+            <field name="name">hr.roster.form</field>
+            <field name="model">hr.roster</field>
+            <field name="arch" type="xml">
+                <form string="HR Roster">
+                	<header>
+				    	    <button name="approve" states="draft" string="Approve" type="object" class="oe_highlight"/>
+			                <field name="state" widget="statusbar" statusbar_visible="draft,approved" statusbar_colors='{"approved":"blue"}'/>
+			            </header>
+                    <group col="4">
+                    	<field name="name" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                    	<!--<field name="department_id" required='1' domain="[('manager', 'in', [uid])]" attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>-->
+                        <field name="department_id" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+
+                    </group>
+                    <group col="4">
+                    	<label for="from_date" string="Period"/>
+                        <div>
+                            <field name="from_date" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}" class="oe_inline"/> - <field name="to_date" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}" class="oe_inline"/>
+                        </div>
+                        <field name="responsible" readonly='1'/>
+                    </group>
+                    <group>
+						<field name="hr_roster_line" nolabel="1" attrs="{'readonly':[('state', 'not in', ('draft'))]}">
+						<tree editable="top">
+							<field name="employee_id" required='1' domain="[('department_id','=',parent.department_id)]"/>
+							<field name="shift_id" required='1'/>
+							<field name="off_day" required='1'/>
+							<field name="extra_off_day"/>
+						</tree>
+						</field>
+					</group>
+               </form>
+            </field>
+        </record>
+        
+        <record id="view_hr_roster_tree" model="ir.ui.view">
+            <field name="model">hr.roster</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="HR Roster">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                    <field name="responsible"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_hr_roster" model="ir.actions.act_window">
+            <field name="name">Shift Roster</field>
+            <field name="res_model">hr.roster</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_roster_tree"/>
+        </record>
+       <menuitem id="menu_duty_roster_root" name="Shift Management" parent="hr.menu_hr_root"></menuitem>
+        <menuitem id="menu_duty_roster" name="Shift Rosters" sequence="10" action="action_view_hr_roster" parent="menu_duty_roster_root"></menuitem>
+        
+         <record id="view_hr_leave_swap" model="ir.ui.view">
+            <field name="name">hr.leave.swap.form</field>
+            <field name="model">hr.leave.swap</field>
+            <field name="arch" type="xml">
+                <form string="HR Leave Swap">
+                	<header>
+			    	    <button name="swap" states="draft" string="Swap" type="object" class="oe_highlight"/>
+		                <field name="state" widget="statusbar" statusbar_visible="draft,approved" statusbar_colors='{"approved":"blue"}'/>
+			        </header>
+                    <group col="4">
+                    	<field name="month" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                    	<field name="year" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                    </group>
+                    <group col="6">
+                        <field name="employee_id" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                         <field name="swap_on_date" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                        <field name="swap_against_date" required='1' attrs="{'readonly':[('state', 'not in', ('draft'))]}"/>
+                    </group>
+               </form>
+            </field>
+        </record>
+        
+        <record id="view_hr_leave_swap_tree" model="ir.ui.view">
+            <field name="model">hr.leave.swap</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Leave Swap">
+                    <field name="month"/>
+                    <field name="year"/>
+                    <field name="employee_id"/>
+                    <field name="swap_on_date"/>
+                    <field name="swap_against_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_hr_leave_swap" model="ir.actions.act_window">
+            <field name="name">Leave Swap</field>
+            <field name="res_model">hr.leave.swap</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_leave_swap_tree"/>
+        </record>
+        <menuitem id="menu_hr_leave_swap" name="Leave/Off Day Swap" sequence="12" action="action_view_hr_leave_swap" parent="menu_duty_roster_root"></menuitem>
+        
+        <record id="view_roster_report" model="ir.ui.view">
+            <field name="name">hr.roster.report</field>
+            <field name="model">hr.roster.report</field>
+            <field name="arch" type="xml">
+                <form string="HR Roster Report">
+                    <group col="4">
+                    	<label for="from_date" string="Period"/>
+                        <div>
+                            <field name="from_date" required='1' class="oe_inline"/> - <field name="to_date" required='1' class="oe_inline"/>
+                        </div>
+                        <field name="department_id" required='1'/>
+                    </group>
+                    <group col="4">
+                        <field name="filename" invisible="1"/>
+		                <field name="filedata" filename="filename" attrs="{'invisible':[('filedata','=',False)]}"/>
+                    </group>
+                    <group>
+		                <button name="print_report" string="Generate" type="object" class="oe_highlight"/>
+
+                    </group>
+                    <group>
+						<field name="hr_roster_report_ids" nolabel="1" readonly='1'>
+						<tree>
+							<field name="shift"/>
+							<field name="emp_code"/>
+							<field name="emp_name"/>
+							<field name="off_day"/>
+							<field name="extra_off_day"/>
+							<field name="DAY25"/>
+							<field name="DAY26"/>
+							<field name="DAY27"/>
+							<field name="DAY28"/>
+							<field name="DAY29"/>
+							<field name="DAY30"/>
+							<field name="DAY31"/>
+							<field name="DAY1"/>
+							<field name="DAY2"/>
+							<field name="DAY3"/>
+							<field name="DAY4"/>
+							<field name="DAY5"/>
+							<field name="DAY6"/>
+							<field name="DAY7"/>
+							<field name="DAY8"/>
+							<field name="DAY9"/>
+							<field name="DAY10"/>
+							<field name="DAY11"/>
+							<field name="DAY12"/>
+							<field name="DAY13"/>
+							<field name="DAY14"/>
+							<field name="DAY15"/>
+							<field name="DAY16"/>
+							<field name="DAY17"/>
+							<field name="DAY18"/>
+							<field name="DAY19"/>
+							<field name="DAY20"/>
+							<field name="DAY21"/>
+							<field name="DAY22"/>
+							<field name="DAY23"/>
+							<field name="DAY24"/>
+							<field name="off"/>
+						</tree>
+						</field>
+					</group>
+                   
+               </form>
+            </field>
+        </record>
+
+        <record id="action_view_hr_roster_report" model="ir.actions.act_window">
+            <field name="name">HR Roster Report</field>
+            <field name="res_model">hr.roster.report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_roster_report"/>
+        </record>
+       <menuitem
+            name="Monthly Roster Report"
+            parent="menu_duty_roster_root"
+            id="menu_hr_roster_report" action="action_view_hr_roster_report" sequence="13"/>
+            
+      <!--Download Template -->   
+            
+       <record id="download_template_tree_view" model="ir.ui.view">
+			<field name="name">Download Template</field>
+			<field name="model">download.template</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="file" filename="filename"/>				
+				</tree>
+			</field>
+		</record>
+		
+		<record id="download_template_form_view" model="ir.ui.view">
+			<field name="name">Download Template</field>
+			<field name="model">download.template</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+						<field name="name"/>
+						<field name="file" filename="filename" required="1"/>
+						<field name="filename" invisible='1'/>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="download_template_action" model="ir.actions.act_window">
+            <field name="name">Download Template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">download.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+       <menuitem id="menu_download_template" name="Download Template(Shift Roster)" 
+       	parent="menu_duty_roster_root" action="download_template_action" sequence="11" />
+	     
+            
+            
+            
+            
+         
+	</data>
+</openerp>

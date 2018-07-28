@@ -1,0 +1,6 @@
+id;name;model_id:id;group_id:id;perm_read;perm_write;perm_create;perm_unlink
+access_ids_technical_information_request;technical leave request;model_ids_technical_information;ids_technical_information.group_hr_tech;1;1;1;0
+access_ids_technical_information_approval;technical  approval;model_ids_technical_information;base.group_hr_manager;1;1;1;0
+access_ids_technical_information_approval BH;technical  approval;model_ids_technical_information;ids_emp.group_business_head;1;1;1;0
+access_ids_technical_information_approval PDG;technical  approval;model_ids_technical_information;ids_emp.group_business_pdg;1;1;1;0
+access_ids_technical_information_approval IT;technical approval;model_ids_technical_information;ids_emp.group_it;1;1;1;0

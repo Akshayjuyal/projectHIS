@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv
+END
+Name_products.csv
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv/Name_products.csv
+END
+m2m_customers_tags.csv
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv/m2m_customers_tags.csv
+END
+purchase.order_functional_error_line_cant_adpat.csv
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv/purchase.order_functional_error_line_cant_adpat.csv
+END
+External_id_3rd_party_application_product_categories.csv
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv/External_id_3rd_party_application_product_categories.csv
+END
+database_import_test.sql
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv/database_import_test.sql
+END
+o2m_customers_contacts.csv
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv/o2m_customers_contacts.csv
+END
+o2m_purchase_order_lines.csv
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv/o2m_purchase_order_lines.csv
+END
+External_id_3rd_party_application_products.csv
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/IDS-CLIENTODOO-2016/!svn/ver/100/IDS_Internal_HRMS/ids_internal8/openerp/addons/base_import/static/csv/External_id_3rd_party_application_products.csv
+END

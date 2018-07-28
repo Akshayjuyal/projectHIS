@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+		
+		<record id="manage_confirmation_tree_view" model="ir.ui.view">
+			<field name="name">manage.confirmation.tree</field>
+			<field name="model">ids.employee.confirmation</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Employee Confirmation">					
+					<field name="employee_id" />
+					<field name="emp_code" />
+					<field name="job_id" />
+					<field name="department_id" />
+					<field name="confirmation_status" />
+					<field name="state" />																			
+				</tree>
+			</field>
+		</record>
+		
+		<record id="manage_confirmation_form_view" model="ir.ui.view">
+			<field name="name">manage.confirmation.type.form</field>
+			<field name="model">ids.employee.confirmation</field>
+			<field name="arch" type="xml">
+				<form string="Employee Confirmation" attrs="{'editable':[('state','!=','refuse')]}">
+					<header>
+						<button string="Submit" name="confirmation_hr_start" states="open" type="object" class="oe_highlight"  groups="ids_emp.group_location_hr"/>
+						<button string="Submit" name="confirmation_employee_submit" states="start" type="object" class="oe_highlight"  groups="ids_emp.group_location_hr,base.group_user"/>
+	                    <button string="Recommend" name="confirmation_manager_recommend" states="submit" type="object" groups="ids_emp.group_timesheet_validate,ids_emp.group_location_hr" class="oe_highlight" />
+	                    <button string="Reject" name="confirmation_reject" states="submit" type="object" groups="ids_emp.group_timesheet_validate,ids_emp.group_location_hr" />
+	                    <button string="Approve" name="confirmation_bh_approve" states="recommend" type="object" groups="ids_emp.group_business_head,ids_emp.group_location_hr" class="oe_highlight"/>  
+	                    <button string="Reject" name="refuse" type="object" states="open,start,recommend" groups="ids_emp.group_business_head,ids_emp.group_location_hr" />
+	                    <button string="Confirm Employee" name="confirmation_hr_employee_confirm" states="approve" type="object" groups="ids_emp.group_location_hr" class="oe_highlight" />
+	                    <field name="state" widget="statusbar" statusbar_visible="open,start,submit,recommend,approve,confirm,reject" statusbar_colors='{"submit":"blue","recommend":"green","reject":"red"}' />                                                                        
+                    </header>
+                    <sheet>
+                    	<group>
+                        	<group col="4" >					
+								<field name="employee_id" domain="[('confirmation_status','in',['probation','extended']),('employment_type_id','=','regular')]" attrs="{'readonly':[('state','!=','open')]}" on_change="onchange_employee_id(employee_id)" options="{'no_open': True, 'no_create': True}" />
+								<field name="emp_code" type="string" attrs="{'readonly':True}" />
+								<field name="department_id" attrs="{'readonly': True}" />
+								<field name="job_id" attrs="{'readonly': True}" />
+								<field name="joining_date" attrs="{'readonly': True}" />
+								<field name="confirmation_date" attrs="{'readonly':True}" />
+								<field name="confirmation_status" attrs="{'readonly': True}" />
+								<field name="reporting_manager" attrs="{'readonly': True}" />
+								<field name="data_file" attrs="{'required': True}" />
+							</group>							
+						</group>						
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>						
+					</div>														
+				</form>
+			</field>
+		</record>
+		
+		<record id="manage_confirmation_action" model="ir.actions.act_window">
+			<field name="name" >Employee Confirmation</field>
+			<field name="res_model" >ids.employee.confirmation</field>
+			<field name="type" >ir.actions.act_window</field>
+			<field name="view_type" >form</field>
+			<field name="view_mode" >tree,form</field>
+			<field name="view_id" ref="manage_confirmation_tree_view"></field>
+		</record>
+		<!--<menuitem name="Employee Confirmation" id="ids_confirmation_main" parent="hr.menu_hr_root" sequence="4" groups="base.group_user" />
+		<menuitem id="ids_employee_confirmation_sub" name="Confirmation Details"
+			parent="ids_confirmation_main" sequence="2"
+			action="manage_confirmation_action" />-->		
+		<menuitem id="ids_employee_confirmation_sub" name="Confirm Employee" parent="hr.menu_hr_main" sequence="5" action="manage_confirmation_action" groups="base.group_hr_manager"/>
+	
+    </data>
+</openerp>
+
+

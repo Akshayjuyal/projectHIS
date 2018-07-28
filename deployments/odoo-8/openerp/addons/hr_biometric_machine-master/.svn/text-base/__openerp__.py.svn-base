@@ -1,0 +1,18 @@
+{
+    "name" : "Biometric Device Integration",
+    "version" : "1.0",
+    "author" : "IDS Infotech LTD",
+    "category" : "Custom",
+    "website" : "idsil.com",
+    "description": "A Module for Biometric Device Integration",
+    "depends" : ["base","hr",'hr_attendance'],
+    "init_xml" : [],
+    "data" : [
+        "biometric_machine_view.xml",
+        "report/daily_attendance_view.xml",
+        "schedule.xml",
+        "wizard/schedule_wizard.xml",
+    ],
+    "active": False,
+    "installable": True
+}

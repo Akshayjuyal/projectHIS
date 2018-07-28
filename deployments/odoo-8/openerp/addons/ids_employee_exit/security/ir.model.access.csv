@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emp_no_dues_user,access_emp_no_dues_user,model_emp_no_dues,base.group_user,1,1,1,1
+access_ids_employee_ff_leave_user,access_ids_employee_ff_leave_user,model_ids_employee_ff_leave,base.group_user,1,1,1,1
+access_ids_employee_exit_user,access_ids_employee_exit_user,model_ids_employee_exit,base.group_user,1,1,1,1

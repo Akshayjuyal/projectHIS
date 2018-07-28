@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<openerp>
+  
+  <data noupdate="0">
+
+    <record id="group_attendance_icon" model="res.groups">
+        <field name="name">Attendance Icon</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Attendance Icon</field>
+    </record> 
+    
+  </data>
+
+</openerp>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/IDS-CLIENTODOO-2016/!svn/ver/557/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_technical_information/security
+END
+user_groups.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/IDS-CLIENTODOO-2016/!svn/ver/557/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_technical_information/security/user_groups.xml
+END
+ir.model.access.csv
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/IDS-CLIENTODOO-2016/!svn/ver/221/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_technical_information/security/ir.model.access.csv
+END
+ir_rule.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/IDS-CLIENTODOO-2016/!svn/ver/557/IDS_Internal_HRMS/ids_internal8/openerp/addons/ids_technical_information/security/ir_rule.xml
+END

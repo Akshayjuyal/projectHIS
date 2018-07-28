@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<!--
+            Company inheritancy
+        -->
+
+        <record id="hr_timesheet_sheet_company_inherit" model="ir.ui.view">
+            <field name="name">res.company.sheet.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='timesheet_range']" position="after">
+                        <field name="timesheet_allowed_days"/>
+                </xpath>
+            </field>
+        </record>
+    	
+    	<record id="ir_actions_server_approve_timesheet" model="ir.actions.server">
+            <field name="name">Approve Timesheet</field>
+            <field name="model_id" ref="hr_timesheet_sheet.model_hr_timesheet_sheet_sheet"/>
+            <field name="state">code</field>
+        	<field name="condition">True</field>
+        	<field name="code">if object: self.browse(cr,uid,context.get('active_ids', [])).button_done_multi()</field>
+        </record>
+        
+        
+    	<record id="approve_timesheet" model="ir.values"> 
+			<field eval="'client_action_multi'" name="key2"/> 
+			<field eval="'hr_timesheet_sheet.sheet'" name="model"/>
+			<field name="name">Approve</field>
+			<field eval="'ir.actions.server,%d'%ir_actions_server_approve_timesheet" name="value"/>
+		</record>
+    	
+    	
+    	<record id="hr_timesheet_line_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.tree.inherit</field>
+            <field name="model">hr.analytic.timesheet</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+    		<xpath expr='//field[@name="account_id"]' position='after'>
+                    <field name="project_category_id" required='1' on_change="onchange_project_category(project_category_id)"/>
+                    <field name="hour_type_id" required='1'/>
+                    <field name="state" invisible="1"/>
+                     <field name="sheet_id" invisible='1'/>
+					<field name="division_id" invisible='1'/>
+                </xpath>
+            <xpath expr='//field[@name="unit_amount"]' position='replace'>
+                    <field name="unit_amount" string="Duration" on_change="on_change_unit_amount(product_id, unit_amount, False, product_uom_id,journal_id)" widget="float_time"/>
+                </xpath>
+            <xpath expr='//field[@name="account_id"]' position='replace'>
+                    <field domain="[('members','in',uid),('type','in',['normal', 'contract']),('use_timesheets','=',1)]" name="account_id" context="{'default_use_timesheets': 1, 'default_type': 'contract'}" options="{'no_open': True, 'no_create': True}"/>
+                    
+                </xpath>
+            <xpath expr='//field[@name="user_id"]' position='replace'>
+					<field name="user_id" on_change="on_change_user_id(user_id)" required="1" options='{"no_open": True}'
+                        context="{'default_groups_ref': ['base.group_user']}" readonly='1'/>                    
+                </xpath>
+    		</field>
+        </record>
+        
+        <record id="hr_timesheet_line_search_inherit" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.search.inherit</field>
+            <field name="model">hr.analytic.timesheet</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+            <field name="arch" type="xml">
+    		<xpath expr='//filter[@string="Timesheet Month"]' position='after'>
+					 <filter string="Timesheet Week" icon="terp-go-week" domain="[]" context="{'group_by':'sheet_id'}" help="Timesheet by Week"/>
+					<filter string="Hour Type" domain="[]" context="{'group_by':'hour_type_id'}" help="Timesheet by Hour Type"/>
+			        <filter string="Project Category" domain="[]" context="{'group_by':'project_category_id'}" help="Timesheet by Category"/>
+			        <filter string="Division" domain="[]" context="{'group_by':'division_id'}"/>
+			        <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
+			</xpath>
+    		</field>
+        </record>
+        
+        <record id="hr_timesheet_sheet_filter_inherit" model="ir.ui.view">
+            <field name="name">hr_timesheet_sheet.sheet.filter.inherit</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+            <field name="inherit_id" ref="hr_timesheet_sheet.view_hr_timesheet_sheet_filter"/>
+            <field name="arch" type="xml">
+    		<xpath expr='//filter[@string="Department"]' position='after'>
+					<filter string="Division" icon="terp-go-week" domain="[]" context="{'group_by':'division_id'}"/>
+			</xpath>
+    		</field>
+        </record>
+        
+    	<record id="project_timesheet_form_inherit" model="ir.ui.view">
+            <field name="name">Inherit project form:Add Team</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr='//div[@name="options_active"]' position='inside'>
+                    <field name="use_team" class="oe_inline"/>
+                    <label for="use_team"/>
+                </xpath>
+                <xpath expr='//field[@name="name"]' position='replace'>
+                    <field name="name" string="Project Name" attrs="{'readonly':[('created','==',True)]}"/>
+                </xpath>
+                <xpath expr='//field[@name="user_id"]' position='replace'>
+				<field name="user_id" string="Project Manager" domain="[('id','=',uid)]" on_change="onchange_user_id(group_id, user_id)" widget='selection'
+                                    attrs="{'readonly':[('state','in',['close', 'cancelled'])]}"
+                                    context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_manager']}"/>
+               </xpath>
+               <xpath expr='//field[@name="user_id"]' position='after'>
+				<field name="created" invisible='1'/>
+               </xpath>
+                
+            </field>
+        </record>
+        <!-- Project Task inherit (Created By Ravneet) --> 
+        <record id="edit_project_inherit" model="ir.ui.view">
+            <field name="name">project.project.form.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='name']" position="after">
+	                <button name="change" string="(change)" type="object" class="oe_edit_only oe_link" groups="ids_emp.group_company_ideas"/> 
+	            	<field name="company_id" invisible="1"/>
+	            </xpath>
+	            <xpath expr="//field[@name='partner_id']" position="replace">
+	            	<field name="partner_id" on_change="onchange_partner_id(partner_id)" domain="[('customer', '=', True),('group_ids_new', 'in', group_id)]" widget='selection' options="{'no_show':True,'no_quick_create':True,'no_create': True,'no_edit': True}" string="Customer" required="1"/>
+	            </xpath>
+	             <xpath expr="//notebook" position="before">
+	            	<field name="description" placeholder="Project Description...."/>
+	            	<field name="group_id" invisible='1'/>
+	            </xpath>	
+	            <xpath expr="/form/sheet/notebook/page[@string='Team']" position="after">
+	            	<page string="Tasks">
+	                    <field colspan="4" name="tasks" widget="many2many_kanban" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}">	                    
+	                     <kanban quick_create="false" create="true" delete="true">
+                                    <field name="name"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div style="position: relative">
+                                                <a t-if="! read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">X</a>
+                                                <div class="oe_module_vignette">
+                                                    <div class="oe_module_desc">
+                                                        <field name="name"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+	                     </field>
+	                </page>
+	    	    </xpath>
+    	    </field>
+    	</record>  
+        <record id="hr_timesheet_sheet_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.timesheet.sheet.tree.inherit</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+	    	<field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_tree_simplified"/>
+            <field name="arch" type="xml">
+            	<xpath expr='//field[@name="state"]' position='after'>
+                    <field name="timesheet_ids"/>
+                    <button type="action"
+                            name="%(hr_timesheet_sheet.act_hr_timesheet_sheet_sheet_2_hr_analytic_timesheet)d"
+                            class="oe_stat_button"
+                            icon="terp-gtk-jump-to-ltr">
+                            <field name="timesheet_activity_count" widget="statinfo" string="Timesheet" help="Timesheet Activities"/>
+                        </button>
+                    <button name="button_done" string="Approve" class="oe_highlight" type="object" attrs="{'invisible':[('state','in',['new','draft','done']),]}" groups="ids_emp.group_timesheet_validate"/>				
+
+                </xpath>	
+    		</field>
+        </record>
+        
+        
+        <record id="view_project_wizard" model="ir.ui.view">
+            <field name="name">ids.project.wizard</field>
+            <field name="model">ids.project</field>
+            <field name="arch" type="xml">
+                <form string="Change Name">
+                    <group>
+                    	<field name="change_name"/>
+		                <button name="change_project_name" string="Change Name" type="object" class="oe_highlight"/>
+		            </group>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_view_change_name" model="ir.actions.act_window">
+            <field name="name">Change Name</field>
+            <field name="res_model">ids.project</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_project_wizard"/>
+            <field name="target">new</field>
+        </record>
+        
+        
+    	<!-- Time Sheet Form inherit (Created By Satya) -->       
+        <record id="hr_timesheet_sheet_form_inherit" model="ir.ui.view">
+            <field name="name">hr.timesheet.sheet.form.inherit</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+	    	<field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='company_id']" position="after">
+					<field name="remarks" attrs="{'readonly':[('state','!=','confirm')]}"/>
+					<field name="division_id" invisible="1"/>
+                 </xpath>
+            	<xpath expr="//field[@name='total_difference']" position="after">
+					<field name="cal_ot_hours" widget="float_time"/>
+					<field name="is_extra_hours"/>
+					<field name="actual_ot_hours" widget="float_time" attrs="{'invisible':[('is_extra_hours','=',False)]}"/>
+                 </xpath>
+                 <xpath expr="//form[@string='Timesheet']/sheet/notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='unit_amount']" position="replace">
+                  <field name="unit_amount" string='Duration' widget="float_time"/>
+
+                 </xpath>				
+		    	<xpath expr="//form[@string='Timesheet']/sheet/notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='account_id']" position="replace">
+                <field domain="[('members','in',uid),('type','in',['normal', 'contract']), ('state', '&lt;&gt;', 'close'),('use_timesheets','=',1)]" name="account_id" string='Project' options="{'no_create':True, 'no_open': True}" on_change="on_change_account_id(account_id,project_category_id, user_id)"  context="{'default_use_timesheets': 1}"/>
+
+                 </xpath>
+                 <xpath expr="//form[@string='Timesheet']/sheet/notebook/page[@string='Summary']/widget[@type='weekly_timesheet']" position="replace">
+                            <widget type="weekly_timesheet" readonly='1'>
+                            </widget>
+                 </xpath>
+                 
+                 <xpath expr="//form[@string='Timesheet']/sheet/notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='account_id']" position="after">
+                  <field name="project_category_id" required='1' on_change="onchange_project_category(project_category_id,account_id)" options="{'no_create':True, 'no_open': True}"/>
+				</xpath>
+				<xpath expr="//form[@string='Timesheet']/sheet/notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='name']" position="before">
+                  <field name="hour_type_id" invisible='1'/>
+				</xpath>
+				<xpath expr="//form[@string='Timesheet']/header/button[@name='done']" position="replace">
+                    <button name="button_done" states="confirm" string="Approve" type="object" groups="base.group_hr_user,ids_emp.group_timesheet_validate" class="oe_highlight"/>
+				</xpath>
+				<xpath expr="//form[@string='Timesheet']/header/button[@name='action_set_to_draft']" position="replace">
+                    <button name="action_set_to_draft" states="done" string="Set to Draft" type="object" />
+				</xpath>
+				<xpath expr="//form[@string='Timesheet']/header/button[@name='cancel']" position="replace">
+                    <button name="button_cancel" states="confirm" string="Refuse" type="object" groups="base.group_hr_user,ids_emp.group_timesheet_validate" />
+				</xpath>
+				<!-- <xpath expr="//form[@string='Timesheet']/sheet/notebook/page[@string='Details']/field[@name='timesheet_ids']/tree[@string='Timesheet Activities']/field[@name='to_invoice']" position="replace">
+                  <field name="invoice_id" invisible='1'/>
+				</xpath> -->		
+            </field>
+        </record>
+        <!-- Project Category configuration (Created By Ravneet) -->       
+        <record id="project_category_tree_view" model="ir.ui.view">
+			<field name="name">project.category.tree</field>
+			<field name="model">project.category</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Project Category" editable="bottom">
+					<field name="name" required='1'/>
+					<field name="hour_type_id" required='1'/>
+					<field name="use_default" />									
+				</tree>
+			</field>
+		</record>
+		
+		<record id="project_category_form_view" model="ir.ui.view">
+			<field name="name">project.category.form</field>
+			<field name="model">project.category</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Project Category">
+					<group>
+						<field name="name" required='1'/>
+						<field name="hour_type_id" required='1'/>
+						<field name="use_default" />			
+					</group>										
+				</form>
+			</field>
+		</record>
+		
+		<record id="project_category_action" model="ir.actions.act_window">
+			<field name="name" >Project Tasks</field>
+			<field name="res_model" >project.category</field>
+			<field name="type" >ir.actions.act_window</field>
+			<field name="view_type" >form</field>
+			<field name="view_mode" >tree,form</field>
+			<field name="view_id" ref="project_category_tree_view"></field>
+		</record>
+			
+		<menuitem name="Project Tasks" action="project_category_action" id="menu_project_category_view" parent="hr.menu_hr_configuration" sequence="21"/>		
+        
+        <!-- Analytic Account Form inherit (Created By Satya) -->       
+        <record id="account_analytic_account_timesheet_form_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.account.form.inherit</field>
+            <field name="model">account.analytic.account</field>
+	    	<field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">				
+					<notebook position="inside">
+                        <page string="Team" name="team">
+                            <field colspan="4" name="members" widget="many2many_kanban" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}">
+                                <kanban quick_create="false" create="true" delete="true">
+                                    <field name="name"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div style="position: relative">
+                                                <a t-if="! read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">X</a>
+                                                <div class="oe_module_vignette">
+                                                    <img t-att-src="kanban_image('res.users', 'image_small', record.id.value)" class="oe_avatar oe_kanban_avatar_smallbox"/>
+                                                    <div class="oe_module_desc">
+                                                        <field name="name"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                        <!-- Analytic Account Form inherit (Created By Ravneet) -->   
+                        <page string="Tasks">
+		                    <field colspan="4" name="tasks" widget="many2many_list" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}">	                    
+		                     </field>
+		                </page>
+                     </notebook>
+					
+            </field>
+        </record>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field eval="1" name="priority"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//notebook" position="before">
+            		<group String="Groups">
+	            		<field name="group_id" invisible='1'/>
+	            		<field name="group_ids_new" widget='many2many_tags'/>
+	            	</group>
+            	</xpath>
+            	<xpath expr="//field[@name='ref']" position="replace">
+            		<field name="ref" required="1"/>
+            	</xpath>
+            </field>
+        </record>
+        
+        <!-- Project Task inherit --> 
+        <record id="edit_project_task_inherit" model="ir.ui.view">
+            <field name="name">project.task.form.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='hours']" position="before">
+	            	<field name="categ_id"/>
+	            </xpath>
+	           
+	            
+    	    </field>
+    	</record>
+    	
+    	<record id="ids_project_task_view_form_user" model="ir.ui.view">
+            <field name="name">project.task.form.inherit.user</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="groups_id" eval="[(6, 0, [ref('project.group_project_user') ])]" />                
+            <field name="arch" type="xml">            	         	  	
+            	<field name="name" placeholder="Task summary..." class="oe_inline" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+               <field name="project_id" domain="[('state','not in', ('close', 'cancelled'))]" on_change="onchange_project(project_id)" context="{'default_use_tasks':1}" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+               <field name="user_id"
+                                options='{"no_open": True}'
+                                on_change="onchange_user_id(user_id, context)"
+                                context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}" position="attributes">
+                   <attribute name="readonly">1</attribute>                  
+                </field>
+               <field name="reviewer_id"
+                                options='{"no_open": True}'
+                                context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+                
+                <field name="planned_hours" widget="float_time"
+                                    groups="project.group_time_work_estimation_tasks"
+                                    on_change="onchange_planned(planned_hours, effective_hours)" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+                <field name="date_deadline" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+                <field name="categ_ids" widget="many2many_tags" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+                <field name="sequence" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+                <field name="partner_id" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+                <field name="date_start" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>
+                <field name="date_end" position="attributes">
+                   <attribute name="readonly">1</attribute>                   
+                </field>        
+            </field>
+		</record>
+		
+		
+		<!-- <record id="ids_project_task_view_form_mgr" model="ir.ui.view">
+            <field name="name">project.task.form.inherit.mgr</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="groups_id" eval="[(6, 0, [ref('project.group_project_manager') ])]" />                
+            <field name="arch" type="xml">            	         	  	
+            	<field name="name" placeholder="Task summary..." class="oe_inline" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>
+               <field name="project_id" domain="[('state','not in', ('close', 'cancelled'))]" on_change="onchange_project(project_id)" context="{'default_use_tasks':1}" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>
+               <field name="user_id"
+                                options='{"no_open": True}'
+                                on_change="onchange_user_id(user_id, context)"
+                                context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}" position="attributes">
+                   <attribute name="readonly">0</attribute>                  
+                </field>
+               <field name="reviewer_id"
+                                options='{"no_open": True}'
+                                context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>
+                
+                <field name="planned_hours" widget="float_time"
+                                    groups="project.group_time_work_estimation_tasks"
+                                    on_change="onchange_planned(planned_hours, effective_hours)" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>
+                <field name="date_deadline" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>
+                <field name="categ_ids" widget="many2many_tags" position="attributes">
+                   <attribute name="readonly">0</attribute>                   
+                </field>          
+            </field>
+		</record>	 -->
+	</data>
+</openerp>
+
+   
